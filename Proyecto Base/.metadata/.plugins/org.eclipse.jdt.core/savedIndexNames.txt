@@ -1,3 +1,0 @@
-INDEX VERSION 1.131+C:\Users\drios\OneDrive - CIBERTEC\Escritorio\ALE\CIBERTEC\CURSOS\CICLO_01\2326 - INTRODUCCIÓN A LA ALGORITMIA\PROYECTO\proyecto-algoritmia\Proyecto Base\.metadata\.plugins\org.eclipse.jdt.core
-2179537226.index
-2031905543.index
