@@ -25,7 +25,7 @@ public class DlgAcercaDeTienda extends JDialog implements ActionListener {
 	private JLabel lblAlessandroR;
 	private JLabel lblMayraC;
 	private JLabel lblJoseYep;
-	private JLabel lblNewLabel;
+	private JLabel lblAlfonsoT;
 
 	/**
 	 * Launch the application.
@@ -97,15 +97,15 @@ public class DlgAcercaDeTienda extends JDialog implements ActionListener {
 		lblMayraC.setBounds(49, 149, 135, 23);
 		contentPanel.add(lblMayraC);
 
-		lblJoseYep = new JLabel("Jos\u00E9 Yep");
+		lblJoseYep = new JLabel("Jose Yep");
 		lblJoseYep.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblJoseYep.setBounds(212, 115, 104, 23);
 		contentPanel.add(lblJoseYep);
 
-		lblNewLabel = new JLabel("Alfonso Torres");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel.setBounds(212, 87, 109, 17);
-		contentPanel.add(lblNewLabel);
+		lblAlfonsoT = new JLabel("Alfonso Torres");
+		lblAlfonsoT.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblAlfonsoT.setBounds(212, 87, 109, 17);
+		contentPanel.add(lblAlfonsoT);
 	}
 
 	public void actionPerformed(ActionEvent e) {
