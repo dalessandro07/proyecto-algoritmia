@@ -32,7 +32,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	private JMenu mnAyuda;
 	private JMenuItem mntmAcercaTienda;
 
-	// variables
+	// Variables
 
 	// Datos mínimos del primer producto
 	public static String modelo0 = "Cinza Plus";
@@ -88,6 +88,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 
 	// Cantidad óptima de unidades vendidas por día
 	public static int cantidadOptima = 10;
+
 	// Cuota diaria
 	public static double cuotaDiaria = 30000;
 
@@ -162,6 +163,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		mnConfiguracion.add(mntmCantOpt);
 
 		mntmCuotaDiaria = new JMenuItem("Configurar cuota diaria");
+		mntmCuotaDiaria.addActionListener(this);
 		mnConfiguracion.add(mntmCuotaDiaria);
 
 		mnAyuda = new JMenu("Ayuda");
@@ -177,6 +179,9 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == mntmCuotaDiaria) {
+			actionPerformedMntmCuotaDiaria(e);
+		}
 		if (e.getSource() == mntmAcercaTienda) {
 			actionPerformedMntmAcercaTienda(e);
 		}
@@ -200,6 +205,8 @@ public class frmPrincipal extends JFrame implements ActionListener {
 
 	}
 
+	// Menú - Mantenimiento
+
 	protected void actionPerformedMntmConsultarC(ActionEvent e) {
 		DlgConsultarCeramico ventConsult = new DlgConsultarCeramico();
 		ventConsult.setVisible(true);
@@ -218,8 +225,18 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		ventListar.setLocationRelativeTo(this);
 	}
 
+	// Menú - Acerca de
+
 	protected void actionPerformedMntmAcercaTienda(ActionEvent e) {
 		DlgAcercaDeTienda ventAyuda = new DlgAcercaDeTienda();
+		ventAyuda.setVisible(true);
+		ventAyuda.setLocationRelativeTo(this);
+	}
+
+	// Menú - Configuración
+
+	protected void actionPerformedMntmCuotaDiaria(ActionEvent e) {
+		DlgConfigurarCuotaDiaria ventAyuda = new DlgConfigurarCuotaDiaria();
 		ventAyuda.setVisible(true);
 		ventAyuda.setLocationRelativeTo(this);
 	}
