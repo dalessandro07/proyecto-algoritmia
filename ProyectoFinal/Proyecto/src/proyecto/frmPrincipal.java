@@ -161,6 +161,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		mnConfiguracion.add(mntmConfigObs);
 
 		mntmCantOpt = new JMenuItem("Configurar cantidad \u00F3ptima");
+		mntmCantOpt.addActionListener(this);
 		mnConfiguracion.add(mntmCantOpt);
 
 		mntmCuotaDiaria = new JMenuItem("Configurar cuota diaria");
@@ -180,11 +181,18 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
 		if (e.getSource() == mntmConfigDsctos) {
 			actionPerformedMntmConfigDsctos(e);
+=======
+
+		if (e.getSource() == mntmCantOpt) {
+			actionPerformedMntmCantOpt(e);
+>>>>>>> a1ea39e5a5efb80cd6f825257c2bbb8da1cf4883
 		}
 		if (e.getSource() == mntmCuotaDiaria) {
 			actionPerformedMntmCuotaDiaria(e);
+
 		}
 		if (e.getSource() == mntmAcercaTienda) {
 			actionPerformedMntmAcercaTienda(e);
@@ -237,12 +245,20 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		ventAyuda.setLocationRelativeTo(this);
 	}
 
+	protected void actionPerformedMntmCantOpt(ActionEvent e) {
+		DlgConfigurarCantidadOptima ventConfigurar = new DlgConfigurarCantidadOptima();
+		ventConfigurar.setVisible(true);
+		ventConfigurar.setLocationRelativeTo(this);
+	}
+
+
 	// Menú - Configuración
 
 	protected void actionPerformedMntmCuotaDiaria(ActionEvent e) {
 		DlgConfigurarCuotaDiaria ventAyuda = new DlgConfigurarCuotaDiaria();
 		ventAyuda.setVisible(true);
 		ventAyuda.setLocationRelativeTo(this);
+
 	}
 	protected void actionPerformedMntmConfigDsctos(ActionEvent e) {
 		DlgConfigurarDescuentos ventAyuda = new DlgConfigurarDescuentos();
