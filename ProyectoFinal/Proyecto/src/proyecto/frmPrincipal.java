@@ -154,6 +154,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		menuBar.add(mnConfiguracion);
 
 		mntmConfigDsctos = new JMenuItem("Configurar descuentos");
+		mntmConfigDsctos.addActionListener(this);
 		mnConfiguracion.add(mntmConfigDsctos);
 
 		mntmConfigObs = new JMenuItem("Configurar obsequios");
@@ -179,6 +180,9 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == mntmConfigDsctos) {
+			actionPerformedMntmConfigDsctos(e);
+		}
 		if (e.getSource() == mntmCuotaDiaria) {
 			actionPerformedMntmCuotaDiaria(e);
 		}
@@ -237,6 +241,11 @@ public class frmPrincipal extends JFrame implements ActionListener {
 
 	protected void actionPerformedMntmCuotaDiaria(ActionEvent e) {
 		DlgConfigurarCuotaDiaria ventAyuda = new DlgConfigurarCuotaDiaria();
+		ventAyuda.setVisible(true);
+		ventAyuda.setLocationRelativeTo(this);
+	}
+	protected void actionPerformedMntmConfigDsctos(ActionEvent e) {
+		DlgConfigurarDescuentos ventAyuda = new DlgConfigurarDescuentos();
 		ventAyuda.setVisible(true);
 		ventAyuda.setLocationRelativeTo(this);
 	}
