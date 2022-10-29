@@ -181,14 +181,14 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
+
 		if (e.getSource() == mntmConfigDsctos) {
 			actionPerformedMntmConfigDsctos(e);
-=======
+
 
 		if (e.getSource() == mntmCantOpt) {
 			actionPerformedMntmCantOpt(e);
->>>>>>> a1ea39e5a5efb80cd6f825257c2bbb8da1cf4883
+
 		}
 		if (e.getSource() == mntmCuotaDiaria) {
 			actionPerformedMntmCuotaDiaria(e);
@@ -208,7 +208,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == mntmSalir) {
 			actionPerformedMntmSalir(e);
-		}
+		}}
 	}
 
 	protected void actionPerformedMntmSalir(ActionEvent e) {
@@ -255,9 +255,9 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	// Menú - Configuración
 
 	protected void actionPerformedMntmCuotaDiaria(ActionEvent e) {
-		DlgConfigurarCuotaDiaria ventAyuda = new DlgConfigurarCuotaDiaria();
-		ventAyuda.setVisible(true);
-		ventAyuda.setLocationRelativeTo(this);
+		DlgConfigurarCuotaDiaria ventCuotaDiaria = new DlgConfigurarCuotaDiaria();
+		ventCuotaDiaria.setVisible(true);
+		ventCuotaDiaria.setLocationRelativeTo(this);
 
 	}
 	protected void actionPerformedMntmConfigDsctos(ActionEvent e) {
