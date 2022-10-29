@@ -49,6 +49,7 @@ public class DlgConsultarCeramico extends JDialog implements ActionListener {
 	 * Create the dialog.
 	 */
 	public DlgConsultarCeramico() {
+		setTitle("Consultar Cer\u00E1mico");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));

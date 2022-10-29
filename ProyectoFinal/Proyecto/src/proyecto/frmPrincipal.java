@@ -167,6 +167,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		mnConfiguracion.add(mntmConfigDsctos);
 
 		mntmConfigObs = new JMenuItem("Configurar obsequios");
+		mntmConfigObs.addActionListener(this);
 		mnConfiguracion.add(mntmConfigObs);
 
 		mntmCantOpt = new JMenuItem("Configurar cantidad \u00F3ptima");
@@ -190,6 +191,9 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == mntmConfigObs) {
+			actionPerformedMntmConfigObs(e);
+		}
 
 		if (e.getSource() == mntmConfigDsctos) {
 
@@ -275,5 +279,13 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		DlgConfigurarDescuentos ventAyuda = new DlgConfigurarDescuentos();
 		ventAyuda.setVisible(true);
 		ventAyuda.setLocationRelativeTo(this);
+	}
+
+	protected void actionPerformedMntmConfigObs(ActionEvent e) {
+
+		DlgConfigurarObsequios ventConfigurarObsequios = new DlgConfigurarObsequios();
+		ventConfigurarObsequios.setVisible(true);
+		ventConfigurarObsequios.setLocationRelativeTo(this);
+
 	}
 }
