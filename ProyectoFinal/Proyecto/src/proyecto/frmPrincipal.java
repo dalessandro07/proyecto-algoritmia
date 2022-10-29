@@ -35,6 +35,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	// Variables
 
 	// Datos mínimos del primer producto
+
 	public static String modelo0 = "Cinza Plus";
 	public static double precio0 = 92.56;
 	public static double ancho0 = 62.0;
@@ -43,6 +44,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	public static double contenido0 = 6;
 
 	// Datos mínimos del segundo producto
+
 	public static String modelo1 = "Luxury";
 	public static double precio1 = 42.77;
 	public static double ancho1 = 60;
@@ -51,6 +53,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	public static int contenido1 = 4;
 
 	// Datos mínimos del tercer producto
+
 	public static String modelo2 = "Austria";
 	public static double precio2 = 52.45;
 	public static double ancho2 = 45;
@@ -59,6 +62,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	public static int contenido2 = 12;
 
 	// Datos mínimos del cuarto producto
+
 	public static String modelo3 = "Yungay Mix";
 	public static double precio3 = 55.89;
 	public static double ancho3 = 80;
@@ -67,6 +71,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	public static int contenido3 = 9;
 
 	// Datos mínimos del quinto producto
+
 	public static String modelo4 = "Thalía";
 	public static double precio4 = 45;
 	public static double ancho4 = 45;
@@ -75,21 +80,25 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	public static int contenido4 = 10;
 
 	// Porcentajes de descuento
+
 	public static double porcentaje1 = 7.5;
 	public static double porcentaje2 = 10.0;
 	public static double porcentaje3 = 12.5;
 	public static double porcentaje4 = 15.0;
 
 	// Obsequio
+
 	public static String tipoObsequio = "Lapicero";
 	public static int obsequioCantidad1 = 2;
 	public static int obsequioCantidad2 = 3;
 	public static int obsequioCantidad3 = 4;
 
 	// Cantidad óptima de unidades vendidas por día
+
 	public static int cantidadOptima = 10;
 
 	// Cuota diaria
+
 	public static double cuotaDiaria = 30000;
 
 	/**
@@ -183,8 +192,10 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getSource() == mntmConfigDsctos) {
+
 			actionPerformedMntmConfigDsctos(e);
 
+		}
 
 		if (e.getSource() == mntmCantOpt) {
 			actionPerformedMntmCantOpt(e);
@@ -208,7 +219,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == mntmSalir) {
 			actionPerformedMntmSalir(e);
-		}}
+		}
 	}
 
 	protected void actionPerformedMntmSalir(ActionEvent e) {
@@ -251,7 +262,6 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		ventConfigurar.setLocationRelativeTo(this);
 	}
 
-
 	// Menú - Configuración
 
 	protected void actionPerformedMntmCuotaDiaria(ActionEvent e) {
@@ -260,6 +270,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		ventCuotaDiaria.setLocationRelativeTo(this);
 
 	}
+
 	protected void actionPerformedMntmConfigDsctos(ActionEvent e) {
 		DlgConfigurarDescuentos ventAyuda = new DlgConfigurarDescuentos();
 		ventAyuda.setVisible(true);
