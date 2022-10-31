@@ -32,15 +32,14 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	private JMenu mnAyuda;
 	private JMenuItem mntmAcercaTienda;
 
-	// Variables
-
 	// Datos mínimos del primer producto
+
 	public static String modelo0 = "Cinza Plus";
 	public static double precio0 = 92.56;
 	public static double ancho0 = 62.0;
 	public static double largo0 = 62.0;
 	public static double espesor0 = 8;
-	public static double contenido0 = 6;
+	public static int contenido0 = 6;
 
 	// Datos mínimos del segundo producto
 	public static String modelo1 = "Luxury";
@@ -158,6 +157,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		mnConfiguracion.add(mntmConfigDsctos);
 
 		mntmConfigObs = new JMenuItem("Configurar obsequios");
+		mntmConfigObs.addActionListener(this);
 		mnConfiguracion.add(mntmConfigObs);
 
 		mntmCantOpt = new JMenuItem("Configurar cantidad \u00F3ptima");
@@ -181,6 +181,9 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == mntmConfigObs) {
+			actionPerformedMntmConfigObs(e);
+		}
 
 		if (e.getSource() == mntmConfigDsctos) {
 			actionPerformedMntmConfigDsctos(e);
@@ -188,12 +191,12 @@ public class frmPrincipal extends JFrame implements ActionListener {
 
 		if (e.getSource() == mntmCantOpt) {
 			actionPerformedMntmCantOpt(e);
-
 		}
+
 		if (e.getSource() == mntmCuotaDiaria) {
 			actionPerformedMntmCuotaDiaria(e);
-
 		}
+
 		if (e.getSource() == mntmAcercaTienda) {
 			actionPerformedMntmAcercaTienda(e);
 		}
@@ -263,5 +266,12 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		DlgConfigurarDescuentos ventAyuda = new DlgConfigurarDescuentos();
 		ventAyuda.setVisible(true);
 		ventAyuda.setLocationRelativeTo(this);
+	}
+
+	protected void actionPerformedMntmConfigObs(ActionEvent e) {
+		DlgConfigurarObsequios ventConfigurarObsequios = new DlgConfigurarObsequios();
+		ventConfigurarObsequios.setVisible(true);
+		ventConfigurarObsequios.setLocationRelativeTo(this);
+
 	}
 }
