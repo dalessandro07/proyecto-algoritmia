@@ -184,7 +184,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 
 		if (e.getSource() == mntmConfigDsctos) {
 			actionPerformedMntmConfigDsctos(e);
-
+		}
 
 		if (e.getSource() == mntmCantOpt) {
 			actionPerformedMntmCantOpt(e);
@@ -208,13 +208,12 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == mntmSalir) {
 			actionPerformedMntmSalir(e);
-		}}
+		}
+
 	}
 
 	protected void actionPerformedMntmSalir(ActionEvent e) {
-
 		System.exit(0);
-
 	}
 
 	// Menú - Mantenimiento
@@ -251,7 +250,6 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		ventConfigurar.setLocationRelativeTo(this);
 	}
 
-
 	// Menú - Configuración
 
 	protected void actionPerformedMntmCuotaDiaria(ActionEvent e) {
@@ -260,6 +258,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		ventCuotaDiaria.setLocationRelativeTo(this);
 
 	}
+
 	protected void actionPerformedMntmConfigDsctos(ActionEvent e) {
 		DlgConfigurarDescuentos ventAyuda = new DlgConfigurarDescuentos();
 		ventAyuda.setVisible(true);
