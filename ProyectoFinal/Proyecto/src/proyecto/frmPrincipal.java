@@ -151,13 +151,16 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		mnMantenimiento.add(mntmListarC);
 
 		mnVentas = new JMenu("Ventas");
+		
 		menuBar.add(mnVentas);
 
 		mntmVender = new JMenuItem("Vender");
 		mnVentas.add(mntmVender);
+		mntmVender.addActionListener(this);
 
 		mntmGenerarReportes = new JMenuItem("Generar Reportes");
 		mnVentas.add(mntmGenerarReportes);
+		mntmVender.addActionListener(this);
 
 		mnConfiguracion = new JMenu("Configuraci\u00F3n");
 		menuBar.add(mnConfiguracion);
@@ -209,6 +212,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 			actionPerformedMntmCuotaDiaria(e);
 
 		}
+	
 		if (e.getSource() == mntmAcercaTienda) {
 			actionPerformedMntmAcercaTienda(e);
 		}
@@ -224,7 +228,13 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		if (e.getSource() == mntmSalir) {
 			actionPerformedMntmSalir(e);
 		}
+		if (e.getSource() == mntmVender) {
+			actionPerformedMntmVenta(e);
+		}
+	
 	}
+
+
 
 	protected void actionPerformedMntmSalir(ActionEvent e) {
 
@@ -288,4 +298,12 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		ventConfigurarObsequios.setLocationRelativeTo(this);
 
 	}
+	
+	protected void actionPerformedMntmVenta(ActionEvent e) {
+		DlgVender ventVender = new DlgVender();
+		ventVender.setVisible(true);
+		ventVender.setLocationRelativeTo(this);;
+
+	}
 }
+// Menú - Vender

@@ -8,6 +8,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
@@ -181,9 +182,15 @@ public class DlgVender extends JDialog implements ActionListener {
 		txtS.append("Importe de Descuento\t: S/."+ impD+"\n");
 		txtS.append("Importe de Descuento\t: S/."+ impP+"\n");
 		txtS.append("Tipo de obsequio\t: "+ tipo+"\n");
-		txtS.append("Unidades obsequiadas\t: "+ canobsequio+"\n");	
+		txtS.append("Unidades obsequiadas\t: "+ canobsequio+"\n");
+		
+		
 	
 	}
 	protected void actionPerformedBtnBorrar(ActionEvent e) {
+		txtCantidad.setText("");
+		txtS.setText("");
+		cboModelo.setSelectedIndex(0);
+		txtCantidad.requestFocus();
 	}
 }
