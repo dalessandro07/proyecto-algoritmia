@@ -1,5 +1,6 @@
 package proyecto;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -111,11 +112,12 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public frmPrincipal() {
-		setTitle("Tienda 1.0");
+		setTitle("Tienda de Cer\u00E1micos - GRUPO A");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 983, 701);
+		setBounds(100, 100, 748, 525);
 
 		menuBar = new JMenuBar();
+		menuBar.setBackground(new Color(0, 153, 255));
 		setJMenuBar(menuBar);
 
 		mnArchivo = new JMenu("Archivo");
@@ -141,7 +143,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		mnMantenimiento.add(mntmListarC);
 
 		mnVentas = new JMenu("Ventas");
-		
+
 		menuBar.add(mnVentas);
 
 		mntmVender = new JMenuItem("Vender");
@@ -150,7 +152,6 @@ public class frmPrincipal extends JFrame implements ActionListener {
 
 		mntmGenerarReportes = new JMenuItem("Generar Reportes");
 		mnVentas.add(mntmGenerarReportes);
-		mntmVender.addActionListener(this);
 
 		mnConfiguracion = new JMenu("Configuraci\u00F3n");
 		menuBar.add(mnConfiguracion);
@@ -200,20 +201,22 @@ public class frmPrincipal extends JFrame implements ActionListener {
 			actionPerformedMntmCuotaDiaria(e);
 		}
 
-
-
 		if (e.getSource() == mntmAcercaTienda) {
 			actionPerformedMntmAcercaTienda(e);
 		}
+
 		if (e.getSource() == mntmListarC) {
 			actionPerformedMntmListarC(e);
 		}
+
 		if (e.getSource() == mntmModificarC) {
 			actionPerformedMntmModificarC(e);
 		}
+
 		if (e.getSource() == mntmConsultarC) {
 			actionPerformedMntmConsultarC(e);
 		}
+
 		if (e.getSource() == mntmSalir) {
 			actionPerformedMntmSalir(e);
 		}
@@ -221,11 +224,8 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		if (e.getSource() == mntmVender) {
 			actionPerformedMntmVenta(e);
 		}
-	
 
 	}
-
-
 
 	protected void actionPerformedMntmSalir(ActionEvent e) {
 		System.exit(0);
@@ -259,13 +259,13 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		ventAyuda.setLocationRelativeTo(this);
 	}
 
-	protected void actionPerformedMntmCantOpt(ActionEvent e) {
-		DlgConfigurarCantidadOptima ventConfigurar = new DlgConfigurarCantidadOptima();
-		ventConfigurar.setVisible(true);
-		ventConfigurar.setLocationRelativeTo(this);
-	}
-
 	// Menú - Configuración
+
+	protected void actionPerformedMntmCantOpt(ActionEvent e) {
+		DlgConfigurarCantidadOptima ventConfigCantOpt = new DlgConfigurarCantidadOptima();
+		ventConfigCantOpt.setVisible(true);
+		ventConfigCantOpt.setLocationRelativeTo(this);
+	}
 
 	protected void actionPerformedMntmCuotaDiaria(ActionEvent e) {
 		DlgConfigurarCuotaDiaria ventCuotaDiaria = new DlgConfigurarCuotaDiaria();
@@ -275,23 +275,23 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	}
 
 	protected void actionPerformedMntmConfigDsctos(ActionEvent e) {
-		DlgConfigurarDescuentos ventAyuda = new DlgConfigurarDescuentos();
-		ventAyuda.setVisible(true);
-		ventAyuda.setLocationRelativeTo(this);
+		DlgConfigurarDescuentos ventConfigDesc = new DlgConfigurarDescuentos();
+		ventConfigDesc.setVisible(true);
+		ventConfigDesc.setLocationRelativeTo(this);
 	}
 
 	protected void actionPerformedMntmConfigObs(ActionEvent e) {
-		DlgConfigurarObsequios ventConfigurarObsequios = new DlgConfigurarObsequios();
-		ventConfigurarObsequios.setVisible(true);
-		ventConfigurarObsequios.setLocationRelativeTo(this);
+		DlgConfigurarObsequios ventConfigObs = new DlgConfigurarObsequios();
+		ventConfigObs.setVisible(true);
+		ventConfigObs.setLocationRelativeTo(this);
 
 	}
-	
+
+	// Menú - Ventas
+
 	protected void actionPerformedMntmVenta(ActionEvent e) {
 		DlgVender ventVender = new DlgVender();
 		ventVender.setVisible(true);
-		ventVender.setLocationRelativeTo(this);;
-
+		ventVender.setLocationRelativeTo(this);
 	}
 }
-// Menú - Vender
