@@ -15,14 +15,14 @@ import javax.swing.SwingConstants;
 public class DlgConfigurarDescuentos extends JDialog implements ActionListener {
 	private JButton btnAceptar;
 	private JButton btnCancelar;
-	private JTextField txtMonto;
-	private JTextField txtMonto1;
-	private JTextField txtMonto2;
-	private JTextField txtMonto3;
-	private JLabel lblla5unidades;
-	private JLabel lbl5a10unidades;
-	private JLabel lbl11a15unidades;
-	private JLabel lblmas15deunidades;
+	private JTextField txtPorcentaje1;
+	private JTextField txtPorcentaje2;
+	private JTextField txtPorcentaje3;
+	private JTextField txtPorcentaje4;
+	private JLabel lblDesc1;
+	private JLabel lblDesc2;
+	private JLabel lblDesc3;
+	private JLabel lblDesc4;
 	private JLabel lblPorcentaje;
 	private JLabel lblPorcentaje1;
 	private JLabel lblPorcentaje2;
@@ -49,7 +49,7 @@ public class DlgConfigurarDescuentos extends JDialog implements ActionListener {
 	 * Create the dialog.
 	 */
 	public DlgConfigurarDescuentos() {
-		setTitle("Configurar porcentajes de descuentos");
+		setTitle("Configurar porcentajes de descuento");
 		getContentPane().setForeground(Color.BLACK);
 		setBounds(100, 100, 450, 208);
 		getContentPane().setLayout(null);
@@ -68,74 +68,74 @@ public class DlgConfigurarDescuentos extends JDialog implements ActionListener {
 		btnCancelar.setBounds(311, 85, 102, 23);
 		getContentPane().add(btnCancelar);
 
-		txtMonto = new JTextField();
-		txtMonto.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		txtMonto.setText("7.5");
-		txtMonto.setHorizontalAlignment(SwingConstants.LEFT);
-		txtMonto.setBounds(145, 26, 86, 20);
-		getContentPane().add(txtMonto);
-		txtMonto.setColumns(10);
+		txtPorcentaje1 = new JTextField();
+		txtPorcentaje1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		txtPorcentaje1.setHorizontalAlignment(SwingConstants.LEFT);
+		txtPorcentaje1.setBounds(143, 26, 102, 20);
+		getContentPane().add(txtPorcentaje1);
+		txtPorcentaje1.setColumns(10);
+		txtPorcentaje1.setText("" + frmPrincipal.porcentaje1);
 
-		txtMonto1 = new JTextField();
-		txtMonto1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		txtMonto1.setText("10.0");
-		txtMonto1.setBounds(145, 57, 86, 20);
-		getContentPane().add(txtMonto1);
-		txtMonto1.setColumns(10);
+		txtPorcentaje2 = new JTextField();
+		txtPorcentaje2.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		txtPorcentaje2.setBounds(143, 56, 102, 20);
+		getContentPane().add(txtPorcentaje2);
+		txtPorcentaje2.setColumns(10);
+		txtPorcentaje2.setText("" + frmPrincipal.porcentaje2);
 
-		txtMonto2 = new JTextField();
-		txtMonto2.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		txtMonto2.setText("12.5");
-		txtMonto2.setBounds(145, 88, 86, 20);
-		getContentPane().add(txtMonto2);
-		txtMonto2.setColumns(10);
+		txtPorcentaje3 = new JTextField();
+		txtPorcentaje3.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		txtPorcentaje3.setBounds(143, 87, 102, 20);
+		getContentPane().add(txtPorcentaje3);
+		txtPorcentaje3.setColumns(10);
+		txtPorcentaje3.setText("" + frmPrincipal.porcentaje3);
 
-		txtMonto3 = new JTextField();
-		txtMonto3.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		txtMonto3.setText("15.0");
-		txtMonto3.setBounds(145, 121, 86, 20);
-		getContentPane().add(txtMonto3);
-		txtMonto3.setColumns(10);
+		txtPorcentaje4 = new JTextField();
+		txtPorcentaje4.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		txtPorcentaje4.setBounds(143, 120, 102, 20);
+		getContentPane().add(txtPorcentaje4);
+		txtPorcentaje4.setColumns(10);
+		txtPorcentaje4.setText("" + frmPrincipal.porcentaje4);
 
-		lblla5unidades = new JLabel("1 a 5 unidades");
-		lblla5unidades.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblla5unidades.setBounds(10, 29, 97, 14);
-		getContentPane().add(lblla5unidades);
+		lblDesc1 = new JLabel("1 a 5 unidades");
+		lblDesc1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblDesc1.setBounds(10, 29, 115, 14);
+		getContentPane().add(lblDesc1);
 
-		lbl5a10unidades = new JLabel("6 a 10 unidades");
-		lbl5a10unidades.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lbl5a10unidades.setBounds(10, 60, 115, 14);
-		getContentPane().add(lbl5a10unidades);
+		lblDesc2 = new JLabel("6 a 10 unidades");
+		lblDesc2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblDesc2.setBounds(10, 60, 115, 14);
+		getContentPane().add(lblDesc2);
 
-		lbl11a15unidades = new JLabel("11 a 15 unidades");
-		lbl11a15unidades.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lbl11a15unidades.setBounds(10, 91, 115, 14);
-		getContentPane().add(lbl11a15unidades);
+		lblDesc3 = new JLabel("11 a 15 unidades");
+		lblDesc3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblDesc3.setBounds(10, 91, 125, 14);
+		getContentPane().add(lblDesc3);
 
-		lblmas15deunidades = new JLabel("mas de 15 unidades");
-		lblmas15deunidades.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblmas15deunidades.setBounds(10, 122, 125, 14);
-		getContentPane().add(lblmas15deunidades);
+		lblDesc4 = new JLabel("M\u00E1s de 15 unidades");
+		lblDesc4.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblDesc4.setBounds(10, 122, 133, 14);
+		getContentPane().add(lblDesc4);
 
 		lblPorcentaje = new JLabel("%");
 		lblPorcentaje.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblPorcentaje.setBounds(235, 31, 46, 14);
+		lblPorcentaje.setBounds(255, 32, 46, 14);
 		getContentPane().add(lblPorcentaje);
 
 		lblPorcentaje1 = new JLabel("%");
 		lblPorcentaje1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblPorcentaje1.setBounds(235, 60, 46, 14);
+		lblPorcentaje1.setBounds(255, 60, 46, 14);
 		getContentPane().add(lblPorcentaje1);
 
 		lblPorcentaje2 = new JLabel("%");
 		lblPorcentaje2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblPorcentaje2.setBounds(235, 91, 46, 14);
+		lblPorcentaje2.setBounds(255, 89, 46, 14);
 		getContentPane().add(lblPorcentaje2);
 
 		lblPorcentaje3 = new JLabel("%");
 		lblPorcentaje3.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblPorcentaje3.setForeground(Color.BLACK);
-		lblPorcentaje3.setBounds(235, 124, 46, 14);
+		lblPorcentaje3.setBounds(255, 123, 46, 14);
 		getContentPane().add(lblPorcentaje3);
 
 	}
@@ -150,14 +150,15 @@ public class DlgConfigurarDescuentos extends JDialog implements ActionListener {
 	}
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
-
+		frmPrincipal.porcentaje1 = Double.parseDouble(txtPorcentaje1.getText());
+		frmPrincipal.porcentaje2 = Double.parseDouble(txtPorcentaje2.getText());
+		frmPrincipal.porcentaje3 = Double.parseDouble(txtPorcentaje3.getText());
+		frmPrincipal.porcentaje4 = Double.parseDouble(txtPorcentaje4.getText());
 		dispose();
 
 	}
 
 	protected void actionPerformedBtnCancelar(ActionEvent e) {
-
 		dispose();
-
 	}
 }

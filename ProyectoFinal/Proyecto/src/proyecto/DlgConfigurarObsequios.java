@@ -63,33 +63,33 @@ public class DlgConfigurarObsequios extends JDialog implements ActionListener {
 		txtTipoObsequio = new JTextField();
 		txtTipoObsequio.setForeground(new Color(0, 0, 0));
 		txtTipoObsequio.setBackground(new Color(255, 255, 255));
-		txtTipoObsequio.setText("Lapicero");
 		txtTipoObsequio.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtTipoObsequio.setBounds(148, 31, 96, 19);
 		getContentPane().add(txtTipoObsequio);
 		txtTipoObsequio.setColumns(10);
+		txtTipoObsequio.setText(frmPrincipal.tipoObsequio);
 
 		txtObsequioCantidad1 = new JTextField();
 		txtObsequioCantidad1.setBackground(new Color(255, 255, 255));
-		txtObsequioCantidad1.setText("2");
 		txtObsequioCantidad1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtObsequioCantidad1.setColumns(10);
 		txtObsequioCantidad1.setBounds(148, 93, 96, 19);
 		getContentPane().add(txtObsequioCantidad1);
+		txtObsequioCantidad1.setText("" + frmPrincipal.obsequioCantidad1);
 
 		txtObsequioCantidad2 = new JTextField();
-		txtObsequioCantidad2.setText("3");
 		txtObsequioCantidad2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtObsequioCantidad2.setColumns(10);
 		txtObsequioCantidad2.setBounds(148, 153, 96, 19);
 		getContentPane().add(txtObsequioCantidad2);
+		txtObsequioCantidad2.setText("" + frmPrincipal.obsequioCantidad2);
 
 		txtObsequioCantidad3 = new JTextField();
-		txtObsequioCantidad3.setText("4");
 		txtObsequioCantidad3.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtObsequioCantidad3.setColumns(10);
 		txtObsequioCantidad3.setBounds(148, 217, 96, 19);
 		getContentPane().add(txtObsequioCantidad3);
+		txtObsequioCantidad3.setText("" + frmPrincipal.obsequioCantidad3);
 
 		btnAceptar = new JButton("Aceptar");
 		btnAceptar.setBackground(new Color(143, 188, 143));
@@ -116,7 +116,10 @@ public class DlgConfigurarObsequios extends JDialog implements ActionListener {
 	}
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
-
+		frmPrincipal.tipoObsequio = txtTipoObsequio.getText();
+		frmPrincipal.obsequioCantidad1 = Integer.parseInt(txtObsequioCantidad1.getText());
+		frmPrincipal.obsequioCantidad2 = Integer.parseInt(txtObsequioCantidad2.getText());
+		frmPrincipal.obsequioCantidad3 = Integer.parseInt(txtObsequioCantidad3.getText());
 		dispose();
 
 	}

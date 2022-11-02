@@ -19,7 +19,7 @@ public class DlgModificarCeramico extends JDialog implements ActionListener {
 
 	private final JPanel contentPanel = new JPanel();
 	private JLabel lblModelo;
-	private JComboBox cboModelo;
+	private JComboBox<String> cboModelo;
 	private JLabel lblPrecio;
 	private JTextField txtPrecio;
 	private JLabel lblAncho;
@@ -51,7 +51,7 @@ public class DlgModificarCeramico extends JDialog implements ActionListener {
 	 */
 	public DlgModificarCeramico() {
 		setTitle("Modificar Cer\u00E1mico");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 314);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -62,10 +62,10 @@ public class DlgModificarCeramico extends JDialog implements ActionListener {
 		lblModelo.setBounds(10, 31, 62, 13);
 		contentPanel.add(lblModelo);
 
-		cboModelo = new JComboBox();
+		cboModelo = new JComboBox<String>();
 		cboModelo.addActionListener(this);
 		cboModelo.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		cboModelo.setModel(new DefaultComboBoxModel(
+		cboModelo.setModel(new DefaultComboBoxModel<String>(
 				new String[] { "Cinza Plus", "Luxury", "Austria", "Yungay Mix", "Thal\u00EDa" }));
 		cboModelo.setBounds(129, 27, 123, 21);
 		contentPanel.add(cboModelo);
@@ -128,14 +128,14 @@ public class DlgModificarCeramico extends JDialog implements ActionListener {
 
 		btnCerrar = new JButton("Cerrar");
 		btnCerrar.addActionListener(this);
-		btnCerrar.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnCerrar.setBounds(311, 21, 104, 31);
+		btnCerrar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnCerrar.setBounds(305, 141, 104, 31);
 		contentPanel.add(btnCerrar);
 
-		btnGrabar = new JButton("Grabar");
+		btnGrabar = new JButton("Aceptar");
 		btnGrabar.addActionListener(this);
-		btnGrabar.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnGrabar.setBounds(311, 68, 104, 31);
+		btnGrabar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnGrabar.setBounds(305, 78, 104, 31);
 		contentPanel.add(btnGrabar);
 	}
 
@@ -152,45 +152,46 @@ public class DlgModificarCeramico extends JDialog implements ActionListener {
 	}
 
 	protected void actionPerformedcboModelo(ActionEvent e) {
-		// declaracion de variables
 		int modelo;
-		// Entrada de datos
+
 		modelo = cboModelo.getSelectedIndex();
-		// mostrar datos de acuerdo al modelo
-		if (modelo == 0) {
+
+		switch (modelo) {
+		case 0:
 			txtPrecio.setText("" + frmPrincipal.precio0);
 			txtAncho.setText("" + frmPrincipal.ancho0);
 			txtLargo.setText("" + frmPrincipal.largo0);
 			txtEspesor.setText("" + frmPrincipal.espesor0);
 			txtContenido.setText("" + frmPrincipal.contenido0);
-		}
-		if (modelo == 1) {
+			break;
+		case 1:
 			txtPrecio.setText("" + frmPrincipal.precio1);
 			txtAncho.setText("" + frmPrincipal.ancho1);
 			txtLargo.setText("" + frmPrincipal.largo1);
 			txtEspesor.setText("" + frmPrincipal.espesor1);
 			txtContenido.setText("" + frmPrincipal.contenido1);
-		}
-		if (modelo == 2) {
+			break;
+		case 2:
 			txtPrecio.setText("" + frmPrincipal.precio2);
 			txtAncho.setText("" + frmPrincipal.ancho2);
 			txtLargo.setText("" + frmPrincipal.largo2);
 			txtEspesor.setText("" + frmPrincipal.espesor2);
 			txtContenido.setText("" + frmPrincipal.contenido2);
-		}
-		if (modelo == 3) {
+			break;
+		case 3:
 			txtPrecio.setText("" + frmPrincipal.precio3);
 			txtAncho.setText("" + frmPrincipal.ancho3);
 			txtLargo.setText("" + frmPrincipal.largo3);
 			txtEspesor.setText("" + frmPrincipal.espesor3);
 			txtContenido.setText("" + frmPrincipal.contenido3);
-		}
-		if (modelo == 4) {
+			break;
+		default:
 			txtPrecio.setText("" + frmPrincipal.precio4);
 			txtAncho.setText("" + frmPrincipal.ancho4);
 			txtLargo.setText("" + frmPrincipal.largo4);
 			txtEspesor.setText("" + frmPrincipal.espesor4);
 			txtContenido.setText("" + frmPrincipal.contenido4);
+			break;
 		}
 	}
 
@@ -200,14 +201,48 @@ public class DlgModificarCeramico extends JDialog implements ActionListener {
 
 	protected void actionPerformedBtnGrabar(ActionEvent e) {
 		int modelo;
+
 		modelo = cboModelo.getSelectedIndex();
-		if (modelo == 0) {
+
+		switch (modelo) {
+		case 0:
 			frmPrincipal.precio0 = Double.parseDouble(txtPrecio.getText());
 			frmPrincipal.ancho0 = Double.parseDouble(txtAncho.getText());
 			frmPrincipal.largo0 = Double.parseDouble(txtLargo.getText());
 			frmPrincipal.espesor0 = Double.parseDouble(txtEspesor.getText());
-			frmPrincipal.contenido0 = Double.parseDouble(txtContenido.getText());
+			frmPrincipal.contenido0 = Integer.parseInt(txtContenido.getText());
+			break;
+		case 1:
+			frmPrincipal.precio1 = Double.parseDouble(txtPrecio.getText());
+			frmPrincipal.ancho1 = Double.parseDouble(txtAncho.getText());
+			frmPrincipal.largo1 = Double.parseDouble(txtLargo.getText());
+			frmPrincipal.espesor1 = Double.parseDouble(txtEspesor.getText());
+			frmPrincipal.contenido1 = Integer.parseInt(txtContenido.getText());
+			break;
+		case 2:
+			frmPrincipal.precio2 = Double.parseDouble(txtPrecio.getText());
+			frmPrincipal.ancho2 = Double.parseDouble(txtAncho.getText());
+			frmPrincipal.largo2 = Double.parseDouble(txtLargo.getText());
+			frmPrincipal.espesor2 = Double.parseDouble(txtEspesor.getText());
+			frmPrincipal.contenido2 = Integer.parseInt(txtContenido.getText());
+			break;
+		case 3:
+			frmPrincipal.precio2 = Double.parseDouble(txtPrecio.getText());
+			frmPrincipal.ancho2 = Double.parseDouble(txtAncho.getText());
+			frmPrincipal.largo2 = Double.parseDouble(txtLargo.getText());
+			frmPrincipal.espesor2 = Double.parseDouble(txtEspesor.getText());
+			frmPrincipal.contenido2 = Integer.parseInt(txtContenido.getText());
+			break;
+		default:
+			frmPrincipal.precio2 = Double.parseDouble(txtPrecio.getText());
+			frmPrincipal.ancho2 = Double.parseDouble(txtAncho.getText());
+			frmPrincipal.largo2 = Double.parseDouble(txtLargo.getText());
+			frmPrincipal.espesor2 = Double.parseDouble(txtEspesor.getText());
+			frmPrincipal.contenido2 = Integer.parseInt(txtContenido.getText());
+			break;
 		}
+
+		dispose();
 
 	}
 }

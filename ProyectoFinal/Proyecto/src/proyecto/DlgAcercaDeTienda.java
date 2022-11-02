@@ -56,9 +56,9 @@ public class DlgAcercaDeTienda extends JDialog implements ActionListener {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 
-		lblTienda = new JLabel("Tienda 1.0");
+		lblTienda = new JLabel("Tienda de cer\u00E1micos");
 		lblTienda.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblTienda.setBounds(172, 10, 89, 17);
+		lblTienda.setBounds(137, 11, 158, 17);
 		contentPanel.add(lblTienda);
 
 		btnCerrar = new JButton("Cerrar");
