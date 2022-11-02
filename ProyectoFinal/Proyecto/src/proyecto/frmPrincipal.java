@@ -151,6 +151,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		mntmVender.addActionListener(this);
 
 		mntmGenerarReportes = new JMenuItem("Generar Reportes");
+		mntmGenerarReportes.addActionListener(this);
 		mnVentas.add(mntmGenerarReportes);
 
 		mnConfiguracion = new JMenu("Configuraci\u00F3n");
@@ -185,6 +186,11 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+
+		if (e.getSource() == mntmGenerarReportes) {
+			actionPerformedMntmGenerarReportes(e);
+		}
+
 		if (e.getSource() == mntmConfigObs) {
 			actionPerformedMntmConfigObs(e);
 		}
@@ -293,5 +299,11 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		DlgVender ventVender = new DlgVender();
 		ventVender.setVisible(true);
 		ventVender.setLocationRelativeTo(this);
+	}
+
+	protected void actionPerformedMntmGenerarReportes(ActionEvent e) {
+		DlgGenerarReporteVentas ventGenerarReportes = new DlgGenerarReporteVentas();
+		ventGenerarReportes.setVisible(true);
+		ventGenerarReportes.setLocationRelativeTo(this);
 	}
 }
