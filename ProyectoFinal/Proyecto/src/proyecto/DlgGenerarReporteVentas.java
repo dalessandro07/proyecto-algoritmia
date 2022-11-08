@@ -53,6 +53,7 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 		getContentPane().add(cboTipoReporte);
 
 		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(this);
 		btnCerrar.setBounds(541, 20, 89, 23);
 		getContentPane().add(btnCerrar);
 
@@ -65,9 +66,16 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(e);
+		}
 		if (e.getSource() == cboTipoReporte) {
 			actionPerformedCboTipoReporte(e);
 		}
+	}
+
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
+		dispose();
 	}
 
 	protected void actionPerformedCboTipoReporte(ActionEvent e) {
@@ -90,4 +98,5 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 
 		}
 	}
+
 }
