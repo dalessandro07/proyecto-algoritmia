@@ -277,7 +277,6 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		DlgConfigurarCuotaDiaria ventCuotaDiaria = new DlgConfigurarCuotaDiaria();
 		ventCuotaDiaria.setVisible(true);
 		ventCuotaDiaria.setLocationRelativeTo(this);
-
 	}
 
 	protected void actionPerformedMntmConfigDsctos(ActionEvent e) {
@@ -290,7 +289,6 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		DlgConfigurarObsequios ventConfigObs = new DlgConfigurarObsequios();
 		ventConfigObs.setVisible(true);
 		ventConfigObs.setLocationRelativeTo(this);
-
 	}
 
 	// Menú - Ventas

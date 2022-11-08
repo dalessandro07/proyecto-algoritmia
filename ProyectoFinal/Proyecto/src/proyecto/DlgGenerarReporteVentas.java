@@ -1,5 +1,8 @@
 package proyecto;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -8,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class DlgGenerarReporteVentas extends JDialog {
+public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 	private JLabel lblTipoReporte;
 	private JComboBox<String> cboTipoReporte;
 	private JButton btnCerrar;
@@ -41,6 +44,7 @@ public class DlgGenerarReporteVentas extends JDialog {
 		getContentPane().add(lblTipoReporte);
 
 		cboTipoReporte = new JComboBox<String>();
+		cboTipoReporte.addActionListener(this);
 		cboTipoReporte.setModel(new DefaultComboBoxModel<String>(
 				new String[] { "Ventas por modelo", "Comparaci\u00F3n de precios con el precio promedio",
 						"Comparaci\u00F3n de cajas vendidas con la cantidad \u00F3ptima",
@@ -58,5 +62,32 @@ public class DlgGenerarReporteVentas extends JDialog {
 
 		txtS = new JTextArea();
 		scp.setViewportView(txtS);
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == cboTipoReporte) {
+			actionPerformedCboTipoReporte(e);
+		}
+	}
+
+	protected void actionPerformedCboTipoReporte(ActionEvent e) {
+
+		// TODO: Falta completar
+
+		int tipoReporte;
+
+		tipoReporte = cboTipoReporte.getSelectedIndex();
+
+		switch (tipoReporte) {
+		case 0:
+			break;
+		case 1:
+			break;
+		case 2:
+			break;
+		default:
+			break;
+
+		}
 	}
 }

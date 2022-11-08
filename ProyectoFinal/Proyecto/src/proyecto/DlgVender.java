@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -24,10 +25,13 @@ public class DlgVender extends JDialog implements ActionListener {
 	private JTextField txtPrecio;
 	private JButton btnProcesar;
 	private JButton btnBorrar;
-	private JScrollPane scrollPane;
+	private JScrollPane scp;
 	private JTextArea txtS;
 	private JLabel lblCantidad;
 	private JTextField txtCantidad;
+
+	public int contador = 0;
+	public double totalImportes = 0;
 
 	/**
 	 * Launch the application.
@@ -84,12 +88,12 @@ public class DlgVender extends JDialog implements ActionListener {
 		btnBorrar.setBounds(325, 46, 89, 23);
 		contentPanel.add(btnBorrar);
 
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 98, 404, 142);
-		contentPanel.add(scrollPane);
+		scp = new JScrollPane();
+		scp.setBounds(10, 98, 404, 142);
+		contentPanel.add(scp);
 
 		txtS = new JTextArea();
-		scrollPane.setViewportView(txtS);
+		scp.setViewportView(txtS);
 
 		lblCantidad = new JLabel("Cantidad");
 		lblCantidad.setBounds(10, 73, 80, 14);
@@ -114,7 +118,7 @@ public class DlgVender extends JDialog implements ActionListener {
 		}
 	}
 
-	private void actionPerformedcbo(ActionEvent e) {
+	protected void actionPerformedcbo(ActionEvent e) {
 		int modelo;
 
 		modelo = cboModelo.getSelectedIndex();
@@ -122,19 +126,26 @@ public class DlgVender extends JDialog implements ActionListener {
 		switch (modelo) {
 		case 0:
 			txtPrecio.setText("" + frmPrincipal.precio0);
+			break;
 		case 1:
 			txtPrecio.setText("" + frmPrincipal.precio1);
+			break;
 		case 2:
 			txtPrecio.setText("" + frmPrincipal.precio2);
+			break;
 		case 3:
 			txtPrecio.setText("" + frmPrincipal.precio3);
-		case 4:
+			break;
+		default:
 			txtPrecio.setText("" + frmPrincipal.precio4);
+			break;
 
 		}
 	}
 
 	protected void actionPerformedBtnProcesar(ActionEvent e) {
+		contador++;
+
 		int cantidad, canobsequio;
 		double impD, impC, impP, precio;
 		String modelo1, tipo;
@@ -176,6 +187,9 @@ public class DlgVender extends JDialog implements ActionListener {
 		// Calculando el importe a pagar
 		impP = impC - impD;
 
+		// Asignando el total de importes
+		totalImportes += impP;
+
 		// Calculando el obsequio
 		if (cantidad <= 5)
 			canobsequio = cantidad * frmPrincipal.obsequioCantidad1;
@@ -194,6 +208,22 @@ public class DlgVender extends JDialog implements ActionListener {
 		txtS.append("Importe a Pagar\t: S/." + impP + "\n");
 		txtS.append("Tipo de obsequio\t: " + tipo + "\n");
 		txtS.append("Unidades obsequiadas\t: " + canobsequio + "\n");
+
+		// Mensaje de alerta
+		if (contador % 5 == 0) {
+
+			String mensaje, titulo;
+			double porcentaje;
+
+			porcentaje = totalImportes * 100 / frmPrincipal.cuotaDiaria;
+
+			mensaje = "Venta Nro. " + contador + "\n" + "Importe total general acumulado: S/. " + totalImportes + "\n"
+					+ "Porcentaje de la cuota diaria: " + porcentaje + "%";
+
+			titulo = "Avance de ventas";
+
+			JOptionPane.showMessageDialog(null, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
+		}
 
 	}
 
