@@ -155,68 +155,73 @@ public class DlgConsultarCeramico extends JDialog implements ActionListener {
 
 
 	protected void actionPerformedcboModelo(ActionEvent e) {
-		modelo();
-		cinza();
-		luxury();
-		austria();
-		thalia();
+		obtenerModelo();
+		
+		switch (modelo) {
+		case 0:
+			mostrarCinza();
+			break;
+		case 1:
+			mostrarLuxury();
+			break;
+		case 2:
+			mostrarAustria();
+			break;
+		case 3:
+			mostrarYungay();
+			break;
+		default:
+			mostrarThalia();
+			break;
+		}
+		
 		
 	}
 	// declaracion de variables
 			int modelo;
 			// Entrada de datos
-			void modelo() {
+			void obtenerModelo() {
 				modelo = cboModelo.getSelectedIndex();
 			}
 			// mostrar datos de acuerdo al modelo
-			void cinza() {
-				if (modelo == 0) {
+			void mostrarCinza() {
 					txtPrecio.setText("" + frmPrincipal.precio0);
 					txtAncho.setText("" + frmPrincipal.ancho0);
 					txtLargo.setText("" + frmPrincipal.largo0);
 					txtEspesor.setText("" + frmPrincipal.espesor0);
 					txtContenido.setText("" + frmPrincipal.contenido0);
-				}
 			}
 			
-			void luxury() {
-				if (modelo == 1) {
+			void mostrarLuxury() {
 					txtPrecio.setText("" + frmPrincipal.precio1);
 					txtAncho.setText("" + frmPrincipal.ancho1);
 					txtLargo.setText("" + frmPrincipal.largo1);
 					txtEspesor.setText("" + frmPrincipal.espesor1);
 					txtContenido.setText("" + frmPrincipal.contenido1);
-				}
 			}
 			
-			void austria() {
-				if (modelo == 2) {
+			void mostrarAustria() {
 					txtPrecio.setText("" + frmPrincipal.precio2);
 					txtAncho.setText("" + frmPrincipal.ancho2);
 					txtLargo.setText("" + frmPrincipal.largo2);
 					txtEspesor.setText("" + frmPrincipal.espesor2);
 					txtContenido.setText("" + frmPrincipal.contenido2);
-				}
 			}
 			
-			void yungay() {
-				if (modelo == 3) {
+			void mostrarYungay() {
 					txtPrecio.setText("" + frmPrincipal.precio3);
 					txtAncho.setText("" + frmPrincipal.ancho3);
 					txtLargo.setText("" + frmPrincipal.largo3);
 					txtEspesor.setText("" + frmPrincipal.espesor3);
 					txtContenido.setText("" + frmPrincipal.contenido3);
-				}
 			}
 			
-			void thalia() {
-				if (modelo == 4) {
+			void mostrarThalia() {
 					txtPrecio.setText("" + frmPrincipal.precio4);
 					txtAncho.setText("" + frmPrincipal.ancho4);
 					txtLargo.setText("" + frmPrincipal.largo4);
 					txtEspesor.setText("" + frmPrincipal.espesor4);
 					txtContenido.setText("" + frmPrincipal.contenido4);
-				}
 			}
 
 
