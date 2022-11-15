@@ -73,18 +73,24 @@ public class DlgConfigurarCuotaDiaria extends JDialog implements ActionListener 
 	}
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
-		frmPrincipal.cuotaDiaria = Double.parseDouble(txtCuotaDiaria.getText());
-
-		if (!validarNumeros(txtCuotaDiaria.getText().trim())) {
-			JOptionPane.showMessageDialog(null, "Los datos nos son correctos");
-		} else {
+		if (validarNumeros(txtCuotaDiaria.getText().trim())) {
+			frmPrincipal.cuotaDiaria = Double.parseDouble(txtCuotaDiaria.getText());
 			dispose();
+		} else {
+			String mensaje, titulo;
+
+			titulo = "Datos Incorrectos";
+			mensaje = "Solo se permite el ingreso de números";
+
+			JOptionPane.showMessageDialog(null, mensaje, titulo, JOptionPane.WARNING_MESSAGE);
+			txtCuotaDiaria.requestFocus();
+			txtCuotaDiaria.setText("");
 		}
 
 	}
 
 	private static boolean validarNumeros(String datos) {
-		return datos.matches("[0-9]*");
+		return datos.length() > 0 && datos.matches("[0-9]*");
 	}
 
 	protected void actionPerformedBtnCancelar(ActionEvent e) {

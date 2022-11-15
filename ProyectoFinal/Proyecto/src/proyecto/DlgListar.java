@@ -56,6 +56,7 @@ public class DlgListar extends JDialog implements ActionListener {
 		getContentPane().add(scrollPane);
 
 		txtS = new JTextArea();
+		txtS.setEditable(false);
 		txtS.setFont(new Font("Monospaced", Font.PLAIN, 17));
 		scrollPane.setViewportView(txtS);
 
