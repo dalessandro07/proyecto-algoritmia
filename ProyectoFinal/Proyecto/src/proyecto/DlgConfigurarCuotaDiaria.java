@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class DlgConfigurarCuotaDiaria extends JDialog implements ActionListener {
@@ -73,7 +74,17 @@ public class DlgConfigurarCuotaDiaria extends JDialog implements ActionListener 
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
 		frmPrincipal.cuotaDiaria = Double.parseDouble(txtCuotaDiaria.getText());
-		dispose();
+			if (!validarNumeros(txtCuotaDiaria.getText().trim())) {
+				JOptionPane.showMessageDialog(null, "Los datos nos son correctos");
+			}
+			else {
+				dispose();
+			}
+		
+		}
+	
+	private static boolean validarNumeros(String datos) {
+		return datos.matches("[0-9]*");
 	}
 
 	protected void actionPerformedBtnCancelar(ActionEvent e) {
