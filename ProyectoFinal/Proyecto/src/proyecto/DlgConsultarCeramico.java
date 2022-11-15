@@ -68,7 +68,6 @@ public class DlgConsultarCeramico extends JDialog implements ActionListener {
 				new String[] { "Cinza Plus", "Luxury", "Austria", "Yungay Mix", "Thal\u00EDa" }));
 		cboModelo.setBounds(129, 27, 123, 21);
 		contentPanel.add(cboModelo);
-		
 
 		lblPrecio = new JLabel("Precio (S/):");
 		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -136,7 +135,7 @@ public class DlgConsultarCeramico extends JDialog implements ActionListener {
 		btnCerrar.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnCerrar.setBounds(311, 21, 104, 31);
 		contentPanel.add(btnCerrar);
-		
+
 		txtPrecio.setText("" + frmPrincipal.precio0);
 		txtAncho.setText("" + frmPrincipal.ancho0);
 		txtLargo.setText("" + frmPrincipal.largo0);
@@ -153,72 +152,73 @@ public class DlgConsultarCeramico extends JDialog implements ActionListener {
 		}
 	}
 
-
 	protected void actionPerformedcboModelo(ActionEvent e) {
 		modelo();
 		cinza();
 		luxury();
 		austria();
 		thalia();
-		
-	}
-	// declaracion de variables
-			int modelo;
-			// Entrada de datos
-			void modelo() {
-				modelo = cboModelo.getSelectedIndex();
-			}
-			// mostrar datos de acuerdo al modelo
-			void cinza() {
-				if (modelo == 0) {
-					txtPrecio.setText("" + frmPrincipal.precio0);
-					txtAncho.setText("" + frmPrincipal.ancho0);
-					txtLargo.setText("" + frmPrincipal.largo0);
-					txtEspesor.setText("" + frmPrincipal.espesor0);
-					txtContenido.setText("" + frmPrincipal.contenido0);
-				}
-			}
-			
-			void luxury() {
-				if (modelo == 1) {
-					txtPrecio.setText("" + frmPrincipal.precio1);
-					txtAncho.setText("" + frmPrincipal.ancho1);
-					txtLargo.setText("" + frmPrincipal.largo1);
-					txtEspesor.setText("" + frmPrincipal.espesor1);
-					txtContenido.setText("" + frmPrincipal.contenido1);
-				}
-			}
-			
-			void austria() {
-				if (modelo == 2) {
-					txtPrecio.setText("" + frmPrincipal.precio2);
-					txtAncho.setText("" + frmPrincipal.ancho2);
-					txtLargo.setText("" + frmPrincipal.largo2);
-					txtEspesor.setText("" + frmPrincipal.espesor2);
-					txtContenido.setText("" + frmPrincipal.contenido2);
-				}
-			}
-			
-			void yungay() {
-				if (modelo == 3) {
-					txtPrecio.setText("" + frmPrincipal.precio3);
-					txtAncho.setText("" + frmPrincipal.ancho3);
-					txtLargo.setText("" + frmPrincipal.largo3);
-					txtEspesor.setText("" + frmPrincipal.espesor3);
-					txtContenido.setText("" + frmPrincipal.contenido3);
-				}
-			}
-			
-			void thalia() {
-				if (modelo == 4) {
-					txtPrecio.setText("" + frmPrincipal.precio4);
-					txtAncho.setText("" + frmPrincipal.ancho4);
-					txtLargo.setText("" + frmPrincipal.largo4);
-					txtEspesor.setText("" + frmPrincipal.espesor4);
-					txtContenido.setText("" + frmPrincipal.contenido4);
-				}
-			}
 
+	}
+
+	// declaracion de variables
+	int modelo;
+
+	// Entrada de datos
+	void modelo() {
+		modelo = cboModelo.getSelectedIndex();
+	}
+
+	// mostrar datos de acuerdo al modelo
+	void cinza() {
+		if (modelo == 0) {
+			txtPrecio.setText("" + frmPrincipal.precio0);
+			txtAncho.setText("" + frmPrincipal.ancho0);
+			txtLargo.setText("" + frmPrincipal.largo0);
+			txtEspesor.setText("" + frmPrincipal.espesor0);
+			txtContenido.setText("" + frmPrincipal.contenido0);
+		}
+	}
+
+	void luxury() {
+		if (modelo == 1) {
+			txtPrecio.setText("" + frmPrincipal.precio1);
+			txtAncho.setText("" + frmPrincipal.ancho1);
+			txtLargo.setText("" + frmPrincipal.largo1);
+			txtEspesor.setText("" + frmPrincipal.espesor1);
+			txtContenido.setText("" + frmPrincipal.contenido1);
+		}
+	}
+
+	void austria() {
+		if (modelo == 2) {
+			txtPrecio.setText("" + frmPrincipal.precio2);
+			txtAncho.setText("" + frmPrincipal.ancho2);
+			txtLargo.setText("" + frmPrincipal.largo2);
+			txtEspesor.setText("" + frmPrincipal.espesor2);
+			txtContenido.setText("" + frmPrincipal.contenido2);
+		}
+	}
+
+	void yungay() {
+		if (modelo == 3) {
+			txtPrecio.setText("" + frmPrincipal.precio3);
+			txtAncho.setText("" + frmPrincipal.ancho3);
+			txtLargo.setText("" + frmPrincipal.largo3);
+			txtEspesor.setText("" + frmPrincipal.espesor3);
+			txtContenido.setText("" + frmPrincipal.contenido3);
+		}
+	}
+
+	void thalia() {
+		if (modelo == 4) {
+			txtPrecio.setText("" + frmPrincipal.precio4);
+			txtAncho.setText("" + frmPrincipal.ancho4);
+			txtLargo.setText("" + frmPrincipal.largo4);
+			txtEspesor.setText("" + frmPrincipal.espesor4);
+			txtContenido.setText("" + frmPrincipal.contenido4);
+		}
+	}
 
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
 		dispose();

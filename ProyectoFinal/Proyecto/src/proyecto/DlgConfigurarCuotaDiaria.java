@@ -74,15 +74,15 @@ public class DlgConfigurarCuotaDiaria extends JDialog implements ActionListener 
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
 		frmPrincipal.cuotaDiaria = Double.parseDouble(txtCuotaDiaria.getText());
-			if (!validarNumeros(txtCuotaDiaria.getText().trim())) {
-				JOptionPane.showMessageDialog(null, "Los datos nos son correctos");
-			}
-			else {
-				dispose();
-			}
-		
+
+		if (!validarNumeros(txtCuotaDiaria.getText().trim())) {
+			JOptionPane.showMessageDialog(null, "Los datos nos son correctos");
+		} else {
+			dispose();
 		}
-	
+
+	}
+
 	private static boolean validarNumeros(String datos) {
 		return datos.matches("[0-9]*");
 	}

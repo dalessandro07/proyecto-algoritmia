@@ -104,6 +104,8 @@ public class DlgVender extends JDialog implements ActionListener {
 		txtCantidad.setBounds(100, 70, 148, 20);
 		contentPanel.add(txtCantidad);
 		txtCantidad.setColumns(10);
+
+		txtPrecio.setText("" + frmPrincipal.precio0);
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -146,11 +148,22 @@ public class DlgVender extends JDialog implements ActionListener {
 	protected void actionPerformedBtnProcesar(ActionEvent e) {
 		contador++;
 
-		int cantidad, canobsequio;
+		// Declaración de variables
+		int cantidad = 0, canobsequio;
 		double impD, impC, impP, precio;
 		String modelo1, tipo;
 
-		cantidad = Integer.parseInt(txtCantidad.getText());
+		// Validación de campo cantidad
+		if (validarNumeros(txtCantidad.getText().trim())) {
+			cantidad = Integer.parseInt(txtCantidad.getText());
+		} else {
+			JOptionPane.showMessageDialog(null, "Sólo se puede ingresar números", "Datos inválidos",
+					JOptionPane.WARNING_MESSAGE);
+			actionPerformedBtnBorrar(e);
+			return;
+		}
+
+		// Lectura de datos
 		modelo1 = "" + cboModelo.getSelectedItem();
 		precio = Double.parseDouble(txtPrecio.getText());
 		tipo = frmPrincipal.tipoObsequio;
@@ -211,20 +224,20 @@ public class DlgVender extends JDialog implements ActionListener {
 
 		// Mensaje de alerta
 		if (contador % 5 == 0) {
-
-			String mensaje, titulo;
+			String mensaje;
 			double porcentaje;
 
 			porcentaje = totalImportes * 100 / frmPrincipal.cuotaDiaria;
-
 			mensaje = "Venta Nro. " + contador + "\n" + "Importe total general acumulado: S/. " + totalImportes + "\n"
 					+ "Porcentaje de la cuota diaria: " + porcentaje + "%";
 
-			titulo = "Avance de ventas";
-
-			JOptionPane.showMessageDialog(null, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, mensaje, "Avance de ventas", JOptionPane.INFORMATION_MESSAGE);
 		}
 
+	}
+
+	private static boolean validarNumeros(String datos) {
+		return datos.length() > 0 && datos.matches("[0-9]*");
 	}
 
 	protected void actionPerformedBtnBorrar(ActionEvent e) {
