@@ -93,6 +93,7 @@ public class DlgVender extends JDialog implements ActionListener {
 		contentPanel.add(scp);
 
 		txtS = new JTextArea();
+		txtS.setEditable(false);
 		scp.setViewportView(txtS);
 
 		lblCantidad = new JLabel("Cantidad");
@@ -103,7 +104,6 @@ public class DlgVender extends JDialog implements ActionListener {
 		txtCantidad.setBounds(100, 70, 148, 20);
 		contentPanel.add(txtCantidad);
 		txtCantidad.setColumns(10);
-
 	}
 
 	public void actionPerformed(ActionEvent e) {

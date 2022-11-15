@@ -117,16 +117,15 @@ public class DlgConfigurarObsequios extends JDialog implements ActionListener {
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
 		frmPrincipal.tipoObsequio = txtTipoObsequio.getText();
+
 		frmPrincipal.obsequioCantidad1 = Integer.parseInt(txtObsequioCantidad1.getText());
 		frmPrincipal.obsequioCantidad2 = Integer.parseInt(txtObsequioCantidad2.getText());
 		frmPrincipal.obsequioCantidad3 = Integer.parseInt(txtObsequioCantidad3.getText());
-		dispose();
 
+		dispose();
 	}
 
 	protected void actionPerformedBtnCancelar(ActionEvent e) {
-
 		dispose();
-
 	}
 }

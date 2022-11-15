@@ -34,7 +34,6 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	private JMenuItem mntmAcercaTienda;
 
 	// Datos mínimos del primer producto
-
 	public static String modelo0 = "Cinza Plus";
 	public static double precio0 = 92.56;
 	public static double ancho0 = 62.0;
