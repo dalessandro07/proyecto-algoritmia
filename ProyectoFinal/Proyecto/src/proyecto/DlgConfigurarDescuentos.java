@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -150,10 +151,20 @@ public class DlgConfigurarDescuentos extends JDialog implements ActionListener {
 	}
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
-		frmPrincipal.porcentaje1 = Double.parseDouble(txtPorcentaje1.getText());
-		frmPrincipal.porcentaje2 = Double.parseDouble(txtPorcentaje2.getText());
-		frmPrincipal.porcentaje3 = Double.parseDouble(txtPorcentaje3.getText());
-		frmPrincipal.porcentaje4 = Double.parseDouble(txtPorcentaje4.getText());
+
+		// Validación de campo porcentaje
+
+		if (!validarNumeros(txtPorcentaje1.getText().trim()) || !validarNumeros(txtPorcentaje2.getText().trim())
+				|| !validarNumeros(txtPorcentaje3.getText().trim())
+				|| !validarNumeros(txtPorcentaje4.getText().trim())) {
+			mostrarAlerta("Sólo se puede ingresar números", "Datos inválidos", JOptionPane.WARNING_MESSAGE);
+			return;
+		}
+
+		frmPrincipal.porcentaje1 = asignarPorcentaje(txtPorcentaje1.getText());
+		frmPrincipal.porcentaje2 = asignarPorcentaje(txtPorcentaje2.getText());
+		frmPrincipal.porcentaje3 = asignarPorcentaje(txtPorcentaje3.getText());
+		frmPrincipal.porcentaje4 = asignarPorcentaje(txtPorcentaje4.getText());
 		dispose();
 
 	}
@@ -161,4 +172,20 @@ public class DlgConfigurarDescuentos extends JDialog implements ActionListener {
 	protected void actionPerformedBtnCancelar(ActionEvent e) {
 		dispose();
 	}
+
+	// Método - Asignar porcentaje
+	double asignarPorcentaje(String porcentaje) {
+		return Double.parseDouble(porcentaje);
+	}
+
+	// Método - Mostrar alerta
+	void mostrarAlerta(String mensaje, String titulo, int icono) {
+		JOptionPane.showMessageDialog(this, mensaje, titulo, icono);
+	}
+
+	// Método - Validar números
+	boolean validarNumeros(String datos) {
+		return datos.length() > 0 && datos.matches("[0-9]*\\.?[0-9]*");
+	}
+
 }

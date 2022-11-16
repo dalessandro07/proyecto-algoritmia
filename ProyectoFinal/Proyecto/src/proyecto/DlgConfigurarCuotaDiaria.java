@@ -82,7 +82,7 @@ public class DlgConfigurarCuotaDiaria extends JDialog implements ActionListener 
 			titulo = "Datos Incorrectos";
 			mensaje = "Solo se permite el ingreso de números";
 
-			JOptionPane.showMessageDialog(null, mensaje, titulo, JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.WARNING_MESSAGE);
 			txtCuotaDiaria.requestFocus();
 			txtCuotaDiaria.setText("");
 		}
@@ -90,7 +90,7 @@ public class DlgConfigurarCuotaDiaria extends JDialog implements ActionListener 
 	}
 
 	private static boolean validarNumeros(String datos) {
-		return datos.length() > 0 && datos.matches("[0-9]*");
+		return datos.length() > 0 && datos.matches("[0-9]*\\.?[0-9]*");
 	}
 
 	protected void actionPerformedBtnCancelar(ActionEvent e) {

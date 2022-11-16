@@ -157,8 +157,7 @@ public class DlgVender extends JDialog implements ActionListener {
 		if (validarNumeros(txtCantidad.getText().trim())) {
 			cantidad = Integer.parseInt(txtCantidad.getText());
 		} else {
-			JOptionPane.showMessageDialog(null, "Sólo se puede ingresar números", "Datos inválidos",
-					JOptionPane.WARNING_MESSAGE);
+			mostrarAlerta("Sólo se puede ingresar números", "Datos inválidos", JOptionPane.WARNING_MESSAGE);
 			actionPerformedBtnBorrar(e);
 			return;
 		}
@@ -169,75 +168,44 @@ public class DlgVender extends JDialog implements ActionListener {
 		tipo = frmPrincipal.tipoObsequio;
 
 		// Calculando el importe de compra
-		switch (cboModelo.getSelectedIndex()) {
-		case 0:
-			impC = cantidad * frmPrincipal.precio0;
-			break;
-		case 1:
-			impC = cantidad * frmPrincipal.precio1;
-			break;
-		case 2:
-			impC = cantidad * frmPrincipal.precio2;
-			break;
-		case 3:
-			impC = cantidad * frmPrincipal.precio3;
-			break;
-		default:
-			impC = cantidad * frmPrincipal.precio4;
-			break;
-		}
+		impC = calcularImporteCompra(cantidad);
 
 		// Calculando el importe de descuento
-		if (cantidad <= 5)
-			impD = impC / 100 * frmPrincipal.porcentaje1;
-		else if (cantidad <= 10)
-			impD = impC / 100 * frmPrincipal.porcentaje2;
-		else if (cantidad <= 15)
-			impD = impC / 100 * frmPrincipal.porcentaje3;
-		else
-			impD = impC / 100 * frmPrincipal.porcentaje4;
+		impD = calcularImporteDescuento(impC, cantidad);
 
 		// Calculando el importe a pagar
-		impP = impC - impD;
+		impP = calcularImporteAPagar(impC, impD);
 
 		// Asignando el total de importes
 		totalImportes += impP;
 
 		// Calculando el obsequio
-		if (cantidad <= 5)
-			canobsequio = cantidad * frmPrincipal.obsequioCantidad1;
-		else if (cantidad <= 10)
-			canobsequio = cantidad * frmPrincipal.obsequioCantidad2;
-		else
-			canobsequio = cantidad * frmPrincipal.obsequioCantidad3;
+		canobsequio = calcularObsequio(cantidad);
 
 		// Salida de resultados
 		txtS.setText("Boleta de Venta \n\n");
-		txtS.append("Modelo\t\t: " + modelo1 + "\n");
-		txtS.append("Precio\t\t: S/." + precio + "\n");
-		txtS.append("Cantidad Adquirida\t: " + cantidad + "\n");
-		txtS.append("Importe de Compra\t: S/." + impC + "\n");
-		txtS.append("Importe de Descuento\t: S/." + impD + "\n");
-		txtS.append("Importe a Pagar\t: S/." + impP + "\n");
-		txtS.append("Tipo de obsequio\t: " + tipo + "\n");
-		txtS.append("Unidades obsequiadas\t: " + canobsequio + "\n");
+		imprimir("Modelo\t\t: " + modelo1);
+		imprimir("Precio\t\t: S/." + precio);
+		imprimir("Cantidad Adquirida\t: " + cantidad);
+		imprimir("Importe de Compra\t: S/." + impC);
+		imprimir("Importe de Descuento\t: S/." + impD);
+		imprimir("Importe a Pagar\t: S/." + impP);
+		imprimir("Tipo de obsequio\t: " + tipo);
+		imprimir("Unidades obsequiadas\t: " + canobsequio);
 
 		// Mensaje de alerta
 		if (contador % 5 == 0) {
-			String mensaje;
+			String mensaje, titulo;
 			double porcentaje;
 
 			porcentaje = totalImportes * 100 / frmPrincipal.cuotaDiaria;
 			mensaje = "Venta Nro. " + contador + "\n" + "Importe total general acumulado: S/. " + totalImportes + "\n"
 					+ "Porcentaje de la cuota diaria: " + porcentaje + "%";
+			titulo = "Avance de ventas";
 
-			JOptionPane.showMessageDialog(null, mensaje, "Avance de ventas", JOptionPane.INFORMATION_MESSAGE);
+			mostrarAlerta(mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
 		}
 
-	}
-
-	private static boolean validarNumeros(String datos) {
-		return datos.length() > 0 && datos.matches("[0-9]*");
 	}
 
 	protected void actionPerformedBtnBorrar(ActionEvent e) {
@@ -246,4 +214,63 @@ public class DlgVender extends JDialog implements ActionListener {
 		cboModelo.setSelectedIndex(0);
 		txtCantidad.requestFocus();
 	}
+
+	// Método - Importe de compra
+	double calcularImporteCompra(int cantidad) {
+		switch (cboModelo.getSelectedIndex()) {
+		case 0:
+			return cantidad * frmPrincipal.precio0;
+		case 1:
+			return cantidad * frmPrincipal.precio1;
+		case 2:
+			return cantidad * frmPrincipal.precio2;
+		case 3:
+			return cantidad * frmPrincipal.precio3;
+		default:
+			return cantidad * frmPrincipal.precio4;
+		}
+	}
+
+	// Método - Importe de descuento
+	double calcularImporteDescuento(double impC, int cantidad) {
+		if (cantidad <= 5)
+			return impC / 100 * frmPrincipal.porcentaje1;
+		else if (cantidad <= 10)
+			return impC / 100 * frmPrincipal.porcentaje2;
+		else if (cantidad <= 15)
+			return impC / 100 * frmPrincipal.porcentaje3;
+		else
+			return impC / 100 * frmPrincipal.porcentaje4;
+	}
+
+	// Método - Importe a pagar
+	double calcularImporteAPagar(double impC, double impD) {
+		return impC - impD;
+	}
+
+	// Método - Obsequio
+	int calcularObsequio(int cantidad) {
+		if (cantidad <= 5)
+			return cantidad * frmPrincipal.obsequioCantidad1;
+		else if (cantidad <= 10)
+			return cantidad * frmPrincipal.obsequioCantidad2;
+		else
+			return cantidad * frmPrincipal.obsequioCantidad3;
+	}
+
+	// Método - Mostrar resultados
+	void imprimir(String texto) {
+		txtS.append(texto + "\n");
+	}
+
+	// Método - Mostrar alerta
+	void mostrarAlerta(String mensaje, String titulo, int icono) {
+		JOptionPane.showMessageDialog(this, mensaje, titulo, icono);
+	}
+
+	// Método - Validar números
+	boolean validarNumeros(String datos) {
+		return datos.length() > 0 && datos.matches("[0-9]*");
+	}
+
 }
