@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
+import java.awt.Color;
 
 public class DlgAcercaDeTienda extends JDialog implements ActionListener {
 
@@ -62,7 +63,9 @@ public class DlgAcercaDeTienda extends JDialog implements ActionListener {
 		contentPanel.add(lblTienda);
 
 		btnCerrar = new JButton("Cerrar");
-		btnCerrar.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnCerrar.setBackground(new Color(0, 153, 255));
+		btnCerrar.setForeground(Color.BLACK);
+		btnCerrar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnCerrar.addActionListener(this);
 		btnCerrar.setBounds(172, 207, 89, 23);
 		contentPanel.add(btnCerrar);

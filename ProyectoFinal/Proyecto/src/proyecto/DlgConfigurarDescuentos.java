@@ -56,6 +56,7 @@ public class DlgConfigurarDescuentos extends JDialog implements ActionListener {
 		getContentPane().setLayout(null);
 
 		btnAceptar = new JButton("Aceptar");
+		btnAceptar.setBackground(new Color(0, 153, 255));
 		btnAceptar.setForeground(Color.BLACK);
 		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAceptar.addActionListener(this);
@@ -63,6 +64,7 @@ public class DlgConfigurarDescuentos extends JDialog implements ActionListener {
 		getContentPane().add(btnAceptar);
 
 		btnCancelar = new JButton("  Cancelar");
+		btnCancelar.setBackground(new Color(255, 153, 153));
 		btnCancelar.addActionListener(this);
 		btnCancelar.setForeground(Color.BLACK);
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -70,7 +72,7 @@ public class DlgConfigurarDescuentos extends JDialog implements ActionListener {
 		getContentPane().add(btnCancelar);
 
 		txtPorcentaje1 = new JTextField();
-		txtPorcentaje1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		txtPorcentaje1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtPorcentaje1.setHorizontalAlignment(SwingConstants.LEFT);
 		txtPorcentaje1.setBounds(143, 26, 102, 20);
 		getContentPane().add(txtPorcentaje1);
@@ -78,21 +80,21 @@ public class DlgConfigurarDescuentos extends JDialog implements ActionListener {
 		txtPorcentaje1.setText("" + frmPrincipal.porcentaje1);
 
 		txtPorcentaje2 = new JTextField();
-		txtPorcentaje2.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		txtPorcentaje2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtPorcentaje2.setBounds(143, 56, 102, 20);
 		getContentPane().add(txtPorcentaje2);
 		txtPorcentaje2.setColumns(10);
 		txtPorcentaje2.setText("" + frmPrincipal.porcentaje2);
 
 		txtPorcentaje3 = new JTextField();
-		txtPorcentaje3.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		txtPorcentaje3.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtPorcentaje3.setBounds(143, 87, 102, 20);
 		getContentPane().add(txtPorcentaje3);
 		txtPorcentaje3.setColumns(10);
 		txtPorcentaje3.setText("" + frmPrincipal.porcentaje3);
 
 		txtPorcentaje4 = new JTextField();
-		txtPorcentaje4.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		txtPorcentaje4.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtPorcentaje4.setBounds(143, 120, 102, 20);
 		getContentPane().add(txtPorcentaje4);
 		txtPorcentaje4.setColumns(10);

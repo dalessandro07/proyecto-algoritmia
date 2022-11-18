@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.UIManager;
+import java.awt.Color;
 
 public class DlgListar extends JDialog implements ActionListener {
 
@@ -57,7 +58,7 @@ public class DlgListar extends JDialog implements ActionListener {
 
 		txtS = new JTextArea();
 		txtS.setEditable(false);
-		txtS.setFont(new Font("Monospaced", Font.PLAIN, 17));
+		txtS.setFont(new Font("Monospaced", Font.PLAIN, 15));
 		scrollPane.setViewportView(txtS);
 
 		panel = new JPanel();
@@ -66,10 +67,14 @@ public class DlgListar extends JDialog implements ActionListener {
 		panel.setLayout(null);
 
 		btnCerrar = new JButton("Cerrar");
+		btnCerrar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnCerrar.setBackground(new Color(255, 153, 153));
 		btnCerrar.setBounds(99, 0, 89, 23);
 		panel.add(btnCerrar);
 
 		btnListar = new JButton("Listar");
+		btnListar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnListar.setBackground(new Color(0, 153, 255));
 		btnListar.addActionListener(this);
 		btnListar.setBounds(0, 0, 89, 23);
 		panel.add(btnListar);

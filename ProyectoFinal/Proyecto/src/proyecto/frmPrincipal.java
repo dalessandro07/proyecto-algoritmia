@@ -11,6 +11,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.Font;
 
 public class frmPrincipal extends JFrame implements ActionListener {
 
@@ -120,62 +121,95 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		setJMenuBar(menuBar);
 
 		mnArchivo = new JMenu("Archivo");
+		mnArchivo.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
+		mnArchivo.setForeground(new Color(255, 255, 255));
 		menuBar.add(mnArchivo);
 
 		mntmSalir = new JMenuItem("Salir");
+		mntmSalir.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
+		mntmSalir.setBackground(new Color(173, 216, 230));
 		mntmSalir.addActionListener(this);
 		mnArchivo.add(mntmSalir);
 
 		mnMantenimiento = new JMenu("Mantenimiento");
+		mnMantenimiento.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
+		mnMantenimiento.setBackground(new Color(0, 153, 255));
+		mnMantenimiento.setForeground(new Color(255, 255, 255));
 		menuBar.add(mnMantenimiento);
 
 		mntmConsultarC = new JMenuItem("Consultar cer\u00E1mico");
+		mntmConsultarC.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
+		mntmConsultarC.setBackground(new Color(173, 216, 230));
 		mntmConsultarC.addActionListener(this);
 		mnMantenimiento.add(mntmConsultarC);
 
 		mntmModificarC = new JMenuItem("Modificar cer\u00E1mico");
+		mntmModificarC.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
+		mntmModificarC.setBackground(new Color(173, 216, 230));
 		mntmModificarC.addActionListener(this);
 		mnMantenimiento.add(mntmModificarC);
 
 		mntmListarC = new JMenuItem("Listar cer\u00E1micos");
+		mntmListarC.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
+		mntmListarC.setBackground(new Color(173, 216, 230));
 		mntmListarC.addActionListener(this);
 		mnMantenimiento.add(mntmListarC);
 
 		mnVentas = new JMenu("Ventas");
+		mnVentas.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
+		mnVentas.setForeground(new Color(255, 255, 255));
 
 		menuBar.add(mnVentas);
 
 		mntmVender = new JMenuItem("Vender");
+		mntmVender.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
+		mntmVender.setBackground(new Color(173, 216, 230));
 		mnVentas.add(mntmVender);
 		mntmVender.addActionListener(this);
 
 		mntmGenerarReportes = new JMenuItem("Generar Reportes");
+		mntmGenerarReportes.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
+		mntmGenerarReportes.setBackground(new Color(173, 216, 230));
 		mntmGenerarReportes.addActionListener(this);
 		mnVentas.add(mntmGenerarReportes);
 
 		mnConfiguracion = new JMenu("Configuraci\u00F3n");
+		mnConfiguracion.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
+		mnConfiguracion.setForeground(new Color(255, 255, 255));
 		menuBar.add(mnConfiguracion);
 
 		mntmConfigDsctos = new JMenuItem("Configurar descuentos");
+		mntmConfigDsctos.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
+		mntmConfigDsctos.setBackground(new Color(173, 216, 230));
 		mntmConfigDsctos.addActionListener(this);
 		mnConfiguracion.add(mntmConfigDsctos);
 
 		mntmConfigObs = new JMenuItem("Configurar obsequios");
+		mntmConfigObs.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
+		mntmConfigObs.setBackground(new Color(173, 216, 230));
 		mntmConfigObs.addActionListener(this);
 		mnConfiguracion.add(mntmConfigObs);
 
 		mntmCantOpt = new JMenuItem("Configurar cantidad \u00F3ptima");
+		mntmCantOpt.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
+		mntmCantOpt.setBackground(new Color(173, 216, 230));
 		mntmCantOpt.addActionListener(this);
 		mnConfiguracion.add(mntmCantOpt);
 
 		mntmCuotaDiaria = new JMenuItem("Configurar cuota diaria");
+		mntmCuotaDiaria.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
+		mntmCuotaDiaria.setBackground(new Color(173, 216, 230));
 		mntmCuotaDiaria.addActionListener(this);
 		mnConfiguracion.add(mntmCuotaDiaria);
 
 		mnAyuda = new JMenu("Ayuda");
+		mnAyuda.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
+		mnAyuda.setForeground(new Color(255, 255, 255));
 		menuBar.add(mnAyuda);
 
 		mntmAcercaTienda = new JMenuItem("Acerca de Tienda");
+		mntmAcercaTienda.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
+		mntmAcercaTienda.setBackground(new Color(173, 216, 230));
 		mntmAcercaTienda.addActionListener(this);
 		mnAyuda.add(mntmAcercaTienda);
 		contentPane = new JPanel();

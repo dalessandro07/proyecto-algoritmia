@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.awt.SystemColor;
 
 public class DlgConfigurarObsequios extends JDialog implements ActionListener {
 	private JTextField txtTipoObsequio;
@@ -35,28 +36,28 @@ public class DlgConfigurarObsequios extends JDialog implements ActionListener {
 	 * Create the dialog.
 	 */
 	public DlgConfigurarObsequios() {
-		getContentPane().setBackground(new Color(211, 211, 211));
+		getContentPane().setBackground(SystemColor.control);
 		setTitle("Configurar Obsequios");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 
 		JLabel lblTipoObsequio = new JLabel("Tipo de Obsequio");
-		lblTipoObsequio.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblTipoObsequio.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblTipoObsequio.setBounds(10, 31, 128, 19);
 		getContentPane().add(lblTipoObsequio);
 
 		JLabel lblObsequioCantidad1 = new JLabel("1 a 5 Unidades");
-		lblObsequioCantidad1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblObsequioCantidad1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblObsequioCantidad1.setBounds(10, 93, 128, 19);
 		getContentPane().add(lblObsequioCantidad1);
 
 		JLabel lblObsequioCantidad2 = new JLabel("6 a 10 Unidades");
-		lblObsequioCantidad2.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblObsequioCantidad2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblObsequioCantidad2.setBounds(10, 153, 128, 18);
 		getContentPane().add(lblObsequioCantidad2);
 
 		JLabel lblObsequioCantidad3 = new JLabel("11 a m\u00E1s Unidades");
-		lblObsequioCantidad3.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblObsequioCantidad3.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblObsequioCantidad3.setBounds(10, 217, 128, 18);
 		getContentPane().add(lblObsequioCantidad3);
 
@@ -92,16 +93,16 @@ public class DlgConfigurarObsequios extends JDialog implements ActionListener {
 		txtObsequioCantidad3.setText("" + frmPrincipal.obsequioCantidad3);
 
 		btnAceptar = new JButton("Aceptar");
-		btnAceptar.setBackground(new Color(143, 188, 143));
+		btnAceptar.setBackground(new Color(0, 153, 255));
 		btnAceptar.addActionListener(this);
-		btnAceptar.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAceptar.setBounds(296, 32, 109, 31);
 		getContentPane().add(btnAceptar);
 
 		btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBackground(new Color(143, 188, 143));
+		btnCancelar.setBackground(new Color(255, 153, 153));
 		btnCancelar.addActionListener(this);
-		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnCancelar.setBounds(296, 94, 109, 31);
 		getContentPane().add(btnCancelar);
 	}

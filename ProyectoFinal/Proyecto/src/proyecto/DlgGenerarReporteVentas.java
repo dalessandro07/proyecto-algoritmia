@@ -10,6 +10,8 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import java.awt.Color;
+import java.awt.Font;
 
 public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 	private JLabel lblTipoReporte;
@@ -40,10 +42,13 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 		getContentPane().setLayout(null);
 
 		lblTipoReporte = new JLabel("Tipo de reporte");
-		lblTipoReporte.setBounds(22, 24, 100, 14);
+		lblTipoReporte.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblTipoReporte.setBounds(22, 24, 103, 14);
 		getContentPane().add(lblTipoReporte);
 
 		cboTipoReporte = new JComboBox<String>();
+		cboTipoReporte.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		cboTipoReporte.setBackground(new Color(255, 255, 204));
 		cboTipoReporte.addActionListener(this);
 		cboTipoReporte.setModel(new DefaultComboBoxModel<String>(
 				new String[] { "Ventas por modelo", "Comparaci\u00F3n de precios con el precio promedio",
@@ -53,6 +58,8 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 		getContentPane().add(cboTipoReporte);
 
 		btnCerrar = new JButton("Cerrar");
+		btnCerrar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnCerrar.setBackground(new Color(255, 153, 153));
 		btnCerrar.addActionListener(this);
 		btnCerrar.setBounds(541, 20, 89, 23);
 		getContentPane().add(btnCerrar);

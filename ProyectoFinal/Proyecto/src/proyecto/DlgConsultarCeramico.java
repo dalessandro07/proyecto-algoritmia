@@ -57,82 +57,84 @@ public class DlgConsultarCeramico extends JDialog implements ActionListener {
 		contentPanel.setLayout(null);
 
 		lblModelo = new JLabel("Modelo:");
-		lblModelo.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblModelo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblModelo.setBounds(10, 31, 62, 13);
 		contentPanel.add(lblModelo);
 
 		cboModelo = new JComboBox<String>();
+		cboModelo.setBackground(new Color(255, 255, 204));
 		cboModelo.addActionListener(this);
-		cboModelo.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		cboModelo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		cboModelo.setModel(new DefaultComboBoxModel<String>(
 				new String[] { "Cinza Plus", "Luxury", "Austria", "Yungay Mix", "Thal\u00EDa" }));
 		cboModelo.setBounds(129, 27, 123, 21);
 		contentPanel.add(cboModelo);
 
 		lblPrecio = new JLabel("Precio (S/):");
-		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblPrecio.setBounds(10, 70, 86, 13);
 		contentPanel.add(lblPrecio);
 
 		txtPrecio = new JTextField();
 		txtPrecio.setEditable(false);
 		txtPrecio.setForeground(Color.BLACK);
-		txtPrecio.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		txtPrecio.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtPrecio.setBounds(129, 66, 123, 19);
 		contentPanel.add(txtPrecio);
 		txtPrecio.setColumns(10);
 
 		lblAncho = new JLabel("Ancho (cm):");
-		lblAncho.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblAncho.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblAncho.setBounds(10, 109, 94, 13);
 		contentPanel.add(lblAncho);
 
 		lblLargo = new JLabel("Largo (cm):");
-		lblLargo.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblLargo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblLargo.setBounds(10, 146, 86, 22);
 		contentPanel.add(lblLargo);
 
 		lblEspesor = new JLabel("Espesor (mm):");
-		lblEspesor.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblEspesor.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblEspesor.setBounds(10, 187, 117, 21);
 		contentPanel.add(lblEspesor);
 
 		lblContenido = new JLabel("Contenido:");
-		lblContenido.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblContenido.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblContenido.setBounds(10, 233, 86, 13);
 		contentPanel.add(lblContenido);
 
 		txtAncho = new JTextField();
 		txtAncho.setEditable(false);
-		txtAncho.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		txtAncho.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtAncho.setBounds(129, 105, 123, 19);
 		contentPanel.add(txtAncho);
 		txtAncho.setColumns(10);
 
 		txtLargo = new JTextField();
 		txtLargo.setEditable(false);
-		txtLargo.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		txtLargo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtLargo.setBounds(129, 147, 123, 19);
 		contentPanel.add(txtLargo);
 		txtLargo.setColumns(10);
 
 		txtEspesor = new JTextField();
 		txtEspesor.setEditable(false);
-		txtEspesor.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		txtEspesor.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtEspesor.setBounds(129, 187, 123, 19);
 		contentPanel.add(txtEspesor);
 		txtEspesor.setColumns(10);
 
 		txtContenido = new JTextField();
 		txtContenido.setEditable(false);
-		txtContenido.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		txtContenido.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtContenido.setBounds(129, 229, 123, 19);
 		contentPanel.add(txtContenido);
 		txtContenido.setColumns(10);
 
 		btnCerrar = new JButton("Cerrar");
+		btnCerrar.setBackground(new Color(0, 153, 255));
 		btnCerrar.addActionListener(this);
-		btnCerrar.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnCerrar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnCerrar.setBounds(311, 21, 104, 31);
 		contentPanel.add(btnCerrar);
 

@@ -15,6 +15,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import java.awt.Font;
 
 public class DlgVender extends JDialog implements ActionListener {
 
@@ -58,10 +60,13 @@ public class DlgVender extends JDialog implements ActionListener {
 		contentPanel.setLayout(null);
 
 		lblModelo = new JLabel("Modelo");
+		lblModelo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblModelo.setBounds(10, 25, 80, 14);
 		contentPanel.add(lblModelo);
 
 		cboModelo = new JComboBox<String>();
+		cboModelo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		cboModelo.setBackground(new Color(255, 255, 204));
 		cboModelo.addActionListener(this);
 		cboModelo.setModel(new DefaultComboBoxModel<String>(
 				new String[] { "Cinza Plus", "Luxury", "Austria", "Yungay Mix", "Thalia" }));
@@ -69,21 +74,27 @@ public class DlgVender extends JDialog implements ActionListener {
 		contentPanel.add(cboModelo);
 
 		lblPrecio = new JLabel("Precio (S/.)");
+		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblPrecio.setBounds(10, 50, 80, 14);
 		contentPanel.add(lblPrecio);
 
 		txtPrecio = new JTextField();
+		txtPrecio.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtPrecio.setEditable(false);
 		txtPrecio.setBounds(100, 47, 148, 20);
 		contentPanel.add(txtPrecio);
 		txtPrecio.setColumns(10);
 
 		btnProcesar = new JButton("Procesar");
+		btnProcesar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnProcesar.setBackground(new Color(255, 153, 153));
 		btnProcesar.addActionListener(this);
 		btnProcesar.setBounds(325, 21, 89, 23);
 		contentPanel.add(btnProcesar);
 
 		btnBorrar = new JButton("Borrar");
+		btnBorrar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnBorrar.setBackground(new Color(0, 153, 255));
 		btnBorrar.addActionListener(this);
 		btnBorrar.setBounds(325, 46, 89, 23);
 		contentPanel.add(btnBorrar);
@@ -92,20 +103,23 @@ public class DlgVender extends JDialog implements ActionListener {
 		scp.setBounds(10, 98, 404, 142);
 		contentPanel.add(scp);
 
-		txtS = new JTextArea();
-		txtS.setEditable(false);
-		scp.setViewportView(txtS);
-
 		lblCantidad = new JLabel("Cantidad");
+		lblCantidad.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblCantidad.setBounds(10, 73, 80, 14);
 		contentPanel.add(lblCantidad);
 
 		txtCantidad = new JTextField();
+		txtCantidad.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtCantidad.setBounds(100, 70, 148, 20);
 		contentPanel.add(txtCantidad);
 		txtCantidad.setColumns(10);
 
 		txtPrecio.setText("" + frmPrincipal.precio0);
+		
+				txtS = new JTextArea();
+				txtS.setBounds(12, 99, 402, 140);
+				contentPanel.add(txtS);
+				txtS.setEditable(false);
 	}
 
 	public void actionPerformed(ActionEvent e) {
