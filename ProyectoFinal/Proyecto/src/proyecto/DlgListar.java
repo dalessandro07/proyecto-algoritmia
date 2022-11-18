@@ -92,40 +92,40 @@ public class DlgListar extends JDialog implements ActionListener {
 
 	protected void actionPerformedBtnListar(ActionEvent e) {
 		txtS.setText("Listado de Ceramicos \n\n");
-		txtS.append("Modelo : " + frmPrincipal.modelo0 + "\n");
-		txtS.append("Precio : " + frmPrincipal.precio0 + "\n");
-		txtS.append("Ancho (cm) : " + frmPrincipal.ancho0 + " cm" + "\n");
-		txtS.append("Largo (cm) : " + frmPrincipal.largo0 + " cm" + "\n");
-		txtS.append("Espesor (mm) : " + frmPrincipal.espesor0 + " mm" + "\n");
-		txtS.append("Contenido : " + frmPrincipal.contenido0 + " unidades" + "\n\n");
 
-		txtS.append("Modelo : " + frmPrincipal.modelo1 + "\n");
-		txtS.append("Precio : " + frmPrincipal.precio1 + "\n");
-		txtS.append("Ancho (cm) : " + frmPrincipal.ancho1 + " cm" + "\n");
-		txtS.append("Largo (cm) : " + frmPrincipal.largo1 + " cm" + "\n");
-		txtS.append("Espesor (mm) : " + frmPrincipal.espesor1 + " mm" + "\n");
-		txtS.append("Contenido : " + frmPrincipal.contenido1 + " unidades" + "\n\n");
+		frmPrincipal.imprimir("Modelo : " + frmPrincipal.modelo0, txtS);
+		frmPrincipal.imprimir("Precio : " + frmPrincipal.precio0, txtS);
+		frmPrincipal.imprimir("Ancho (cm) : " + frmPrincipal.ancho0 + " cm", txtS);
+		frmPrincipal.imprimir("Largo (cm) : " + frmPrincipal.largo0 + " cm", txtS);
+		frmPrincipal.imprimir("Espesor (mm) : " + frmPrincipal.espesor0 + " mm", txtS);
+		frmPrincipal.imprimir("Contenido : " + frmPrincipal.contenido0 + " unidades" + "\n", txtS);
 
-		txtS.append("Modelo : " + frmPrincipal.modelo2 + "\n");
-		txtS.append("Precio : " + frmPrincipal.precio2 + "\n");
-		txtS.append("Ancho (cm) : " + frmPrincipal.ancho2 + " cm" + "\n");
-		txtS.append("Largo (cm) : " + frmPrincipal.largo2 + " cm" + "\n");
-		txtS.append("Espesor (mm) : " + frmPrincipal.espesor2 + " mm" + "\n");
-		txtS.append("Contenido : " + frmPrincipal.contenido2 + " unidades" + "\n\n");
+		frmPrincipal.imprimir("Modelo : " + frmPrincipal.modelo1, txtS);
+		frmPrincipal.imprimir("Precio : " + frmPrincipal.precio1, txtS);
+		frmPrincipal.imprimir("Ancho (cm) : " + frmPrincipal.ancho1 + " cm", txtS);
+		frmPrincipal.imprimir("Largo (cm) : " + frmPrincipal.largo1 + " cm", txtS);
+		frmPrincipal.imprimir("Espesor (mm) : " + frmPrincipal.espesor1 + " mm", txtS);
+		frmPrincipal.imprimir("Contenido : " + frmPrincipal.contenido1 + " unidades" + "\n", txtS);
 
-		txtS.append("Modelo : " + frmPrincipal.modelo3 + "\n");
-		txtS.append("Precio : " + frmPrincipal.precio3 + "\n");
-		txtS.append("Ancho (cm) : " + frmPrincipal.ancho3 + " cm" + "\n");
-		txtS.append("Largo (cm) : " + frmPrincipal.largo3 + " cm" + "\n");
-		txtS.append("Espesor (mm) : " + frmPrincipal.espesor3 + " mm" + "\n");
-		txtS.append("Contenido : " + frmPrincipal.contenido3 + " unidades" + "\n\n");
+		frmPrincipal.imprimir("Modelo : " + frmPrincipal.modelo2, txtS);
+		frmPrincipal.imprimir("Precio : " + frmPrincipal.precio2, txtS);
+		frmPrincipal.imprimir("Ancho (cm) : " + frmPrincipal.ancho2 + " cm", txtS);
+		frmPrincipal.imprimir("Largo (cm) : " + frmPrincipal.largo2 + " cm", txtS);
+		frmPrincipal.imprimir("Espesor (mm) : " + frmPrincipal.espesor2 + " mm", txtS);
+		frmPrincipal.imprimir("Contenido : " + frmPrincipal.contenido2 + " unidades" + "\n", txtS);
 
-		txtS.append("Modelo : " + frmPrincipal.modelo4 + "\n");
-		txtS.append("Precio : " + frmPrincipal.precio4 + "\n");
-		txtS.append("Ancho (cm) : " + frmPrincipal.ancho4 + " cm" + "\n");
-		txtS.append("Largo (cm) : " + frmPrincipal.largo4 + " cm" + "\n");
-		txtS.append("Espesor (mm) : " + frmPrincipal.espesor4 + " mm" + "\n");
-		txtS.append("Contenido : " + frmPrincipal.contenido4 + " unidades" + "\n\n");
+		frmPrincipal.imprimir("Modelo : " + frmPrincipal.modelo3, txtS);
+		frmPrincipal.imprimir("Precio : " + frmPrincipal.precio3, txtS);
+		frmPrincipal.imprimir("Ancho (cm) : " + frmPrincipal.ancho3 + " cm", txtS);
+		frmPrincipal.imprimir("Largo (cm) : " + frmPrincipal.largo3 + " cm", txtS);
+		frmPrincipal.imprimir("Espesor (mm) : " + frmPrincipal.espesor3 + " mm", txtS);
+		frmPrincipal.imprimir("Contenido : " + frmPrincipal.contenido3 + " unidades" + "\n", txtS);
 
+		frmPrincipal.imprimir("Modelo : " + frmPrincipal.modelo4, txtS);
+		frmPrincipal.imprimir("Precio : " + frmPrincipal.precio4, txtS);
+		frmPrincipal.imprimir("Ancho (cm) : " + frmPrincipal.ancho4 + " cm", txtS);
+		frmPrincipal.imprimir("Largo (cm) : " + frmPrincipal.largo4 + " cm", txtS);
+		frmPrincipal.imprimir("Espesor (mm) : " + frmPrincipal.espesor4 + " mm", txtS);
+		frmPrincipal.imprimir("Contenido : " + frmPrincipal.contenido4 + " unidades", txtS);
 	}
 }

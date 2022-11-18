@@ -63,6 +63,8 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 
 		txtS = new JTextArea();
 		scp.setViewportView(txtS);
+
+		reporteVentasModelo();
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -80,14 +82,15 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 
 	protected void actionPerformedCboTipoReporte(ActionEvent e) {
 
-		// TODO: Falta completar
-
 		int tipoReporte;
 
 		tipoReporte = cboTipoReporte.getSelectedIndex();
 
+		// Mostrar reportes
+
 		switch (tipoReporte) {
 		case 0:
+			reporteVentasModelo();
 			break;
 		case 1:
 			break;
@@ -97,6 +100,42 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 			break;
 
 		}
+	}
+
+	// Método - Calcular y mostrar reporte de ventas por modelo
+	void reporteVentasModelo() {
+		// Mostrando ventas por modelo
+		txtS.setText("VENTAS POR MODELO \n\n");
+
+		// Mostrando reporte del primer modelo
+		imprimirReporte(frmPrincipal.modelo0, frmPrincipal.cantVentas0, frmPrincipal.unidades0,
+				frmPrincipal.montoTotal0);
+
+		// Mostrando reporte del segundo modelo
+		imprimirReporte(frmPrincipal.modelo1, frmPrincipal.cantVentas1, frmPrincipal.unidades1,
+				frmPrincipal.montoTotal1);
+
+		// Mostrando reporte del tercer modelo
+		imprimirReporte(frmPrincipal.modelo2, frmPrincipal.cantVentas2, frmPrincipal.unidades2,
+				frmPrincipal.montoTotal2);
+
+		// Mostrando reporte del cuarto modelo
+		imprimirReporte(frmPrincipal.modelo3, frmPrincipal.cantVentas3, frmPrincipal.unidades3,
+				frmPrincipal.montoTotal3);
+
+		// Mostrando reporte del quinto modelo
+		imprimirReporte(frmPrincipal.modelo4, frmPrincipal.cantVentas4, frmPrincipal.unidades4,
+				frmPrincipal.montoTotal4);
+	}
+
+	// Método - Imprimir reporte de ventas por modelo
+	void imprimirReporte(String modelo, int cantVentas, int unidades, double montoTotal) {
+		frmPrincipal.imprimir("Modelo \t\t:" + modelo, txtS);
+		frmPrincipal.imprimir("Cantidad de ventas \t:" + cantVentas, txtS);
+		frmPrincipal.imprimir("Cantidad de cajas vendidas \t:" + unidades, txtS);
+		frmPrincipal.imprimir("Importe total vendido \t:" + montoTotal, txtS);
+		frmPrincipal.imprimir("Aporte a la cuota diaria \t:" + montoTotal * 100 / frmPrincipal.cuotaDiaria + "%\n",
+				txtS);
 	}
 
 }
