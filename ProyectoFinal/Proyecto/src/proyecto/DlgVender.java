@@ -32,7 +32,9 @@ public class DlgVender extends JDialog implements ActionListener {
 	private JLabel lblCantidad;
 	private JTextField txtCantidad;
 
-	public int contador = 0;
+	// Variables contador, cantidad vendida y total acumulado
+	public int contadorCant = 0;
+	public int cantVendida = 0;
 	public double totalImportes = 0;
 
 	/**
@@ -139,6 +141,8 @@ public class DlgVender extends JDialog implements ActionListener {
 
 		modelo = cboModelo.getSelectedIndex();
 
+		cantVendida = 0;
+
 		switch (modelo) {
 		case 0:
 			txtPrecio.setText("" + frmPrincipal.precio0);
@@ -160,24 +164,26 @@ public class DlgVender extends JDialog implements ActionListener {
 	}
 
 	protected void actionPerformedBtnProcesar(ActionEvent e) {
-		contador++;
+		contadorCant++;
+		cantVendida++;
 
 		// Declaración de variables
 		int cantidad = 0, canobsequio;
 		double impD, impC, impP, precio;
-		String modelo1, tipo;
+		String modelo, tipo;
 
 		// Validación de campo cantidad
 		if (validarNumeros(txtCantidad.getText().trim())) {
 			cantidad = Integer.parseInt(txtCantidad.getText());
 		} else {
-			mostrarAlerta("Sólo se puede ingresar números", "Datos inválidos", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Sólo se puede ingresar números", "Datos inválidos",
+					JOptionPane.WARNING_MESSAGE);
 			actionPerformedBtnBorrar(e);
 			return;
 		}
 
 		// Lectura de datos
-		modelo1 = "" + cboModelo.getSelectedItem();
+		modelo = "" + cboModelo.getSelectedItem();
 		precio = Double.parseDouble(txtPrecio.getText());
 		tipo = frmPrincipal.tipoObsequio;
 
@@ -197,28 +203,13 @@ public class DlgVender extends JDialog implements ActionListener {
 		canobsequio = calcularObsequio(cantidad);
 
 		// Salida de resultados
-		txtS.setText("Boleta de Venta \n\n");
-		imprimir("Modelo\t\t: " + modelo1);
-		imprimir("Precio\t\t: S/." + precio);
-		imprimir("Cantidad Adquirida\t: " + cantidad);
-		imprimir("Importe de Compra\t: S/." + impC);
-		imprimir("Importe de Descuento\t: S/." + impD);
-		imprimir("Importe a Pagar\t: S/." + impP);
-		imprimir("Tipo de obsequio\t: " + tipo);
-		imprimir("Unidades obsequiadas\t: " + canobsequio);
+		mostrarResultados(modelo, precio, cantidad, impC, impD, impP, tipo, canobsequio);
 
 		// Mensaje de alerta
-		if (contador % 5 == 0) {
-			String mensaje, titulo;
-			double porcentaje;
+		mostrarAlerta();
 
-			porcentaje = totalImportes * 100 / frmPrincipal.cuotaDiaria;
-			mensaje = "Venta Nro. " + contador + "\n" + "Importe total general acumulado: S/. " + totalImportes + "\n"
-					+ "Porcentaje de la cuota diaria: " + porcentaje + "%";
-			titulo = "Avance de ventas";
-
-			mostrarAlerta(mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
-		}
+		// Sumando al total de ventas por modelo
+		registrarVentasModelo(impP, cantidad);
 
 	}
 
@@ -272,14 +263,67 @@ public class DlgVender extends JDialog implements ActionListener {
 			return cantidad * frmPrincipal.obsequioCantidad3;
 	}
 
-	// Método - Mostrar resultados
-	void imprimir(String texto) {
-		txtS.append(texto + "\n");
+	// Método - Mostrar boleta de venta
+	void mostrarResultados(String modelo, double precio, int cantidad, double impC, double impD, double impP,
+			String tipo, int canobsequio) {
+		txtS.setText("Boleta de Venta \n\n");
+
+		frmPrincipal.imprimir("Modelo\t\t: " + modelo, txtS);
+		frmPrincipal.imprimir("Precio\t\t: S/." + precio, txtS);
+		frmPrincipal.imprimir("Cantidad Adquirida\t: " + cantidad, txtS);
+		frmPrincipal.imprimir("Importe de Compra\t: S/." + impC, txtS);
+		frmPrincipal.imprimir("Importe de Descuento\t: S/." + impD, txtS);
+		frmPrincipal.imprimir("Importe a Pagar\t: S/." + impP, txtS);
+		frmPrincipal.imprimir("Tipo de obsequio\t: " + tipo, txtS);
+		frmPrincipal.imprimir("Unidades obsequiadas\t: " + canobsequio, txtS);
 	}
 
 	// Método - Mostrar alerta
-	void mostrarAlerta(String mensaje, String titulo, int icono) {
-		JOptionPane.showMessageDialog(this, mensaje, titulo, icono);
+	void mostrarAlerta() {
+		if (contadorCant % 5 == 0) {
+			String mensaje, titulo;
+			double porcentaje;
+
+			porcentaje = totalImportes * 100 / frmPrincipal.cuotaDiaria;
+
+			mensaje = "Venta Nro. " + contadorCant + "\n" + "Importe total general acumulado: S/. " + totalImportes
+					+ "\n" + "Porcentaje de la cuota diaria: " + porcentaje + "%";
+
+			titulo = "Avance de ventas";
+
+			JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
+		}
+	}
+
+	// Método - Registrando ventas
+	void registrarVentasModelo(double impP, int cantidad) {
+		switch (cboModelo.getSelectedIndex()) {
+		case 0:
+			frmPrincipal.montoTotal0 += impP;
+			frmPrincipal.cantVentas0 = cantVendida;
+			frmPrincipal.unidades0 += cantidad;
+			break;
+		case 1:
+			frmPrincipal.montoTotal1 += impP;
+			frmPrincipal.cantVentas1 = cantVendida;
+			frmPrincipal.unidades1 += cantidad;
+			break;
+		case 2:
+			frmPrincipal.montoTotal2 += impP;
+			frmPrincipal.cantVentas2 = cantVendida;
+			frmPrincipal.unidades2 += cantidad;
+			break;
+		case 3:
+			frmPrincipal.montoTotal3 += impP;
+			frmPrincipal.cantVentas3 = cantVendida;
+			frmPrincipal.unidades3 += cantidad;
+			break;
+		default:
+			frmPrincipal.montoTotal4 += impP;
+			frmPrincipal.cantVentas4 = cantVendida;
+			frmPrincipal.unidades4 += cantidad;
+			break;
+		}
 	}
 
 	// Método - Validar números

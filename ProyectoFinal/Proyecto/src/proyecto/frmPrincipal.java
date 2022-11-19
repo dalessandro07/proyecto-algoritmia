@@ -10,6 +10,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import java.awt.Font;
 
@@ -91,6 +92,38 @@ public class frmPrincipal extends JFrame implements ActionListener {
 
 	// Cuota diaria
 	public static double cuotaDiaria = 30000;
+
+	// Ventas por modelo
+
+	// Monto total y unidades vendidas del primer producto
+	public static double montoTotal0 = 0;
+	public static int cantVentas0 = 0;
+	public static int unidades0 = 0;
+
+	// Monto total y unidades vendidas del segundo producto
+	public static double montoTotal1 = 0;
+	public static int cantVentas1 = 0;
+	public static int unidades1 = 0;
+
+	// Monto total y unidades vendidas del tercer producto
+	public static double montoTotal2 = 0;
+	public static int cantVentas2 = 0;
+	public static int unidades2 = 0;
+
+	// Monto total y unidades vendidas del cuarto producto
+	public static double montoTotal3 = 0;
+	public static int cantVentas3 = 0;
+	public static int unidades3 = 0;
+
+	// Monto total y unidades vendidas del quinto producto
+	public static double montoTotal4 = 0;
+	public static int cantVentas4 = 0;
+	public static int unidades4 = 0;
+
+	// Método - Imprimir texto en un JTextArea
+	public static void imprimir(String texto, JTextArea txtS) {
+		txtS.append(texto + "\n");
+	}
 
 	/**
 	 * Launch the application.
