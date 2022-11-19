@@ -63,7 +63,7 @@ public class DlgAcercaDeTienda extends JDialog implements ActionListener {
 		contentPanel.add(lblTienda);
 
 		btnCerrar = new JButton("Cerrar");
-		btnCerrar.setBackground(new Color(0, 153, 255));
+		btnCerrar.setBackground(new Color(255, 153, 153));
 		btnCerrar.setForeground(Color.BLACK);
 		btnCerrar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnCerrar.addActionListener(this);

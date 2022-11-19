@@ -87,14 +87,14 @@ public class DlgVender extends JDialog implements ActionListener {
 
 		btnProcesar = new JButton("Procesar");
 		btnProcesar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnProcesar.setBackground(new Color(255, 153, 153));
+		btnProcesar.setBackground(new Color(0, 153, 255));
 		btnProcesar.addActionListener(this);
 		btnProcesar.setBounds(325, 21, 89, 23);
 		contentPanel.add(btnProcesar);
 
 		btnBorrar = new JButton("Borrar");
 		btnBorrar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnBorrar.setBackground(new Color(0, 153, 255));
+		btnBorrar.setBackground(new Color(255, 153, 153));
 		btnBorrar.addActionListener(this);
 		btnBorrar.setBounds(325, 46, 89, 23);
 		contentPanel.add(btnBorrar);

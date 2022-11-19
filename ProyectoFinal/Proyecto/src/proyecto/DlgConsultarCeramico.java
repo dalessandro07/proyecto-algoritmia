@@ -132,7 +132,7 @@ public class DlgConsultarCeramico extends JDialog implements ActionListener {
 		txtContenido.setColumns(10);
 
 		btnCerrar = new JButton("Cerrar");
-		btnCerrar.setBackground(new Color(0, 153, 255));
+		btnCerrar.setBackground(new Color(255, 153, 153));
 		btnCerrar.addActionListener(this);
 		btnCerrar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnCerrar.setBounds(311, 21, 104, 31);
