@@ -1,6 +1,8 @@
 package proyecto;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,8 +11,6 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import java.awt.Color;
-import java.awt.Font;
 
 public class DlgConfigurarCuotaDiaria extends JDialog implements ActionListener {
 	private JLabel lblCuotaDiaria;
@@ -45,12 +45,12 @@ public class DlgConfigurarCuotaDiaria extends JDialog implements ActionListener 
 
 		lblCuotaDiaria = new JLabel("Cuota diaria esperada (S/.)");
 		lblCuotaDiaria.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCuotaDiaria.setBounds(10, 26, 169, 14);
+		lblCuotaDiaria.setBounds(10, 26, 170, 14);
 		getContentPane().add(lblCuotaDiaria);
 
 		txtCuotaDiaria = new JTextField();
 		txtCuotaDiaria.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtCuotaDiaria.setBounds(189, 23, 126, 20);
+		txtCuotaDiaria.setBounds(190, 23, 126, 20);
 		getContentPane().add(txtCuotaDiaria);
 		txtCuotaDiaria.setColumns(10);
 		txtCuotaDiaria.setText("" + frmPrincipal.cuotaDiaria);

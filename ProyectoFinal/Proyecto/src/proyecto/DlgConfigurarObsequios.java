@@ -160,7 +160,8 @@ public class DlgConfigurarObsequios extends JDialog implements ActionListener, K
 			getToolkit().beep();
 			e.consume();
 
-			JOptionPane.showMessageDialog(rootPane, "Por favor, ingresar solo letras ¡Gracias!");
+			JOptionPane.showMessageDialog(this, "Por favor, ingresar solo letras ¡Gracias!", "Datos inválidos",
+					JOptionPane.WARNING_MESSAGE);
 		}
 	}
 
@@ -173,7 +174,7 @@ public class DlgConfigurarObsequios extends JDialog implements ActionListener, K
 			getToolkit().beep();
 			e.consume();
 
-			JOptionPane.showMessageDialog(rootPane, "Por favor, ingresar solo numeros ¡Gracias!");
+			mostrarAlerta();
 		}
 	}
 
@@ -186,7 +187,7 @@ public class DlgConfigurarObsequios extends JDialog implements ActionListener, K
 			getToolkit().beep();
 			e.consume();
 
-			JOptionPane.showMessageDialog(rootPane, "Por favor, ingresar solo numeros ¡Gracias!");
+			mostrarAlerta();
 		}
 	}
 
@@ -197,19 +198,18 @@ public class DlgConfigurarObsequios extends JDialog implements ActionListener, K
 			getToolkit().beep();
 			e.consume();
 
-			JOptionPane.showMessageDialog(rootPane, "Por favor, ingresar solo numeros ¡Gracias!");
+			mostrarAlerta();
 		}
 	}
 
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-
+	void mostrarAlerta() {
+		JOptionPane.showMessageDialog(this, "Por favor, ingresar solo numeros ¡Gracias!", "Datos inválidos",
+				JOptionPane.WARNING_MESSAGE);
 	}
 
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
+	public void keyPressed(KeyEvent e) {
+	}
 
+	public void keyReleased(KeyEvent e) {
 	}
 }
