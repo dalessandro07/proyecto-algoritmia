@@ -295,28 +295,28 @@ public class DlgVender extends JDialog implements ActionListener {
 		switch (cboModelo.getSelectedIndex()) {
 		case 0:
 			frmPrincipal.montoTotal0 += impP;
-			frmPrincipal.cantVentas0++;
 			frmPrincipal.unidades0 += cantidad;
+			frmPrincipal.cantVentas0++;
 			break;
 		case 1:
 			frmPrincipal.montoTotal1 += impP;
-			frmPrincipal.cantVentas1++;
 			frmPrincipal.unidades1 += cantidad;
+			frmPrincipal.cantVentas1++;
 			break;
 		case 2:
 			frmPrincipal.montoTotal2 += impP;
-			frmPrincipal.cantVentas2++;
 			frmPrincipal.unidades2 += cantidad;
+			frmPrincipal.cantVentas2++;
 			break;
 		case 3:
 			frmPrincipal.montoTotal3 += impP;
-			frmPrincipal.cantVentas3++;
 			frmPrincipal.unidades3 += cantidad;
+			frmPrincipal.cantVentas3++;
 			break;
 		default:
 			frmPrincipal.montoTotal4 += impP;
-			frmPrincipal.cantVentas4++;
 			frmPrincipal.unidades4 += cantidad;
+			frmPrincipal.cantVentas4++;
 			break;
 		}
 	}
