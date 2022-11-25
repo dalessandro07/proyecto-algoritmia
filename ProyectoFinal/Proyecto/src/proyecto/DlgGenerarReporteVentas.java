@@ -1,5 +1,7 @@
 package proyecto;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,8 +12,6 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import java.awt.Color;
-import java.awt.Font;
 
 public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 	private JLabel lblTipoReporte;
@@ -137,11 +137,11 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 
 	// Método - Imprimir reporte de ventas por modelo
 	void imprimirReporte(String modelo, int cantVentas, int unidades, double montoTotal) {
-		frmPrincipal.imprimir("Modelo \t\t:" + modelo, txtS);
-		frmPrincipal.imprimir("Cantidad de ventas \t:" + cantVentas, txtS);
-		frmPrincipal.imprimir("Cantidad de cajas vendidas \t:" + unidades, txtS);
-		frmPrincipal.imprimir("Importe total vendido \t:" + montoTotal, txtS);
-		frmPrincipal.imprimir("Aporte a la cuota diaria \t:" + montoTotal * 100 / frmPrincipal.cuotaDiaria + "%\n",
+		frmPrincipal.imprimir("Modelo \t\t: " + modelo, txtS);
+		frmPrincipal.imprimir("Cantidad de ventas \t: " + cantVentas, txtS);
+		frmPrincipal.imprimir("Cantidad de cajas vendidas \t: " + unidades, txtS);
+		frmPrincipal.imprimir("Importe total vendido \t: " + montoTotal, txtS);
+		frmPrincipal.imprimir("Aporte a la cuota diaria \t: " + montoTotal * 100 / frmPrincipal.cuotaDiaria + "%\n",
 				txtS);
 	}
 

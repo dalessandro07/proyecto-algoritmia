@@ -1,6 +1,8 @@
 package proyecto;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,8 +17,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import java.awt.Color;
-import java.awt.Font;
 
 public class DlgVender extends JDialog implements ActionListener {
 
@@ -28,14 +28,13 @@ public class DlgVender extends JDialog implements ActionListener {
 	private JButton btnProcesar;
 	private JButton btnBorrar;
 	private JScrollPane scp;
-	private JTextArea txtS;
 	private JLabel lblCantidad;
 	private JTextField txtCantidad;
 
 	// Variables contador, cantidad vendida y total acumulado
 	public int contadorCant = 0;
-	public int cantVendida = 0;
 	public double totalImportes = 0;
+	private JTextArea txtS;
 
 	/**
 	 * Launch the application.
@@ -105,6 +104,9 @@ public class DlgVender extends JDialog implements ActionListener {
 		scp.setBounds(10, 98, 404, 142);
 		contentPanel.add(scp);
 
+		txtS = new JTextArea();
+		scp.setViewportView(txtS);
+
 		lblCantidad = new JLabel("Cantidad");
 		lblCantidad.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblCantidad.setBounds(10, 73, 80, 14);
@@ -117,11 +119,6 @@ public class DlgVender extends JDialog implements ActionListener {
 		txtCantidad.setColumns(10);
 
 		txtPrecio.setText("" + frmPrincipal.precio0);
-		
-				txtS = new JTextArea();
-				txtS.setBounds(12, 99, 402, 140);
-				contentPanel.add(txtS);
-				txtS.setEditable(false);
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -140,8 +137,6 @@ public class DlgVender extends JDialog implements ActionListener {
 		int modelo;
 
 		modelo = cboModelo.getSelectedIndex();
-
-		cantVendida = 0;
 
 		switch (modelo) {
 		case 0:
@@ -165,7 +160,6 @@ public class DlgVender extends JDialog implements ActionListener {
 
 	protected void actionPerformedBtnProcesar(ActionEvent e) {
 		contadorCant++;
-		cantVendida++;
 
 		// Declaración de variables
 		int cantidad = 0, canobsequio;
@@ -266,6 +260,7 @@ public class DlgVender extends JDialog implements ActionListener {
 	// Método - Mostrar boleta de venta
 	void mostrarResultados(String modelo, double precio, int cantidad, double impC, double impD, double impP,
 			String tipo, int canobsequio) {
+
 		txtS.setText("Boleta de Venta \n\n");
 
 		frmPrincipal.imprimir("Modelo\t\t: " + modelo, txtS);
@@ -300,27 +295,27 @@ public class DlgVender extends JDialog implements ActionListener {
 		switch (cboModelo.getSelectedIndex()) {
 		case 0:
 			frmPrincipal.montoTotal0 += impP;
-			frmPrincipal.cantVentas0 = cantVendida;
+			frmPrincipal.cantVentas0++;
 			frmPrincipal.unidades0 += cantidad;
 			break;
 		case 1:
 			frmPrincipal.montoTotal1 += impP;
-			frmPrincipal.cantVentas1 = cantVendida;
+			frmPrincipal.cantVentas1++;
 			frmPrincipal.unidades1 += cantidad;
 			break;
 		case 2:
 			frmPrincipal.montoTotal2 += impP;
-			frmPrincipal.cantVentas2 = cantVendida;
+			frmPrincipal.cantVentas2++;
 			frmPrincipal.unidades2 += cantidad;
 			break;
 		case 3:
 			frmPrincipal.montoTotal3 += impP;
-			frmPrincipal.cantVentas3 = cantVendida;
+			frmPrincipal.cantVentas3++;
 			frmPrincipal.unidades3 += cantidad;
 			break;
 		default:
 			frmPrincipal.montoTotal4 += impP;
-			frmPrincipal.cantVentas4 = cantVendida;
+			frmPrincipal.cantVentas4++;
 			frmPrincipal.unidades4 += cantidad;
 			break;
 		}
