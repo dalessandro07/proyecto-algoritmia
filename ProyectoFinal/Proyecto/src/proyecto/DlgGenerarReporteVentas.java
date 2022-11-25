@@ -71,7 +71,7 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 		txtS = new JTextArea();
 		scp.setViewportView(txtS);
 
-		reporteVentasModelo();
+		generarReporteModelo();
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -97,7 +97,7 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 
 		switch (tipoReporte) {
 		case 0:
-			reporteVentasModelo();
+			generarReporteModelo();
 			break;
 		case 1:
 			break;
@@ -110,7 +110,8 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 	}
 
 	// Método - Calcular y mostrar reporte de ventas por modelo
-	void reporteVentasModelo() {
+	void generarReporteModelo() {
+
 		// Mostrando ventas por modelo
 		txtS.setText("VENTAS POR MODELO \n\n");
 
@@ -137,12 +138,35 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 
 	// Método - Imprimir reporte de ventas por modelo
 	void imprimirReporte(String modelo, int cantVentas, int unidades, double montoTotal) {
+
+		double aporteCuota = montoTotal * 100 / frmPrincipal.cuotaDiaria;
+
 		frmPrincipal.imprimir("Modelo \t\t: " + modelo, txtS);
 		frmPrincipal.imprimir("Cantidad de ventas \t: " + cantVentas, txtS);
 		frmPrincipal.imprimir("Cantidad de cajas vendidas \t: " + unidades, txtS);
 		frmPrincipal.imprimir("Importe total vendido \t: " + montoTotal, txtS);
-		frmPrincipal.imprimir("Aporte a la cuota diaria \t: " + montoTotal * 100 / frmPrincipal.cuotaDiaria + "%\n",
-				txtS);
+		frmPrincipal.imprimir("Aporte a la cuota diaria \t: " + aporteCuota + "%\n", txtS);
+	}
+
+	// Método - Calcular y mostrar comparación de precios con el precio promedio
+	void mostrarComparacionPromedio() {
+
+		// Cálculo del precio promedio
+
+		double precioProm;
+
+		precioProm = (frmPrincipal.precio0 + frmPrincipal.precio1 + frmPrincipal.precio2 + frmPrincipal.precio3
+				+ frmPrincipal.precio4) / 5;
+
+		// Salida de resultados
+
+		txtS.setText("COMPARACIÓN DE PRECIOS CON EL PRECIO PROMEDIO \n\n");
+
+		frmPrincipal.imprimir("Modelo \t\t: " + frmPrincipal.modelo0, txtS);
+		frmPrincipal.imprimir("Precio \t\t: " + frmPrincipal.precio0, txtS);
+		frmPrincipal.imprimir("Precio promedio \t: " + precioProm, txtS);
+		frmPrincipal.imprimir("Comparación \t\t: " + (frmPrincipal.precio0 - precioProm), txtS);
+
 	}
 
 }
