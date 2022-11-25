@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.awt.Color;
+import java.awt.Font;
 
 public class DlgConfigurarCantidadOptima extends JDialog implements ActionListener {
 	private JLabel lblCantOpt;
@@ -36,26 +38,33 @@ public class DlgConfigurarCantidadOptima extends JDialog implements ActionListen
 	 * Create the dialog.
 	 */
 	public DlgConfigurarCantidadOptima() {
+		getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 14));
 		setTitle("Configurar cantidad \u00F3ptima");
 		setBounds(100, 100, 495, 120);
 		getContentPane().setLayout(null);
 
 		lblCantOpt = new JLabel("Cantidad \u00F3ptima de unidades vendidas");
-		lblCantOpt.setBounds(10, 15, 231, 14);
+		lblCantOpt.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCantOpt.setBounds(10, 15, 241, 14);
 		getContentPane().add(lblCantOpt);
 
 		txtCantOpt = new JTextField();
-		txtCantOpt.setBounds(239, 12, 77, 20);
+		txtCantOpt.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtCantOpt.setBounds(261, 12, 77, 20);
 		getContentPane().add(txtCantOpt);
 		txtCantOpt.setColumns(10);
 		txtCantOpt.setText("" + frmPrincipal.cantidadOptima);
 
 		btnAceptar = new JButton("Aceptar");
+		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnAceptar.setBackground(new Color(0, 153, 255));
 		btnAceptar.addActionListener(this);
 		btnAceptar.setBounds(380, 11, 89, 23);
 		getContentPane().add(btnAceptar);
 
 		btnCancelar = new JButton("Cancelar");
+		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnCancelar.setBackground(new Color(255, 153, 153));
 		btnCancelar.addActionListener(this);
 		btnCancelar.setBounds(380, 45, 89, 23);
 		getContentPane().add(btnCancelar);

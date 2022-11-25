@@ -1,6 +1,7 @@
 package proyecto;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -20,15 +22,19 @@ public class DlgVender extends JDialog implements ActionListener {
 
 	private final JPanel contentPanel = new JPanel();
 	private JLabel lblModelo;
-	private JComboBox cboModelo;
+	private JComboBox<String> cboModelo;
 	private JLabel lblPrecio;
 	private JTextField txtPrecio;
 	private JButton btnProcesar;
 	private JButton btnBorrar;
-	private JScrollPane scrollPane;
-	private JTextArea txtS;
+	private JScrollPane scp;
 	private JLabel lblCantidad;
 	private JTextField txtCantidad;
+
+	// Variables contador, cantidad vendida y total acumulado
+	public int contadorCant = 0;
+	public double totalImportes = 0;
+	private JTextArea txtS;
 
 	/**
 	 * Launch the application.
@@ -55,57 +61,64 @@ public class DlgVender extends JDialog implements ActionListener {
 		contentPanel.setLayout(null);
 
 		lblModelo = new JLabel("Modelo");
-		lblModelo.setBounds(10, 25, 49, 14);
+		lblModelo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblModelo.setBounds(10, 25, 80, 14);
 		contentPanel.add(lblModelo);
 
-		cboModelo = new JComboBox();
+		cboModelo = new JComboBox<String>();
+		cboModelo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		cboModelo.setBackground(new Color(255, 255, 204));
 		cboModelo.addActionListener(this);
-		cboModelo.setModel(
-				new DefaultComboBoxModel(new String[] { "Cinza Plus", "Luxury", "Austria", "Yungay Mix", "Thalia" }));
+		cboModelo.setModel(new DefaultComboBoxModel<String>(
+				new String[] { "Cinza Plus", "Luxury", "Austria", "Yungay Mix", "Thalia" }));
 		cboModelo.setBounds(100, 21, 148, 22);
 		contentPanel.add(cboModelo);
 
 		lblPrecio = new JLabel("Precio (S/.)");
+		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblPrecio.setBounds(10, 50, 80, 14);
 		contentPanel.add(lblPrecio);
 
 		txtPrecio = new JTextField();
+		txtPrecio.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtPrecio.setEditable(false);
 		txtPrecio.setBounds(100, 47, 148, 20);
 		contentPanel.add(txtPrecio);
 		txtPrecio.setColumns(10);
 
 		btnProcesar = new JButton("Procesar");
+		btnProcesar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnProcesar.setBackground(new Color(0, 153, 255));
 		btnProcesar.addActionListener(this);
 		btnProcesar.setBounds(325, 21, 89, 23);
 		contentPanel.add(btnProcesar);
-		{
-			btnBorrar = new JButton("Borrar");
-			btnBorrar.addActionListener(this);
-			btnBorrar.setBounds(325, 46, 89, 23);
-			contentPanel.add(btnBorrar);
-		}
-		{
-			scrollPane = new JScrollPane();
-			scrollPane.setBounds(10, 98, 404, 142);
-			contentPanel.add(scrollPane);
-			{
-				txtS = new JTextArea();
-				txtS.setFont(new Font("Monospaced", Font.PLAIN, 15));
-				scrollPane.setViewportView(txtS);
-			}
-		}
-		{
-			lblCantidad = new JLabel("Cantidad");
-			lblCantidad.setBounds(10, 73, 49, 14);
-			contentPanel.add(lblCantidad);
-		}
-		{
-			txtCantidad = new JTextField();
-			txtCantidad.setBounds(100, 70, 148, 20);
-			contentPanel.add(txtCantidad);
-			txtCantidad.setColumns(10);
-		}
+
+		btnBorrar = new JButton("Borrar");
+		btnBorrar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnBorrar.setBackground(new Color(255, 153, 153));
+		btnBorrar.addActionListener(this);
+		btnBorrar.setBounds(325, 46, 89, 23);
+		contentPanel.add(btnBorrar);
+
+		scp = new JScrollPane();
+		scp.setBounds(10, 98, 404, 142);
+		contentPanel.add(scp);
+
+		txtS = new JTextArea();
+		scp.setViewportView(txtS);
+
+		lblCantidad = new JLabel("Cantidad");
+		lblCantidad.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCantidad.setBounds(10, 73, 80, 14);
+		contentPanel.add(lblCantidad);
+
+		txtCantidad = new JTextField();
+		txtCantidad.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtCantidad.setBounds(100, 70, 148, 20);
+		contentPanel.add(txtCantidad);
+		txtCantidad.setColumns(10);
+
+		txtPrecio.setText("" + frmPrincipal.precio0);
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -120,84 +133,77 @@ public class DlgVender extends JDialog implements ActionListener {
 		}
 	}
 
-	private void actionPerformedcbo(ActionEvent e) {
+	protected void actionPerformedcbo(ActionEvent e) {
 		int modelo;
-		// entrada de datos
+
 		modelo = cboModelo.getSelectedIndex();
-		// mostrar datos de acuerdo al modeo
-		if (modelo == 0) {// Cinza Plus
+
+		switch (modelo) {
+		case 0:
 			txtPrecio.setText("" + frmPrincipal.precio0);
-
-		}
-		if (modelo == 1) {
+			break;
+		case 1:
 			txtPrecio.setText("" + frmPrincipal.precio1);
-
-		}
-		if (modelo == 2) {
+			break;
+		case 2:
 			txtPrecio.setText("" + frmPrincipal.precio2);
-
-		}
-		if (modelo == 3) {
+			break;
+		case 3:
 			txtPrecio.setText("" + frmPrincipal.precio3);
-
-		}
-		if (modelo == 4) {
+			break;
+		default:
 			txtPrecio.setText("" + frmPrincipal.precio4);
+			break;
 
 		}
 	}
 
 	protected void actionPerformedBtnProcesar(ActionEvent e) {
-		int cantidad, canobsequio;
+		contadorCant++;
+
+		// Declaración de variables
+		int cantidad = 0, canobsequio;
 		double impD, impC, impP, precio;
-		String modelo1, tipo;
-		cantidad = Integer.parseInt(txtCantidad.getText());
-		modelo1 = cboModelo.getSelectedItem().toString();
+		String modelo, tipo;
+
+		// Validación de campo cantidad
+		if (validarNumeros(txtCantidad.getText().trim())) {
+			cantidad = Integer.parseInt(txtCantidad.getText());
+		} else {
+			JOptionPane.showMessageDialog(this, "Sólo se puede ingresar números", "Datos inválidos",
+					JOptionPane.WARNING_MESSAGE);
+			actionPerformedBtnBorrar(e);
+			return;
+		}
+
+		// Lectura de datos
+		modelo = "" + cboModelo.getSelectedItem();
 		precio = Double.parseDouble(txtPrecio.getText());
 		tipo = frmPrincipal.tipoObsequio;
+
 		// Calculando el importe de compra
-		switch (cboModelo.getSelectedIndex()) {
-		case 0:
-			impC = cantidad * frmPrincipal.precio0;
-			break;
-		case 1:
-			impC = cantidad * frmPrincipal.precio1;
-			break;
-		case 2:
-			impC = cantidad * frmPrincipal.precio2;
-			break;
-		case 3:
-			impC = cantidad * frmPrincipal.precio3;
-			break;
-		default:
-			impC = cantidad * frmPrincipal.precio4;
-			break;
-		}
+		impC = calcularImporteCompra(cantidad);
+
 		// Calculando el importe de descuento
-		if (cantidad <= 5)
-			impD = impC / 100 * frmPrincipal.porcentaje1;
-		else if (cantidad <= 10)
-			impD = impC / 100 * frmPrincipal.porcentaje2;
-		else if (cantidad <= 15)
-			impD = impC / 100 * frmPrincipal.porcentaje3;
-		else
-			impD = impC / 100 * frmPrincipal.porcentaje4;
-		impP = impC - impD;
-		if (cantidad <= 5)
-			canobsequio = cantidad * frmPrincipal.obsequioCantidad1;
-		else if (cantidad <= 10)
-			canobsequio = cantidad * frmPrincipal.obsequioCantidad2;
-		else
-			canobsequio = cantidad * frmPrincipal.obsequioCantidad3;
-		txtS.setText("Boleta de Venta \n\n");
-		txtS.append("Modelo\t\t: " + modelo1 + "\n");
-		txtS.append("Precio\t\t: S/." + precio + "\n");
-		txtS.append("Cantidad Adquirida\t: " + cantidad + "\n");
-		txtS.append("Importe de Compra\t: S/." + impC + "\n");
-		txtS.append("Importe de Descuento\t: S/." + impD + "\n");
-		txtS.append("Importe de Descuento\t: S/." + impP + "\n");
-		txtS.append("Tipo de obsequio\t: " + tipo + "\n");
-		txtS.append("Unidades obsequiadas\t: " + canobsequio + "\n");
+		impD = calcularImporteDescuento(impC, cantidad);
+
+		// Calculando el importe a pagar
+		impP = calcularImporteAPagar(impC, impD);
+
+		// Asignando el total de importes
+		totalImportes += impP;
+
+		// Calculando el obsequio
+		canobsequio = calcularObsequio(cantidad);
+
+		// Salida de resultados
+		mostrarResultados(modelo, precio, cantidad, impC, impD, impP, tipo, canobsequio);
+
+		// Mensaje de alerta
+		mostrarAlerta();
+
+		// Sumando al total de ventas por modelo
+		registrarVentasModelo(impP, cantidad);
 
 	}
 
@@ -207,4 +213,117 @@ public class DlgVender extends JDialog implements ActionListener {
 		cboModelo.setSelectedIndex(0);
 		txtCantidad.requestFocus();
 	}
+
+	// Método - Importe de compra
+	double calcularImporteCompra(int cantidad) {
+		switch (cboModelo.getSelectedIndex()) {
+		case 0:
+			return cantidad * frmPrincipal.precio0;
+		case 1:
+			return cantidad * frmPrincipal.precio1;
+		case 2:
+			return cantidad * frmPrincipal.precio2;
+		case 3:
+			return cantidad * frmPrincipal.precio3;
+		default:
+			return cantidad * frmPrincipal.precio4;
+		}
+	}
+
+	// Método - Importe de descuento
+	double calcularImporteDescuento(double impC, int cantidad) {
+		if (cantidad <= 5)
+			return impC / 100 * frmPrincipal.porcentaje1;
+		else if (cantidad <= 10)
+			return impC / 100 * frmPrincipal.porcentaje2;
+		else if (cantidad <= 15)
+			return impC / 100 * frmPrincipal.porcentaje3;
+		else
+			return impC / 100 * frmPrincipal.porcentaje4;
+	}
+
+	// Método - Importe a pagar
+	double calcularImporteAPagar(double impC, double impD) {
+		return impC - impD;
+	}
+
+	// Método - Obsequio
+	int calcularObsequio(int cantidad) {
+		if (cantidad <= 5)
+			return cantidad * frmPrincipal.obsequioCantidad1;
+		else if (cantidad <= 10)
+			return cantidad * frmPrincipal.obsequioCantidad2;
+		else
+			return cantidad * frmPrincipal.obsequioCantidad3;
+	}
+
+	// Método - Mostrar boleta de venta
+	void mostrarResultados(String modelo, double precio, int cantidad, double impC, double impD, double impP,
+			String tipo, int canobsequio) {
+
+		txtS.setText("Boleta de Venta \n\n");
+
+		frmPrincipal.imprimir("Modelo\t\t: " + modelo, txtS);
+		frmPrincipal.imprimir("Precio\t\t: S/." + precio, txtS);
+		frmPrincipal.imprimir("Cantidad Adquirida\t: " + cantidad, txtS);
+		frmPrincipal.imprimir("Importe de Compra\t: S/." + impC, txtS);
+		frmPrincipal.imprimir("Importe de Descuento\t: S/." + impD, txtS);
+		frmPrincipal.imprimir("Importe a Pagar\t: S/." + impP, txtS);
+		frmPrincipal.imprimir("Tipo de obsequio\t: " + tipo, txtS);
+		frmPrincipal.imprimir("Unidades obsequiadas\t: " + canobsequio, txtS);
+	}
+
+	// Método - Mostrar alerta
+	void mostrarAlerta() {
+		if (contadorCant % 5 == 0) {
+			String mensaje, titulo;
+			double porcentaje;
+
+			porcentaje = totalImportes * 100 / frmPrincipal.cuotaDiaria;
+
+			mensaje = "Venta Nro. " + contadorCant + "\n" + "Importe total general acumulado: S/. " + totalImportes
+					+ "\n" + "Porcentaje de la cuota diaria: " + porcentaje + "%";
+
+			titulo = "Avance de ventas";
+
+			JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
+		}
+	}
+
+	// Método - Registrando ventas
+	void registrarVentasModelo(double impP, int cantidad) {
+		switch (cboModelo.getSelectedIndex()) {
+		case 0:
+			frmPrincipal.montoTotal0 += impP;
+			frmPrincipal.cantVentas0++;
+			frmPrincipal.unidades0 += cantidad;
+			break;
+		case 1:
+			frmPrincipal.montoTotal1 += impP;
+			frmPrincipal.cantVentas1++;
+			frmPrincipal.unidades1 += cantidad;
+			break;
+		case 2:
+			frmPrincipal.montoTotal2 += impP;
+			frmPrincipal.cantVentas2++;
+			frmPrincipal.unidades2 += cantidad;
+			break;
+		case 3:
+			frmPrincipal.montoTotal3 += impP;
+			frmPrincipal.cantVentas3++;
+			frmPrincipal.unidades3 += cantidad;
+			break;
+		default:
+			frmPrincipal.montoTotal4 += impP;
+			frmPrincipal.cantVentas4++;
+			frmPrincipal.unidades4 += cantidad;
+			break;
+		}
+	}
+
+	// Método - Validar números
+	boolean validarNumeros(String datos) {
+		return datos.length() > 0 && datos.matches("[0-9]*");
+	}
+
 }

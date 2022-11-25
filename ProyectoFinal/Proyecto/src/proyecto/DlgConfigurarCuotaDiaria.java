@@ -7,7 +7,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import java.awt.Color;
+import java.awt.Font;
 
 public class DlgConfigurarCuotaDiaria extends JDialog implements ActionListener {
 	private JLabel lblCuotaDiaria;
@@ -41,21 +44,27 @@ public class DlgConfigurarCuotaDiaria extends JDialog implements ActionListener 
 		getContentPane().setLayout(null);
 
 		lblCuotaDiaria = new JLabel("Cuota diaria esperada (S/.)");
-		lblCuotaDiaria.setBounds(10, 26, 158, 14);
+		lblCuotaDiaria.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCuotaDiaria.setBounds(10, 26, 169, 14);
 		getContentPane().add(lblCuotaDiaria);
 
 		txtCuotaDiaria = new JTextField();
-		txtCuotaDiaria.setBounds(178, 23, 126, 20);
+		txtCuotaDiaria.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtCuotaDiaria.setBounds(189, 23, 126, 20);
 		getContentPane().add(txtCuotaDiaria);
 		txtCuotaDiaria.setColumns(10);
 		txtCuotaDiaria.setText("" + frmPrincipal.cuotaDiaria);
 
 		btnAceptar = new JButton("Aceptar");
+		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnAceptar.setBackground(new Color(0, 153, 255));
 		btnAceptar.addActionListener(this);
 		btnAceptar.setBounds(337, 22, 89, 23);
 		getContentPane().add(btnAceptar);
 
 		btnCancelar = new JButton("Cancelar");
+		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnCancelar.setBackground(new Color(255, 153, 153));
 		btnCancelar.addActionListener(this);
 		btnCancelar.setBounds(337, 56, 89, 23);
 		getContentPane().add(btnCancelar);
@@ -72,8 +81,24 @@ public class DlgConfigurarCuotaDiaria extends JDialog implements ActionListener 
 	}
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
-		frmPrincipal.cuotaDiaria = Double.parseDouble(txtCuotaDiaria.getText());
-		dispose();
+		if (validarNumeros(txtCuotaDiaria.getText().trim())) {
+			frmPrincipal.cuotaDiaria = Double.parseDouble(txtCuotaDiaria.getText());
+			dispose();
+		} else {
+			String mensaje, titulo;
+
+			titulo = "Datos Incorrectos";
+			mensaje = "Solo se permite el ingreso de números";
+
+			JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.WARNING_MESSAGE);
+			txtCuotaDiaria.requestFocus();
+			txtCuotaDiaria.setText("");
+		}
+
+	}
+
+	private static boolean validarNumeros(String datos) {
+		return datos.length() > 0 && datos.matches("[0-9]*\\.?[0-9]*");
 	}
 
 	protected void actionPerformedBtnCancelar(ActionEvent e) {
