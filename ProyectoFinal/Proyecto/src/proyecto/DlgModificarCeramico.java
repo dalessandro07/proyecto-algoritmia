@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -15,7 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-public class DlgModificarCeramico extends JDialog implements ActionListener {
+public class DlgModificarCeramico extends JDialog implements ActionListener, KeyListener {
 
 	private final JPanel contentPanel = new JPanel();
 	private JLabel lblModelo;
@@ -77,6 +79,7 @@ public class DlgModificarCeramico extends JDialog implements ActionListener {
 		contentPanel.add(lblPrecio);
 
 		txtPrecio = new JTextField();
+		txtPrecio.addKeyListener(this);
 		txtPrecio.setForeground(Color.BLACK);
 		txtPrecio.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtPrecio.setBounds(129, 66, 123, 19);
@@ -104,24 +107,28 @@ public class DlgModificarCeramico extends JDialog implements ActionListener {
 		contentPanel.add(lblContenido);
 
 		txtAncho = new JTextField();
+		txtAncho.addKeyListener(this);
 		txtAncho.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtAncho.setBounds(129, 105, 123, 19);
 		contentPanel.add(txtAncho);
 		txtAncho.setColumns(10);
 
 		txtLargo = new JTextField();
+		txtLargo.addKeyListener(this);
 		txtLargo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtLargo.setBounds(129, 147, 123, 19);
 		contentPanel.add(txtLargo);
 		txtLargo.setColumns(10);
 
 		txtEspesor = new JTextField();
+		txtEspesor.addKeyListener(this);
 		txtEspesor.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtEspesor.setBounds(129, 187, 123, 19);
 		contentPanel.add(txtEspesor);
 		txtEspesor.setColumns(10);
 
 		txtContenido = new JTextField();
+		txtContenido.addKeyListener(this);
 		txtContenido.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtContenido.setBounds(129, 230, 123, 19);
 		contentPanel.add(txtContenido);
@@ -134,12 +141,18 @@ public class DlgModificarCeramico extends JDialog implements ActionListener {
 		btnCerrar.setBounds(305, 141, 104, 31);
 		contentPanel.add(btnCerrar);
 
-		btnGrabar = new JButton("Aceptar");
+		btnGrabar = new JButton("Grabar");
 		btnGrabar.setBackground(new Color(0, 153, 255));
 		btnGrabar.addActionListener(this);
 		btnGrabar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnGrabar.setBounds(305, 78, 104, 31);
 		contentPanel.add(btnGrabar);
+
+		txtPrecio.setText("" + frmPrincipal.precio0);
+		txtAncho.setText("" + frmPrincipal.ancho0);
+		txtLargo.setText("" + frmPrincipal.largo0);
+		txtEspesor.setText("" + frmPrincipal.espesor0);
+		txtContenido.setText("" + frmPrincipal.contenido0);
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -155,47 +168,76 @@ public class DlgModificarCeramico extends JDialog implements ActionListener {
 	}
 
 	protected void actionPerformedcboModelo(ActionEvent e) {
-		int modelo;
 
-		modelo = cboModelo.getSelectedIndex();
+		obtenerModelo();
 
 		switch (modelo) {
 		case 0:
-			txtPrecio.setText("" + frmPrincipal.precio0);
-			txtAncho.setText("" + frmPrincipal.ancho0);
-			txtLargo.setText("" + frmPrincipal.largo0);
-			txtEspesor.setText("" + frmPrincipal.espesor0);
-			txtContenido.setText("" + frmPrincipal.contenido0);
+			mostrarCinza();
 			break;
 		case 1:
-			txtPrecio.setText("" + frmPrincipal.precio1);
-			txtAncho.setText("" + frmPrincipal.ancho1);
-			txtLargo.setText("" + frmPrincipal.largo1);
-			txtEspesor.setText("" + frmPrincipal.espesor1);
-			txtContenido.setText("" + frmPrincipal.contenido1);
+			mostrarLuxury();
 			break;
 		case 2:
-			txtPrecio.setText("" + frmPrincipal.precio2);
-			txtAncho.setText("" + frmPrincipal.ancho2);
-			txtLargo.setText("" + frmPrincipal.largo2);
-			txtEspesor.setText("" + frmPrincipal.espesor2);
-			txtContenido.setText("" + frmPrincipal.contenido2);
+			mostrarAustria();
 			break;
 		case 3:
-			txtPrecio.setText("" + frmPrincipal.precio3);
-			txtAncho.setText("" + frmPrincipal.ancho3);
-			txtLargo.setText("" + frmPrincipal.largo3);
-			txtEspesor.setText("" + frmPrincipal.espesor3);
-			txtContenido.setText("" + frmPrincipal.contenido3);
+			mostrarYungay();
 			break;
 		default:
-			txtPrecio.setText("" + frmPrincipal.precio4);
-			txtAncho.setText("" + frmPrincipal.ancho4);
-			txtLargo.setText("" + frmPrincipal.largo4);
-			txtEspesor.setText("" + frmPrincipal.espesor4);
-			txtContenido.setText("" + frmPrincipal.contenido4);
+			mostrarThalia();
 			break;
 		}
+
+	}
+
+	// declaracion de variables
+	int modelo;
+
+	// Entrada de datos
+	void obtenerModelo() {
+		modelo = cboModelo.getSelectedIndex();
+	}
+
+	// mostrar datos de acuerdo al modelo
+	void mostrarCinza() {
+		txtPrecio.setText("" + frmPrincipal.precio0);
+		txtAncho.setText("" + frmPrincipal.ancho0);
+		txtLargo.setText("" + frmPrincipal.largo0);
+		txtEspesor.setText("" + frmPrincipal.espesor0);
+		txtContenido.setText("" + frmPrincipal.contenido0);
+	}
+
+	void mostrarLuxury() {
+		txtPrecio.setText("" + frmPrincipal.precio1);
+		txtAncho.setText("" + frmPrincipal.ancho1);
+		txtLargo.setText("" + frmPrincipal.largo1);
+		txtEspesor.setText("" + frmPrincipal.espesor1);
+		txtContenido.setText("" + frmPrincipal.contenido1);
+	}
+
+	void mostrarAustria() {
+		txtPrecio.setText("" + frmPrincipal.precio2);
+		txtAncho.setText("" + frmPrincipal.ancho2);
+		txtLargo.setText("" + frmPrincipal.largo2);
+		txtEspesor.setText("" + frmPrincipal.espesor2);
+		txtContenido.setText("" + frmPrincipal.contenido2);
+	}
+
+	void mostrarYungay() {
+		txtPrecio.setText("" + frmPrincipal.precio3);
+		txtAncho.setText("" + frmPrincipal.ancho3);
+		txtLargo.setText("" + frmPrincipal.largo3);
+		txtEspesor.setText("" + frmPrincipal.espesor3);
+		txtContenido.setText("" + frmPrincipal.contenido3);
+	}
+
+	void mostrarThalia() {
+		txtPrecio.setText("" + frmPrincipal.precio4);
+		txtAncho.setText("" + frmPrincipal.ancho4);
+		txtLargo.setText("" + frmPrincipal.largo4);
+		txtEspesor.setText("" + frmPrincipal.espesor4);
+		txtContenido.setText("" + frmPrincipal.contenido4);
 	}
 
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
@@ -203,6 +245,7 @@ public class DlgModificarCeramico extends JDialog implements ActionListener {
 	}
 
 	protected void actionPerformedBtnGrabar(ActionEvent e) {
+
 		int modelo;
 
 		modelo = cboModelo.getSelectedIndex();
@@ -230,22 +273,99 @@ public class DlgModificarCeramico extends JDialog implements ActionListener {
 			frmPrincipal.contenido2 = Integer.parseInt(txtContenido.getText());
 			break;
 		case 3:
-			frmPrincipal.precio2 = Double.parseDouble(txtPrecio.getText());
-			frmPrincipal.ancho2 = Double.parseDouble(txtAncho.getText());
-			frmPrincipal.largo2 = Double.parseDouble(txtLargo.getText());
-			frmPrincipal.espesor2 = Double.parseDouble(txtEspesor.getText());
-			frmPrincipal.contenido2 = Integer.parseInt(txtContenido.getText());
+			frmPrincipal.precio3 = Double.parseDouble(txtPrecio.getText());
+			frmPrincipal.ancho3 = Double.parseDouble(txtAncho.getText());
+			frmPrincipal.largo3 = Double.parseDouble(txtLargo.getText());
+			frmPrincipal.espesor3 = Double.parseDouble(txtEspesor.getText());
+			frmPrincipal.contenido3 = Integer.parseInt(txtContenido.getText());
 			break;
 		default:
-			frmPrincipal.precio2 = Double.parseDouble(txtPrecio.getText());
-			frmPrincipal.ancho2 = Double.parseDouble(txtAncho.getText());
-			frmPrincipal.largo2 = Double.parseDouble(txtLargo.getText());
-			frmPrincipal.espesor2 = Double.parseDouble(txtEspesor.getText());
-			frmPrincipal.contenido2 = Integer.parseInt(txtContenido.getText());
+			frmPrincipal.precio4 = Double.parseDouble(txtPrecio.getText());
+			frmPrincipal.ancho4 = Double.parseDouble(txtAncho.getText());
+			frmPrincipal.largo4 = Double.parseDouble(txtLargo.getText());
+			frmPrincipal.espesor4 = Double.parseDouble(txtEspesor.getText());
+			frmPrincipal.contenido4 = Integer.parseInt(txtContenido.getText());
 			break;
 		}
 
 		dispose();
 
+	}
+
+	public void keyPressed(KeyEvent e) {
+	}
+
+	public void keyReleased(KeyEvent e) {
+	}
+
+	public void keyTyped(KeyEvent e) {
+		if (e.getSource() == txtContenido) {
+			keyTypedTxtContenido(e);
+		}
+		if (e.getSource() == txtEspesor) {
+			keyTypedTxtEspesor(e);
+		}
+		if (e.getSource() == txtLargo) {
+			keyTypedTxtLargo(e);
+		}
+		if (e.getSource() == txtAncho) {
+			keyTypedTxtAncho(e);
+		}
+		if (e.getSource() == txtPrecio) {
+			keyTypedTxtPrecio(e);
+		}
+	}
+
+	protected void keyTypedTxtPrecio(java.awt.event.KeyEvent evt) {
+		char caracter = evt.getKeyChar();
+
+		if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
+				&& (caracter != '.' || txtPrecio.getText().contains("."))) {
+
+			evt.consume();
+
+		}
+
+	}
+
+	protected void keyTypedTxtAncho(java.awt.event.KeyEvent evt) {
+		char caracter = evt.getKeyChar();
+
+		if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
+				&& (caracter != '.' || txtAncho.getText().contains("."))) {
+
+			evt.consume();
+
+		}
+	}
+
+	protected void keyTypedTxtLargo(java.awt.event.KeyEvent evt) {
+		char caracter = evt.getKeyChar();
+
+		if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
+				&& (caracter != '.' || txtLargo.getText().contains("."))) {
+
+			evt.consume();
+
+		}
+	}
+
+	protected void keyTypedTxtEspesor(java.awt.event.KeyEvent evt) {
+		char caracter = evt.getKeyChar();
+
+		if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
+				&& (caracter != '.' || txtEspesor.getText().contains("."))) {
+
+			evt.consume();
+
+		}
+	}
+
+	protected void keyTypedTxtContenido(java.awt.event.KeyEvent evt) {
+		char caracter = evt.getKeyChar();
+		if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)) {
+
+			evt.consume();
+		}
 	}
 }
