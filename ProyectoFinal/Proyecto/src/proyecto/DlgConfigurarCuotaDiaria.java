@@ -45,7 +45,7 @@ public class DlgConfigurarCuotaDiaria extends JDialog implements ActionListener 
 
 		lblCuotaDiaria = new JLabel("Cuota diaria esperada (S/.)");
 		lblCuotaDiaria.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCuotaDiaria.setBounds(10, 26, 170, 14);
+		lblCuotaDiaria.setBounds(10, 10, 170, 44);
 		getContentPane().add(lblCuotaDiaria);
 
 		txtCuotaDiaria = new JTextField();
@@ -88,7 +88,7 @@ public class DlgConfigurarCuotaDiaria extends JDialog implements ActionListener 
 			String mensaje, titulo;
 
 			titulo = "Datos Incorrectos";
-			mensaje = "Solo se permite el ingreso de nÃºmeros";
+			mensaje = "Solo se permite el ingreso de números";
 
 			JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.WARNING_MESSAGE);
 			txtCuotaDiaria.requestFocus();

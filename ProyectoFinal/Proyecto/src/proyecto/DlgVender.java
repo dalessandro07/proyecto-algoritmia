@@ -171,7 +171,7 @@ public class DlgVender extends JDialog implements ActionListener {
 		if (validarNumeros(txtCantidad.getText().trim())) {
 			cantidad = Integer.parseInt(txtCantidad.getText());
 		} else {
-			JOptionPane.showMessageDialog(this, "Â¡SÃ³lo se puede ingresar nÃºmeros!", "Datos invÃ¡lidos",
+			JOptionPane.showMessageDialog(this, "¡Solo se puede ingresar números!", "Datos inválidos",
 					JOptionPane.WARNING_MESSAGE);
 			actionPerformedBtnBorrar(e);
 			return;
@@ -215,7 +215,7 @@ public class DlgVender extends JDialog implements ActionListener {
 		txtCantidad.requestFocus();
 	}
 
-	// MÃ©todo - Importe de compra
+	// Método - Importe de compra
 	double calcularImporteCompra(int cantidad) {
 		switch (cboModelo.getSelectedIndex()) {
 		case 0:
@@ -231,7 +231,7 @@ public class DlgVender extends JDialog implements ActionListener {
 		}
 	}
 
-	// Mï¿½todo - Importe de descuento
+	// Método - Importe de descuento
 	double calcularImporteDescuento(double impC, int cantidad) {
 		if (cantidad <= 5)
 			return impC / 100 * frmPrincipal.porcentaje1;

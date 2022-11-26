@@ -115,7 +115,7 @@ public class DlgConfigurarDescuentos extends JDialog implements ActionListener {
 		lblDesc3.setBounds(10, 91, 125, 14);
 		getContentPane().add(lblDesc3);
 
-		lblDesc4 = new JLabel("M\u00E1s de 15 unidades");
+		lblDesc4 = new JLabel("Más de 15 unidades");
 		lblDesc4.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblDesc4.setBounds(10, 122, 133, 14);
 		getContentPane().add(lblDesc4);
@@ -159,7 +159,7 @@ public class DlgConfigurarDescuentos extends JDialog implements ActionListener {
 		if (!validarNumeros(txtPorcentaje1.getText().trim()) || !validarNumeros(txtPorcentaje2.getText().trim())
 				|| !validarNumeros(txtPorcentaje3.getText().trim())
 				|| !validarNumeros(txtPorcentaje4.getText().trim())) {
-			mostrarAlerta("SÃ³lo se puede ingresar nÃºmeros", "Datos invÃ¡lidos", JOptionPane.WARNING_MESSAGE);
+			mostrarAlerta("Sólo se puede ingresar números", "Datos inválidos", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 

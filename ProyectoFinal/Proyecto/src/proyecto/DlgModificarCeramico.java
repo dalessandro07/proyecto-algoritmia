@@ -69,7 +69,7 @@ public class DlgModificarCeramico extends JDialog implements ActionListener, Key
 		cboModelo.addActionListener(this);
 		cboModelo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		cboModelo.setModel(new DefaultComboBoxModel<String>(
-				new String[] { "Cinza Plus", "Luxury", "Austria", "Yungay Mix", "ThalÃ­a" }));
+				new String[] { "Cinza Plus", "Luxury", "Austria", "Yungay Mix", "Thalía" }));
 		cboModelo.setBounds(129, 27, 123, 21);
 		contentPanel.add(cboModelo);
 

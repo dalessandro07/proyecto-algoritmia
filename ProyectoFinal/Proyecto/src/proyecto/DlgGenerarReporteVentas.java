@@ -51,9 +51,9 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 		cboTipoReporte.setBackground(new Color(255, 255, 204));
 		cboTipoReporte.addActionListener(this);
 		cboTipoReporte.setModel(new DefaultComboBoxModel<String>(
-				new String[] { "Ventas por modelo", "Comparaci贸n de precios con el precio promedio",
-						"Comparaci贸n de cajas vendidas con la cantidad 贸ptima",
-						"Estadistica sobre el precio" }));
+				new String[] { "Ventas por modelo", "Comparaci髇 de precios con el precio promedio",
+						"Comparaci髇 de cajas vendidas con la cantidad 髉tima",
+						"Estad韘tica sobre el precio" }));
 		cboTipoReporte.setBounds(132, 20, 381, 22);
 		getContentPane().add(cboTipoReporte);
 
@@ -69,6 +69,7 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 		getContentPane().add(scp);
 
 		txtS = new JTextArea();
+		txtS.setFont(new Font("Monospaced", Font.PLAIN, 16));
 		scp.setViewportView(txtS);
 
 		generarReporteModelo();
@@ -136,22 +137,22 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 				frmPrincipal.montoTotal4);
 	}
 
-	// M茅todo - Imprimir reporte de ventas por modelo
+	// M閠odo - Imprimir reporte de ventas por modelo
 	void imprimirReporte(String modelo, int cantVentas, int unidades, double montoTotal) {
 
 		double aporteCuota = montoTotal * 100 / frmPrincipal.cuotaDiaria;
 
-		frmPrincipal.imprimir("Modelo \t\t: " + modelo, txtS);
-		frmPrincipal.imprimir("Cantidad de ventas \t: " + cantVentas, txtS);
+		frmPrincipal.imprimir("Modelo \t\t\t\t: " + modelo, txtS);
+		frmPrincipal.imprimir("Cantidad de ventas \t\t: " + cantVentas, txtS);
 		frmPrincipal.imprimir("Cantidad de cajas vendidas \t: " + unidades, txtS);
-		frmPrincipal.imprimir("Importe total vendido \t: " + montoTotal, txtS);
+		frmPrincipal.imprimir("Importe total vendido \t\t: " + montoTotal, txtS);
 		frmPrincipal.imprimir("Aporte a la cuota diaria \t: " + aporteCuota + "%\n", txtS);
 	}
 
-	// M锟絫odo - Calcular y mostrar comparaci贸n de precios con el precio promedio
+	// M閠odo - Calcular y mostrar comparaci髇 de precios con el precio promedio
 	void mostrarComparacionPromedio() {
 
-		// C锟絣culo del precio promedio
+		// Calculo del precio promedio
 
 		double precioProm;
 
@@ -160,12 +161,12 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 
 		// Salida de resultados
 
-		txtS.setText("COMPARACI脫N DE PRECIOS CON EL PRECIO PROMEDIO \n\n");
+		txtS.setText("COMPARACI覰 DE PRECIOS CON EL PRECIO PROMEDIO \n\n");
 
 		frmPrincipal.imprimir("Modelo \t\t: " + frmPrincipal.modelo0, txtS);
 		frmPrincipal.imprimir("Precio \t\t: " + frmPrincipal.precio0, txtS);
 		frmPrincipal.imprimir("Precio promedio \t: " + precioProm, txtS);
-		frmPrincipal.imprimir("Comparaci贸n \t\t: " + (frmPrincipal.precio0 - precioProm), txtS);
+		frmPrincipal.imprimir("Comparaci髇 \t\t: " + (frmPrincipal.precio0 - precioProm), txtS);
 
 	}
 

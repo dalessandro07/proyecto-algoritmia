@@ -40,18 +40,18 @@ public class DlgConfigurarCantidadOptima extends JDialog implements ActionListen
 	 */
 	public DlgConfigurarCantidadOptima() {
 		getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 14));
-		setTitle("Configurar cantidad \u00F3ptima");
+		setTitle("Configurar cantidad óptima");
 		setBounds(100, 100, 495, 120);
 		getContentPane().setLayout(null);
 
-		lblCantOpt = new JLabel("Cantidad Ã³ptima de unidades vendidas");
+		lblCantOpt = new JLabel("Cantidad óptima de unidades vendidas:");
 		lblCantOpt.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCantOpt.setBounds(10, 11, 244, 23);
+		lblCantOpt.setBounds(10, 11, 249, 25);
 		getContentPane().add(lblCantOpt);
 
 		txtCantOpt = new JTextField();
 		txtCantOpt.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtCantOpt.setBounds(265, 12, 77, 20);
+		txtCantOpt.setBounds(267, 14, 77, 20);
 		getContentPane().add(txtCantOpt);
 		txtCantOpt.setColumns(10);
 		txtCantOpt.setText("" + frmPrincipal.cantidadOptima);
@@ -89,7 +89,7 @@ public class DlgConfigurarCantidadOptima extends JDialog implements ActionListen
 			String mensaje, titulo;
 
 			titulo = "Datos Incorrectos";
-			mensaje = "Â¡Solo se permite el ingreso de nÃºmeros!";
+			mensaje = "¡Solo se permite el ingreso de números!";
 
 			JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.WARNING_MESSAGE);
 			txtCantOpt.requestFocus();

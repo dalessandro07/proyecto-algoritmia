@@ -69,7 +69,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	public static int contenido3 = 9;
 
 	// Datos minimos del quinto producto
-	public static String modelo4 = "Thalï¿½a";
+	public static String modelo4 = "Thalía";
 	public static double precio4 = 45;
 	public static double ancho4 = 45;
 	public static double largo4 = 11.8;
@@ -146,7 +146,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public frmPrincipal() {
-		setTitle("Tienda de Cer\u00E1micos - GRUPO A");
+		setTitle("Tienda de Cerámicos - GRUPO A");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 748, 525);
 
@@ -171,19 +171,19 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		mnMantenimiento.setForeground(new Color(255, 255, 255));
 		menuBar.add(mnMantenimiento);
 
-		mntmConsultarC = new JMenuItem("Consultar ceramico");
+		mntmConsultarC = new JMenuItem("Consultar cerámico");
 		mntmConsultarC.setFont(new Font("Segoe UI Light", Font.BOLD, 13));
 		mntmConsultarC.setBackground(new Color(173, 216, 230));
 		mntmConsultarC.addActionListener(this);
 		mnMantenimiento.add(mntmConsultarC);
 
-		mntmModificarC = new JMenuItem("Modificar ceramico");
+		mntmModificarC = new JMenuItem("Modificar cerámico");
 		mntmModificarC.setFont(new Font("Segoe UI Light", Font.BOLD, 13));
 		mntmModificarC.setBackground(new Color(173, 216, 230));
 		mntmModificarC.addActionListener(this);
 		mnMantenimiento.add(mntmModificarC);
 
-		mntmListarC = new JMenuItem("Listar ceramicos");
+		mntmListarC = new JMenuItem("Listar cerámicos");
 		mntmListarC.setFont(new Font("Segoe UI Light", Font.BOLD, 13));
 		mntmListarC.setBackground(new Color(173, 216, 230));
 		mntmListarC.addActionListener(this);
