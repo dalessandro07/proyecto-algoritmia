@@ -2,6 +2,7 @@ package proyecto;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,7 +14,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
-import java.awt.Font;
 
 public class frmPrincipal extends JFrame implements ActionListener {
 
@@ -124,6 +124,11 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	// Metodo - Imprimir texto en un JTextArea
 	public static void imprimir(String texto, JTextArea txtS) {
 		txtS.append(texto + "\n");
+	}
+
+	// Método - Mostrar sólo 2 decimales de un número
+	public static double redondear(double num) {
+		return Math.round(Math.abs(num) * 100) / 100D;
 	}
 
 	/**
@@ -300,14 +305,14 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		}
 
 	}
-	
+
 	void mensajeBienvenida() {
 		String texto, titulo;
 		texto = "Bienvenido al sistema de la tienda.";
-		titulo= "Tienda de cerámicos";
+		titulo = "Tienda de cerámicos";
 		JOptionPane.showMessageDialog(this, texto, titulo, JOptionPane.PLAIN_MESSAGE);
 	}
-	
+
 	protected void actionPerformedMntmSalir(ActionEvent e) {
 		System.exit(0);
 	}

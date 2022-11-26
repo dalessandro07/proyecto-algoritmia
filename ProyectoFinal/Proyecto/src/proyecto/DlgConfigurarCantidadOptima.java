@@ -1,6 +1,8 @@
 package proyecto;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,8 +11,6 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import java.awt.Color;
-import java.awt.Font;
 
 public class DlgConfigurarCantidadOptima extends JDialog implements ActionListener {
 	private JLabel lblCantOpt;
@@ -83,7 +83,7 @@ public class DlgConfigurarCantidadOptima extends JDialog implements ActionListen
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
 		if (validarNumeros(txtCantOpt.getText().trim())) {
-			frmPrincipal.cuotaDiaria = Double.parseDouble(txtCantOpt.getText());
+			frmPrincipal.cantidadOptima = Integer.parseInt(txtCantOpt.getText());
 			dispose();
 		} else {
 			String mensaje, titulo;
@@ -99,7 +99,7 @@ public class DlgConfigurarCantidadOptima extends JDialog implements ActionListen
 	}
 
 	private static boolean validarNumeros(String datos) {
-		return datos.length() > 0 && datos.matches("[0-9]*\\.?[0-9]*");
+		return datos.length() > 0 && datos.matches("[0-9]*");
 	}
 
 	protected void actionPerformedBtnCancelar(ActionEvent e) {

@@ -52,8 +52,7 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 		cboTipoReporte.addActionListener(this);
 		cboTipoReporte.setModel(new DefaultComboBoxModel<String>(
 				new String[] { "Ventas por modelo", "Comparación de precios con el precio promedio",
-						"Comparación de cajas vendidas con la cantidad óptima",
-						"Estadística sobre el precio" }));
+						"Comparación de cajas vendidas con la cantidad óptima", "Estadística sobre el precio" }));
 		cboTipoReporte.setBounds(132, 20, 381, 22);
 		getContentPane().add(cboTipoReporte);
 
@@ -101,16 +100,19 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 			generarReporteModelo();
 			break;
 		case 1:
+			mostrarComparacionPromedio();
 			break;
 		case 2:
+			mostrarComparacionCantOpt();
 			break;
 		default:
+			mostrarEstPrecio();
 			break;
 
 		}
 	}
 
-	// MÃ©todo - Calcular y mostrar reporte de ventas por modelo
+	// Metodo - Calcular y mostrar reporte de ventas por modelo
 	void generarReporteModelo() {
 
 		// Mostrando ventas por modelo
@@ -137,7 +139,7 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 				frmPrincipal.montoTotal4);
 	}
 
-	// Método - Imprimir reporte de ventas por modelo
+	// Metodo - Imprimir reporte de ventas por modelo
 	void imprimirReporte(String modelo, int cantVentas, int unidades, double montoTotal) {
 
 		double aporteCuota = montoTotal * 100 / frmPrincipal.cuotaDiaria;
@@ -145,29 +147,103 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 		frmPrincipal.imprimir("Modelo \t\t\t\t: " + modelo, txtS);
 		frmPrincipal.imprimir("Cantidad de ventas \t\t: " + cantVentas, txtS);
 		frmPrincipal.imprimir("Cantidad de cajas vendidas \t: " + unidades, txtS);
-		frmPrincipal.imprimir("Importe total vendido \t\t: " + montoTotal, txtS);
-		frmPrincipal.imprimir("Aporte a la cuota diaria \t: " + aporteCuota + "%\n", txtS);
+		frmPrincipal.imprimir("Importe total vendido \t\t: S/." + frmPrincipal.redondear(montoTotal), txtS);
+		frmPrincipal.imprimir("Aporte a la cuota diaria \t: " + frmPrincipal.redondear(aporteCuota) + "%\n", txtS);
 	}
 
-	// Método - Calcular y mostrar comparación de precios con el precio promedio
+	// Metodo - Calcular y mostrar comparación de precios con el precio promedio
 	void mostrarComparacionPromedio() {
 
 		// Calculo del precio promedio
 
-		double precioProm;
-
-		precioProm = (frmPrincipal.precio0 + frmPrincipal.precio1 + frmPrincipal.precio2 + frmPrincipal.precio3
+		double precioProm = (frmPrincipal.precio0 + frmPrincipal.precio1 + frmPrincipal.precio2 + frmPrincipal.precio3
 				+ frmPrincipal.precio4) / 5;
 
 		// Salida de resultados
 
 		txtS.setText("COMPARACIÓN DE PRECIOS CON EL PRECIO PROMEDIO \n\n");
 
-		frmPrincipal.imprimir("Modelo \t\t: " + frmPrincipal.modelo0, txtS);
-		frmPrincipal.imprimir("Precio \t\t: " + frmPrincipal.precio0, txtS);
-		frmPrincipal.imprimir("Precio promedio \t: " + precioProm, txtS);
-		frmPrincipal.imprimir("Comparación \t\t: " + (frmPrincipal.precio0 - precioProm), txtS);
+		imprimirPrecioPromedio(frmPrincipal.modelo0, frmPrincipal.precio0, precioProm);
+		imprimirPrecioPromedio(frmPrincipal.modelo1, frmPrincipal.precio1, precioProm);
+		imprimirPrecioPromedio(frmPrincipal.modelo2, frmPrincipal.precio2, precioProm);
+		imprimirPrecioPromedio(frmPrincipal.modelo3, frmPrincipal.precio3, precioProm);
+		imprimirPrecioPromedio(frmPrincipal.modelo4, frmPrincipal.precio4, precioProm);
 
+	}
+
+	// Metodo - Imprimir comparación precio promedio
+	void imprimirPrecioPromedio(String modelo, double precio, double precioProm) {
+
+		String mayorOMenor = " más que el promedio";
+		double diferenciaPre = (precio - precioProm);
+
+		if (diferenciaPre < 0)
+			mayorOMenor = " menos que el promedio";
+
+		frmPrincipal.imprimir("Modelo \t\t: " + modelo, txtS);
+		frmPrincipal.imprimir("Precio \t\t: S/." + precio, txtS);
+		frmPrincipal.imprimir("Precio promedio : S/." + precioProm, txtS);
+		frmPrincipal.imprimir("Comparación \t: S/." + frmPrincipal.redondear(diferenciaPre) + mayorOMenor + "\n", txtS);
+	}
+
+	// Metodo - Calcular y mostrar comparación de precios con el precio promedio
+	void mostrarComparacionCantOpt() {
+
+		// Lectura de datos
+
+		int cantOpt = frmPrincipal.cantidadOptima;
+
+		// Salida de resultados
+
+		txtS.setText("COMPARACIÓN DE DE CAJAS VENDIDAS CON LA CANTIDAD ÓPTIMA \n\n");
+
+		imprimirCantOpt(frmPrincipal.modelo0, frmPrincipal.cantVentas0, cantOpt);
+		imprimirCantOpt(frmPrincipal.modelo1, frmPrincipal.cantVentas1, cantOpt);
+		imprimirCantOpt(frmPrincipal.modelo2, frmPrincipal.cantVentas2, cantOpt);
+		imprimirCantOpt(frmPrincipal.modelo3, frmPrincipal.cantVentas3, cantOpt);
+		imprimirCantOpt(frmPrincipal.modelo4, frmPrincipal.cantVentas4, cantOpt);
+
+	}
+
+	// Metodo - Imprimir comparación precio promedio
+	void imprimirCantOpt(String modelo, int cantVentas, int cantOpt) {
+
+		String comparacion = " más que la cantidad óptima";
+		int diferenciaCant = (cantVentas - cantOpt);
+
+		if (diferenciaCant < 0)
+			comparacion = " menos que la cantidad óptima";
+		else if (diferenciaCant == cantOpt) {
+			comparacion = " igual que la cantidad óptima";
+		}
+
+		frmPrincipal.imprimir("Modelo \t\t\t  : " + modelo, txtS);
+		frmPrincipal.imprimir("Cantidad de cajas vendidas: " + cantVentas, txtS);
+		frmPrincipal.imprimir("Cantidad óptima \t  : " + cantOpt, txtS);
+		frmPrincipal.imprimir("Comparación \t\t  : " + Math.abs(diferenciaCant) + comparacion + "\n", txtS);
+	}
+
+	// Metodo - Calcular y mostrar estadistica sobre el precio
+	void mostrarEstPrecio() {
+
+		double precioMayor, precioProm, precioMenor;
+
+		// Calculando precio promedio, precio mayor y precio menor
+		precioProm = (frmPrincipal.precio0 + frmPrincipal.precio1 + frmPrincipal.precio2 + frmPrincipal.precio3
+				+ frmPrincipal.precio4) / 5;
+
+		precioMayor = Math.max(frmPrincipal.precio0, Math.max(frmPrincipal.precio1,
+				Math.max(frmPrincipal.precio2, Math.max(frmPrincipal.precio3, frmPrincipal.precio4))));
+
+		precioMenor = Math.min(frmPrincipal.precio0, Math.min(frmPrincipal.precio1,
+				Math.min(frmPrincipal.precio2, Math.min(frmPrincipal.precio3, frmPrincipal.precio4))));
+
+		// Salida de resultados
+		txtS.setText("ESTADÍSTICA SOBRE EL PRECIO \n\n");
+
+		frmPrincipal.imprimir("Precio promedio : S/." + frmPrincipal.redondear(precioProm), txtS);
+		frmPrincipal.imprimir("Precio mayor    : S/." + frmPrincipal.redondear(precioMayor), txtS);
+		frmPrincipal.imprimir("Precio menor    : S/." + frmPrincipal.redondear(precioMenor), txtS);
 	}
 
 }

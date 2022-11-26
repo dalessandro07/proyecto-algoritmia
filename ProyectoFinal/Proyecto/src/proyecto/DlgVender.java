@@ -54,7 +54,7 @@ public class DlgVender extends JDialog implements ActionListener {
 	 */
 	public DlgVender() {
 		setTitle("Vender");
-		setBounds(100, 100, 452, 290);
+		setBounds(100, 100, 452, 388);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -101,7 +101,7 @@ public class DlgVender extends JDialog implements ActionListener {
 		contentPanel.add(btnBorrar);
 
 		scp = new JScrollPane();
-		scp.setBounds(10, 98, 404, 142);
+		scp.setBounds(10, 114, 404, 226);
 		contentPanel.add(scp);
 
 		txtS = new JTextArea();
@@ -162,12 +162,12 @@ public class DlgVender extends JDialog implements ActionListener {
 	protected void actionPerformedBtnProcesar(ActionEvent e) {
 		contadorCant++;
 
-		// Declaración de variables
+		// Declaracion de variables
 		int cantidad = 0, canobsequio;
 		double impD, impC, impP, precio;
 		String modelo, tipo;
 
-		// Validación de campo cantidad
+		// Validacion de campo cantidad
 		if (validarNumeros(txtCantidad.getText().trim())) {
 			cantidad = Integer.parseInt(txtCantidad.getText());
 		} else {
@@ -243,12 +243,12 @@ public class DlgVender extends JDialog implements ActionListener {
 			return impC / 100 * frmPrincipal.porcentaje4;
 	}
 
-	// Método - Importe a pagar
+	// Metodo - Importe a pagar
 	double calcularImporteAPagar(double impC, double impD) {
 		return impC - impD;
 	}
 
-	// Método - Obsequio
+	// Metodo - Obsequio
 	int calcularObsequio(int cantidad) {
 		if (cantidad <= 5)
 			return cantidad * frmPrincipal.obsequioCantidad1;
@@ -258,7 +258,7 @@ public class DlgVender extends JDialog implements ActionListener {
 			return cantidad * frmPrincipal.obsequioCantidad3;
 	}
 
-	// Método - Mostrar boleta de venta
+	// Metodo - Mostrar boleta de venta
 	void mostrarResultados(String modelo, double precio, int cantidad, double impC, double impD, double impP,
 			String tipo, int canobsequio) {
 
@@ -267,14 +267,14 @@ public class DlgVender extends JDialog implements ActionListener {
 		frmPrincipal.imprimir("Modelo\t\t\t: " + modelo, txtS);
 		frmPrincipal.imprimir("Precio\t\t\t: S/." + precio, txtS);
 		frmPrincipal.imprimir("Cantidad Adquirida\t: " + cantidad, txtS);
-		frmPrincipal.imprimir("Importe de Compra\t: S/." + impC, txtS);
-		frmPrincipal.imprimir("Importe de Descuento\t: S/." + impD, txtS);
-		frmPrincipal.imprimir("Importe a Pagar\t\t: S/." + impP, txtS);
+		frmPrincipal.imprimir("Importe de Compra\t: S/." + frmPrincipal.redondear(impC), txtS);
+		frmPrincipal.imprimir("Importe de Descuento\t: S/." + frmPrincipal.redondear(impD), txtS);
+		frmPrincipal.imprimir("Importe a Pagar\t\t: S/." + frmPrincipal.redondear(impP), txtS);
 		frmPrincipal.imprimir("Tipo de obsequio\t: " + tipo, txtS);
 		frmPrincipal.imprimir("Unidades obsequiadas\t: " + canobsequio, txtS);
 	}
 
-	// Método - Mostrar alerta
+	// Metodo - Mostrar alerta
 	void mostrarAlerta() {
 		if (contadorCant % 5 == 0) {
 			String mensaje, titulo;
@@ -282,8 +282,9 @@ public class DlgVender extends JDialog implements ActionListener {
 
 			porcentaje = totalImportes * 100 / frmPrincipal.cuotaDiaria;
 
-			mensaje = "Venta Nro. " + contadorCant + "\n" + "Importe total general acumulado: S/. " + totalImportes
-					+ "\n" + "Porcentaje de la cuota diaria: " + porcentaje + "%";
+			mensaje = "Venta Nro. " + contadorCant + "\n" + "Importe total general acumulado: S/. "
+					+ frmPrincipal.redondear(totalImportes) + "\n" + "Porcentaje de la cuota diaria: "
+					+ frmPrincipal.redondear(porcentaje) + "%";
 
 			titulo = "Avance de ventas";
 
@@ -291,7 +292,7 @@ public class DlgVender extends JDialog implements ActionListener {
 		}
 	}
 
-	// Método - Registrando ventas
+	// Metodo - Registrando ventas
 	void registrarVentasModelo(double impP, int cantidad) {
 		switch (cboModelo.getSelectedIndex()) {
 		case 0:
@@ -322,7 +323,7 @@ public class DlgVender extends JDialog implements ActionListener {
 		}
 	}
 
-	// Método - Validar números
+	// M�todo - Validar numeros
 	boolean validarNumeros(String datos) {
 		return datos.length() > 0 && datos.matches("[0-9]*");
 	}
