@@ -51,9 +51,9 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 		cboTipoReporte.setBackground(new Color(255, 255, 204));
 		cboTipoReporte.addActionListener(this);
 		cboTipoReporte.setModel(new DefaultComboBoxModel<String>(
-				new String[] { "Ventas por modelo", "Comparaci\u00F3n de precios con el precio promedio",
-						"Comparaci\u00F3n de cajas vendidas con la cantidad \u00F3ptima",
-						"Estad\u00EDstica sobre el precio" }));
+				new String[] { "Ventas por modelo", "Comparaci贸n de precios con el precio promedio",
+						"Comparaci贸n de cajas vendidas con la cantidad 贸ptima",
+						"Estadistica sobre el precio" }));
 		cboTipoReporte.setBounds(132, 20, 381, 22);
 		getContentPane().add(cboTipoReporte);
 
@@ -109,7 +109,7 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 		}
 	}
 
-	// M閠odo - Calcular y mostrar reporte de ventas por modelo
+	// M茅todo - Calcular y mostrar reporte de ventas por modelo
 	void generarReporteModelo() {
 
 		// Mostrando ventas por modelo
@@ -136,7 +136,7 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 				frmPrincipal.montoTotal4);
 	}
 
-	// M閠odo - Imprimir reporte de ventas por modelo
+	// M茅todo - Imprimir reporte de ventas por modelo
 	void imprimirReporte(String modelo, int cantVentas, int unidades, double montoTotal) {
 
 		double aporteCuota = montoTotal * 100 / frmPrincipal.cuotaDiaria;
@@ -148,10 +148,10 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 		frmPrincipal.imprimir("Aporte a la cuota diaria \t: " + aporteCuota + "%\n", txtS);
 	}
 
-	// M閠odo - Calcular y mostrar comparaci髇 de precios con el precio promedio
+	// M锟絫odo - Calcular y mostrar comparaci贸n de precios con el precio promedio
 	void mostrarComparacionPromedio() {
 
-		// C醠culo del precio promedio
+		// C锟絣culo del precio promedio
 
 		double precioProm;
 
@@ -160,12 +160,12 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 
 		// Salida de resultados
 
-		txtS.setText("COMPARACI覰 DE PRECIOS CON EL PRECIO PROMEDIO \n\n");
+		txtS.setText("COMPARACI脫N DE PRECIOS CON EL PRECIO PROMEDIO \n\n");
 
 		frmPrincipal.imprimir("Modelo \t\t: " + frmPrincipal.modelo0, txtS);
 		frmPrincipal.imprimir("Precio \t\t: " + frmPrincipal.precio0, txtS);
 		frmPrincipal.imprimir("Precio promedio \t: " + precioProm, txtS);
-		frmPrincipal.imprimir("Comparaci髇 \t\t: " + (frmPrincipal.precio0 - precioProm), txtS);
+		frmPrincipal.imprimir("Comparaci贸n \t\t: " + (frmPrincipal.precio0 - precioProm), txtS);
 
 	}
 

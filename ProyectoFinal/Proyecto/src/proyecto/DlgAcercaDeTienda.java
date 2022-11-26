@@ -20,7 +20,7 @@ public class DlgAcercaDeTienda extends JDialog implements ActionListener {
 	private JLabel lblTienda;
 	private JButton btnCerrar;
 	private JLabel lblAutor;
-	private JLabel lblAño;
+	private JLabel lblA;
 	private JLabel lblLimaPeru;
 	private JLabel lblMauricioM;
 	private JLabel lblAlessandroR;
@@ -75,10 +75,10 @@ public class DlgAcercaDeTienda extends JDialog implements ActionListener {
 		lblAutor.setBounds(49, 51, 59, 15);
 		contentPanel.add(lblAutor);
 
-		lblAño = new JLabel("2022");
-		lblAño.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblAño.setBounds(49, 212, 44, 15);
-		contentPanel.add(lblAño);
+		lblA = new JLabel("2022");
+		lblA.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblA.setBounds(49, 212, 44, 15);
+		contentPanel.add(lblA);
 
 		lblLimaPeru = new JLabel("Lima, Per\u00FA");
 		lblLimaPeru.setFont(new Font("Tahoma", Font.BOLD, 13));

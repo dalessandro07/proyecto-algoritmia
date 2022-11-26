@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Color;
 import java.awt.Font;
@@ -43,14 +44,14 @@ public class DlgConfigurarCantidadOptima extends JDialog implements ActionListen
 		setBounds(100, 100, 495, 120);
 		getContentPane().setLayout(null);
 
-		lblCantOpt = new JLabel("Cantidad \u00F3ptima de unidades vendidas");
+		lblCantOpt = new JLabel("Cantidad óptima de unidades vendidas");
 		lblCantOpt.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCantOpt.setBounds(10, 15, 241, 14);
+		lblCantOpt.setBounds(10, 11, 244, 23);
 		getContentPane().add(lblCantOpt);
 
 		txtCantOpt = new JTextField();
 		txtCantOpt.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtCantOpt.setBounds(261, 12, 77, 20);
+		txtCantOpt.setBounds(265, 12, 77, 20);
 		getContentPane().add(txtCantOpt);
 		txtCantOpt.setColumns(10);
 		txtCantOpt.setText("" + frmPrincipal.cantidadOptima);
@@ -81,9 +82,24 @@ public class DlgConfigurarCantidadOptima extends JDialog implements ActionListen
 	}
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
-		frmPrincipal.cantidadOptima = Integer.parseInt(txtCantOpt.getText());
-		dispose();
+		if (validarNumeros(txtCantOpt.getText().trim())) {
+			frmPrincipal.cuotaDiaria = Double.parseDouble(txtCantOpt.getText());
+			dispose();
+		} else {
+			String mensaje, titulo;
 
+			titulo = "Datos Incorrectos";
+			mensaje = "¡Solo se permite el ingreso de números!";
+
+			JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.WARNING_MESSAGE);
+			txtCantOpt.requestFocus();
+			txtCantOpt.setText("");
+		}
+
+	}
+
+	private static boolean validarNumeros(String datos) {
+		return datos.length() > 0 && datos.matches("[0-9]*\\.?[0-9]*");
 	}
 
 	protected void actionPerformedBtnCancelar(ActionEvent e) {

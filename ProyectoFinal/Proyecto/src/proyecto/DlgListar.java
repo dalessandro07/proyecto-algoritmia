@@ -48,7 +48,7 @@ public class DlgListar extends JDialog implements ActionListener {
 	 * Create the dialog.
 	 */
 	public DlgListar() {
-		setTitle("Listado de Cer\u00E1micos");
+		setTitle("Listado de Ceramicos");
 		setBounds(100, 100, 466, 321);
 		getContentPane().setLayout(null);
 

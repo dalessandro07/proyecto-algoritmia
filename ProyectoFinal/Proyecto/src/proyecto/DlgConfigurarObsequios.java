@@ -59,7 +59,7 @@ public class DlgConfigurarObsequios extends JDialog implements ActionListener, K
 		lblObsequioCantidad2.setBounds(10, 153, 128, 18);
 		getContentPane().add(lblObsequioCantidad2);
 
-		JLabel lblObsequioCantidad3 = new JLabel("11 a m\u00E1s Unidades");
+		JLabel lblObsequioCantidad3 = new JLabel("11 a mÃ¡s Unidades");
 		lblObsequioCantidad3.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblObsequioCantidad3.setBounds(10, 217, 128, 18);
 		getContentPane().add(lblObsequioCantidad3);
@@ -160,7 +160,7 @@ public class DlgConfigurarObsequios extends JDialog implements ActionListener, K
 			getToolkit().beep();
 			e.consume();
 
-			JOptionPane.showMessageDialog(this, "Por favor, ingresar solo letras ¡Gracias!", "Datos inválidos",
+			JOptionPane.showMessageDialog(this, "Por favor, ingresar solo letras Â¡Gracias!", "Datos invÃ¡lidos",
 					JOptionPane.WARNING_MESSAGE);
 		}
 	}
@@ -203,7 +203,7 @@ public class DlgConfigurarObsequios extends JDialog implements ActionListener, K
 	}
 
 	void mostrarAlerta() {
-		JOptionPane.showMessageDialog(this, "Por favor, ingresar solo numeros ¡Gracias!", "Datos inválidos",
+		JOptionPane.showMessageDialog(this, "Por favor, ingresar solo numeros Â¡Gracias!", "Datos invÃ¡lidos",
 				JOptionPane.WARNING_MESSAGE);
 	}
 

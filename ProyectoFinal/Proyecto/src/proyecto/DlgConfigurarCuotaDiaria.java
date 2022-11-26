@@ -88,7 +88,7 @@ public class DlgConfigurarCuotaDiaria extends JDialog implements ActionListener 
 			String mensaje, titulo;
 
 			titulo = "Datos Incorrectos";
-			mensaje = "Solo se permite el ingreso de números";
+			mensaje = "Solo se permite el ingreso de nÃºmeros";
 
 			JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.WARNING_MESSAGE);
 			txtCuotaDiaria.requestFocus();

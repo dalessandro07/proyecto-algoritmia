@@ -105,6 +105,7 @@ public class DlgVender extends JDialog implements ActionListener {
 		contentPanel.add(scp);
 
 		txtS = new JTextArea();
+		txtS.setFont(new Font("Monospaced", Font.PLAIN, 15));
 		scp.setViewportView(txtS);
 
 		lblCantidad = new JLabel("Cantidad");
@@ -161,16 +162,16 @@ public class DlgVender extends JDialog implements ActionListener {
 	protected void actionPerformedBtnProcesar(ActionEvent e) {
 		contadorCant++;
 
-		// Declaración de variables
+		// DeclaraciÃ³n de variables
 		int cantidad = 0, canobsequio;
 		double impD, impC, impP, precio;
 		String modelo, tipo;
 
-		// Validación de campo cantidad
+		// ValidaciÃ³n de campo cantidad
 		if (validarNumeros(txtCantidad.getText().trim())) {
 			cantidad = Integer.parseInt(txtCantidad.getText());
 		} else {
-			JOptionPane.showMessageDialog(this, "Sólo se puede ingresar números", "Datos inválidos",
+			JOptionPane.showMessageDialog(this, "Â¡SÃ³lo se puede ingresar nÃºmeros!", "Datos invÃ¡lidos",
 					JOptionPane.WARNING_MESSAGE);
 			actionPerformedBtnBorrar(e);
 			return;
@@ -214,7 +215,7 @@ public class DlgVender extends JDialog implements ActionListener {
 		txtCantidad.requestFocus();
 	}
 
-	// Método - Importe de compra
+	// MÃ©todo - Importe de compra
 	double calcularImporteCompra(int cantidad) {
 		switch (cboModelo.getSelectedIndex()) {
 		case 0:
@@ -230,7 +231,7 @@ public class DlgVender extends JDialog implements ActionListener {
 		}
 	}
 
-	// Método - Importe de descuento
+	// Mï¿½todo - Importe de descuento
 	double calcularImporteDescuento(double impC, int cantidad) {
 		if (cantidad <= 5)
 			return impC / 100 * frmPrincipal.porcentaje1;
@@ -242,12 +243,12 @@ public class DlgVender extends JDialog implements ActionListener {
 			return impC / 100 * frmPrincipal.porcentaje4;
 	}
 
-	// Método - Importe a pagar
+	// MÃ©todo - Importe a pagar
 	double calcularImporteAPagar(double impC, double impD) {
 		return impC - impD;
 	}
 
-	// Método - Obsequio
+	// MÃ©todo - Obsequio
 	int calcularObsequio(int cantidad) {
 		if (cantidad <= 5)
 			return cantidad * frmPrincipal.obsequioCantidad1;
@@ -257,23 +258,23 @@ public class DlgVender extends JDialog implements ActionListener {
 			return cantidad * frmPrincipal.obsequioCantidad3;
 	}
 
-	// Método - Mostrar boleta de venta
+	// MÃ©todo - Mostrar boleta de venta
 	void mostrarResultados(String modelo, double precio, int cantidad, double impC, double impD, double impP,
 			String tipo, int canobsequio) {
 
 		txtS.setText("Boleta de Venta \n\n");
 
-		frmPrincipal.imprimir("Modelo\t\t: " + modelo, txtS);
-		frmPrincipal.imprimir("Precio\t\t: S/." + precio, txtS);
+		frmPrincipal.imprimir("Modelo\t\t\t: " + modelo, txtS);
+		frmPrincipal.imprimir("Precio\t\t\t: S/." + precio, txtS);
 		frmPrincipal.imprimir("Cantidad Adquirida\t: " + cantidad, txtS);
 		frmPrincipal.imprimir("Importe de Compra\t: S/." + impC, txtS);
 		frmPrincipal.imprimir("Importe de Descuento\t: S/." + impD, txtS);
-		frmPrincipal.imprimir("Importe a Pagar\t: S/." + impP, txtS);
+		frmPrincipal.imprimir("Importe a Pagar\t\t: S/." + impP, txtS);
 		frmPrincipal.imprimir("Tipo de obsequio\t: " + tipo, txtS);
 		frmPrincipal.imprimir("Unidades obsequiadas\t: " + canobsequio, txtS);
 	}
 
-	// Método - Mostrar alerta
+	// MÃ©todo - Mostrar alerta
 	void mostrarAlerta() {
 		if (contadorCant % 5 == 0) {
 			String mensaje, titulo;
@@ -290,7 +291,7 @@ public class DlgVender extends JDialog implements ActionListener {
 		}
 	}
 
-	// Método - Registrando ventas
+	// MÃ©todo - Registrando ventas
 	void registrarVentasModelo(double impP, int cantidad) {
 		switch (cboModelo.getSelectedIndex()) {
 		case 0:
@@ -321,7 +322,7 @@ public class DlgVender extends JDialog implements ActionListener {
 		}
 	}
 
-	// Método - Validar números
+	// MÃ©todo - Validar nÃºmeros
 	boolean validarNumeros(String datos) {
 		return datos.length() > 0 && datos.matches("[0-9]*");
 	}

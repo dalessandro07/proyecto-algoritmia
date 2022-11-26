@@ -49,7 +49,7 @@ public class DlgConsultarCeramico extends JDialog implements ActionListener {
 	 * Create the dialog.
 	 */
 	public DlgConsultarCeramico() {
-		setTitle("Consultar Cer\u00E1mico");
+		setTitle("Consultar Ceramico");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -66,7 +66,7 @@ public class DlgConsultarCeramico extends JDialog implements ActionListener {
 		cboModelo.addActionListener(this);
 		cboModelo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		cboModelo.setModel(new DefaultComboBoxModel<String>(
-				new String[] { "Cinza Plus", "Luxury", "Austria", "Yungay Mix", "Thal\u00EDa" }));
+				new String[] { "Cinza Plus", "Luxury", "Austria", "Yungay Mix", "Thalía" }));
 		cboModelo.setBounds(129, 27, 123, 21);
 		contentPanel.add(cboModelo);
 

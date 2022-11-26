@@ -154,12 +154,12 @@ public class DlgConfigurarDescuentos extends JDialog implements ActionListener {
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
 
-		// Validación de campo porcentaje
+		// ValidaciÃ³n de campo porcentaje
 
 		if (!validarNumeros(txtPorcentaje1.getText().trim()) || !validarNumeros(txtPorcentaje2.getText().trim())
 				|| !validarNumeros(txtPorcentaje3.getText().trim())
 				|| !validarNumeros(txtPorcentaje4.getText().trim())) {
-			mostrarAlerta("Sólo se puede ingresar números", "Datos inválidos", JOptionPane.WARNING_MESSAGE);
+			mostrarAlerta("SÃ³lo se puede ingresar nÃºmeros", "Datos invÃ¡lidos", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 
@@ -175,17 +175,17 @@ public class DlgConfigurarDescuentos extends JDialog implements ActionListener {
 		dispose();
 	}
 
-	// Método - Asignar porcentaje
+	// MÃ©todo - Asignar porcentaje
 	double asignarPorcentaje(String porcentaje) {
 		return Double.parseDouble(porcentaje);
 	}
 
-	// Método - Mostrar alerta
+	// MÃ©todo - Mostrar alerta
 	void mostrarAlerta(String mensaje, String titulo, int icono) {
 		JOptionPane.showMessageDialog(this, mensaje, titulo, icono);
 	}
 
-	// Método - Validar números
+	// MÃ©todo - Validar nÃºmeros
 	boolean validarNumeros(String datos) {
 		return datos.length() > 0 && datos.matches("[0-9]*\\.?[0-9]*");
 	}

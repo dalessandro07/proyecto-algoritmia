@@ -35,7 +35,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	private JMenu mnAyuda;
 	private JMenuItem mntmAcercaTienda;
 
-	// Datos mínimos del primer producto
+	// Datos minimos del primer producto
 	public static String modelo0 = "Cinza Plus";
 	public static double precio0 = 92.56;
 	public static double ancho0 = 62.0;
@@ -43,7 +43,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	public static double espesor0 = 8;
 	public static int contenido0 = 6;
 
-	// Datos mínimos del segundo producto
+	// Datos minimos del segundo producto
 	public static String modelo1 = "Luxury";
 	public static double precio1 = 42.77;
 	public static double ancho1 = 60;
@@ -51,7 +51,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	public static double espesor1 = 8.5;
 	public static int contenido1 = 4;
 
-	// Datos mínimos del tercer producto
+	// Datos minimos del tercer producto
 	public static String modelo2 = "Austria";
 	public static double precio2 = 52.45;
 	public static double ancho2 = 45;
@@ -59,7 +59,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	public static double espesor2 = 6.5;
 	public static int contenido2 = 12;
 
-	// Datos mínimos del cuarto producto
+	// Datos minimos del cuarto producto
 	public static String modelo3 = "Yungay Mix";
 	public static double precio3 = 55.89;
 	public static double ancho3 = 80;
@@ -67,8 +67,8 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	public static double espesor3 = 6.8;
 	public static int contenido3 = 9;
 
-	// Datos mínimos del quinto producto
-	public static String modelo4 = "Thalía";
+	// Datos minimos del quinto producto
+	public static String modelo4 = "Thalï¿½a";
 	public static double precio4 = 45;
 	public static double ancho4 = 45;
 	public static double largo4 = 11.8;
@@ -87,7 +87,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	public static int obsequioCantidad2 = 3;
 	public static int obsequioCantidad3 = 4;
 
-	// Cantidad óptima de unidades vendidas por día
+	// Cantidad optima de unidades vendidas por dï¿½a
 	public static int cantidadOptima = 10;
 
 	// Cuota diaria
@@ -120,7 +120,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	public static int cantVentas4 = 0;
 	public static int unidades4 = 0;
 
-	// Método - Imprimir texto en un JTextArea
+	// Metodo - Imprimir texto en un JTextArea
 	public static void imprimir(String texto, JTextArea txtS) {
 		txtS.append(texto + "\n");
 	}
@@ -170,19 +170,19 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		mnMantenimiento.setForeground(new Color(255, 255, 255));
 		menuBar.add(mnMantenimiento);
 
-		mntmConsultarC = new JMenuItem("Consultar cer\u00E1mico");
+		mntmConsultarC = new JMenuItem("Consultar ceramico");
 		mntmConsultarC.setFont(new Font("Segoe UI Light", Font.BOLD, 13));
 		mntmConsultarC.setBackground(new Color(173, 216, 230));
 		mntmConsultarC.addActionListener(this);
 		mnMantenimiento.add(mntmConsultarC);
 
-		mntmModificarC = new JMenuItem("Modificar cer\u00E1mico");
+		mntmModificarC = new JMenuItem("Modificar ceramico");
 		mntmModificarC.setFont(new Font("Segoe UI Light", Font.BOLD, 13));
 		mntmModificarC.setBackground(new Color(173, 216, 230));
 		mntmModificarC.addActionListener(this);
 		mnMantenimiento.add(mntmModificarC);
 
-		mntmListarC = new JMenuItem("Listar cer\u00E1micos");
+		mntmListarC = new JMenuItem("Listar ceramicos");
 		mntmListarC.setFont(new Font("Segoe UI Light", Font.BOLD, 13));
 		mntmListarC.setBackground(new Color(173, 216, 230));
 		mntmListarC.addActionListener(this);
@@ -303,7 +303,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		System.exit(0);
 	}
 
-	// Menú - Mantenimiento
+	// Menu - Mantenimiento
 
 	protected void actionPerformedMntmConsultarC(ActionEvent e) {
 		DlgConsultarCeramico ventConsult = new DlgConsultarCeramico();
@@ -323,7 +323,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		ventListar.setLocationRelativeTo(this);
 	}
 
-	// Menú - Acerca de
+	// Menu - Acerca de la Tienda
 
 	protected void actionPerformedMntmAcercaTienda(ActionEvent e) {
 		DlgAcercaDeTienda ventAyuda = new DlgAcercaDeTienda();
@@ -331,7 +331,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		ventAyuda.setLocationRelativeTo(this);
 	}
 
-	// Menú - Configuración
+	// Menu - Configuracion
 
 	protected void actionPerformedMntmCantOpt(ActionEvent e) {
 		DlgConfigurarCantidadOptima ventConfigCantOpt = new DlgConfigurarCantidadOptima();
@@ -357,7 +357,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		ventConfigObs.setLocationRelativeTo(this);
 	}
 
-	// Menú - Ventas
+	// Menu - Ventas
 
 	protected void actionPerformedMntmVenta(ActionEvent e) {
 		DlgVender ventVender = new DlgVender();
