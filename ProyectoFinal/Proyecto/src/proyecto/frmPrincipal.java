@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -120,6 +121,8 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	public static double montoTotal4 = 0;
 	public static int cantVentas4 = 0;
 	public static int unidades4 = 0;
+	private JLabel lblTitulo;
+	private JLabel lblDescrip;
 
 	// Metodo - Imprimir texto en un JTextArea
 	public static void imprimir(String texto, JTextArea txtS) {
@@ -255,6 +258,17 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+
+		lblTitulo = new JLabel("Tienda de cer\u00E1micos");
+		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblTitulo.setBounds(10, 11, 284, 31);
+		contentPane.add(lblTitulo);
+
+		lblDescrip = new JLabel("Sistema para la tienda de cer\u00E1micos \"Grupo - A\".");
+		lblDescrip.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblDescrip.setBounds(10, 53, 301, 14);
+		contentPane.add(lblDescrip);
+
 		mensajeBienvenida();
 	}
 
