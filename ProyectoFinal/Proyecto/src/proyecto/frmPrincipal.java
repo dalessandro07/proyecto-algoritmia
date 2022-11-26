@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
@@ -249,6 +250,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		mensajeBienvenida();
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -298,7 +300,14 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		}
 
 	}
-
+	
+	void mensajeBienvenida() {
+		String texto, titulo;
+		texto = "Bienvenido al sistema de la tienda.";
+		titulo= "Tienda de cerámicos";
+		JOptionPane.showMessageDialog(this, texto, titulo, JOptionPane.PLAIN_MESSAGE);
+	}
+	
 	protected void actionPerformedMntmSalir(ActionEvent e) {
 		System.exit(0);
 	}
