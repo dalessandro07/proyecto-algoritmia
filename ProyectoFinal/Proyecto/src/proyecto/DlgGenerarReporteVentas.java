@@ -186,7 +186,8 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 		frmPrincipal.imprimir("Comparación \t: S/." + frmPrincipal.redondear(diferenciaPre) + mayorOMenor + "\n", txtS);
 	}
 
-	// Metodo - Calcular y mostrar comparación de precios con el precio promedio
+	// Metodo - Calcular y mostrar comparación de cajas vendidas con la cantidad
+	// óptima
 	void mostrarComparacionCantOpt() {
 
 		// Lectura de datos
@@ -197,19 +198,19 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 
 		txtS.setText("COMPARACIÓN DE DE CAJAS VENDIDAS CON LA CANTIDAD ÓPTIMA \n\n");
 
-		imprimirCantOpt(frmPrincipal.modelo0, frmPrincipal.cantVentas0, cantOpt);
-		imprimirCantOpt(frmPrincipal.modelo1, frmPrincipal.cantVentas1, cantOpt);
-		imprimirCantOpt(frmPrincipal.modelo2, frmPrincipal.cantVentas2, cantOpt);
-		imprimirCantOpt(frmPrincipal.modelo3, frmPrincipal.cantVentas3, cantOpt);
-		imprimirCantOpt(frmPrincipal.modelo4, frmPrincipal.cantVentas4, cantOpt);
+		imprimirCantOpt(frmPrincipal.modelo0, frmPrincipal.unidades0, cantOpt);
+		imprimirCantOpt(frmPrincipal.modelo1, frmPrincipal.unidades1, cantOpt);
+		imprimirCantOpt(frmPrincipal.modelo2, frmPrincipal.unidades2, cantOpt);
+		imprimirCantOpt(frmPrincipal.modelo3, frmPrincipal.unidades3, cantOpt);
+		imprimirCantOpt(frmPrincipal.modelo4, frmPrincipal.unidades4, cantOpt);
 
 	}
 
-	// Metodo - Imprimir comparación precio promedio
-	void imprimirCantOpt(String modelo, int cantVentas, int cantOpt) {
+	// Metodo - Imprimir comparación cajas vendidas con la cantidad óptima
+	void imprimirCantOpt(String modelo, int cajasVendidas, int cantOpt) {
 
 		String comparacion = " más que la cantidad óptima";
-		int diferenciaCant = (cantVentas - cantOpt);
+		int diferenciaCant = (cajasVendidas - cantOpt);
 
 		if (diferenciaCant < 0)
 			comparacion = " menos que la cantidad óptima";
@@ -218,7 +219,7 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 		}
 
 		frmPrincipal.imprimir("Modelo \t\t\t  : " + modelo, txtS);
-		frmPrincipal.imprimir("Cantidad de cajas vendidas: " + cantVentas, txtS);
+		frmPrincipal.imprimir("Cantidad de cajas vendidas: " + cajasVendidas, txtS);
 		frmPrincipal.imprimir("Cantidad óptima \t  : " + cantOpt, txtS);
 		frmPrincipal.imprimir("Comparación \t\t  : " + Math.abs(diferenciaCant) + comparacion + "\n", txtS);
 	}

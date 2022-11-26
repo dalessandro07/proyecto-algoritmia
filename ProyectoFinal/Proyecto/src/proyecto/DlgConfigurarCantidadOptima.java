@@ -89,7 +89,7 @@ public class DlgConfigurarCantidadOptima extends JDialog implements ActionListen
 			String mensaje, titulo;
 
 			titulo = "Datos Incorrectos";
-			mensaje = "¡Solo se permite el ingreso de números!";
+			mensaje = "¡Solo se permite el ingreso de números enteros!";
 
 			JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.WARNING_MESSAGE);
 			txtCantOpt.requestFocus();
