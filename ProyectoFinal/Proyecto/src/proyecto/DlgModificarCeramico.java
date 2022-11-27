@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -52,7 +53,7 @@ public class DlgModificarCeramico extends JDialog implements ActionListener, Key
 	 * Create the dialog.
 	 */
 	public DlgModificarCeramico() {
-		setTitle("Modificar Ceramico");
+		setTitle("Modificar Cer\u00E1mico");
 		setBounds(100, 100, 450, 314);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -69,7 +70,7 @@ public class DlgModificarCeramico extends JDialog implements ActionListener, Key
 		cboModelo.addActionListener(this);
 		cboModelo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		cboModelo.setModel(new DefaultComboBoxModel<String>(
-				new String[] { "Cinza Plus", "Luxury", "Austria", "Yungay Mix", "Thalía" }));
+				new String[] { "Cinza Plus", "Luxury", "Austria", "Yungay Mix", "Thal\u00EDa" }));
 		cboModelo.setBounds(129, 27, 123, 21);
 		contentPanel.add(cboModelo);
 
@@ -315,25 +316,29 @@ public class DlgModificarCeramico extends JDialog implements ActionListener, Key
 			keyTypedTxtPrecio(e);
 		}
 	}
-
+	void mostrarAlerta() {
+		JOptionPane.showMessageDialog(this, "Por favor, ingresar solo numeros ¡Gracias!", "Datos inválidos",
+				JOptionPane.WARNING_MESSAGE);
+	}
 	protected void keyTypedTxtPrecio(java.awt.event.KeyEvent evt) {
 		char caracter = evt.getKeyChar();
 
-		if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
+		if (((caracter <= '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
 				&& (caracter != '.' || txtPrecio.getText().contains("."))) {
-
+			mostrarAlerta();
 			evt.consume();
 
 		}
-
+		
 	}
+		
 
 	protected void keyTypedTxtAncho(java.awt.event.KeyEvent evt) {
 		char caracter = evt.getKeyChar();
 
-		if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
+		if (((caracter <= '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
 				&& (caracter != '.' || txtAncho.getText().contains("."))) {
-
+			mostrarAlerta();
 			evt.consume();
 
 		}
@@ -342,30 +347,37 @@ public class DlgModificarCeramico extends JDialog implements ActionListener, Key
 	protected void keyTypedTxtLargo(java.awt.event.KeyEvent evt) {
 		char caracter = evt.getKeyChar();
 
-		if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
+		if (((caracter <= '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
 				&& (caracter != '.' || txtLargo.getText().contains("."))) {
-
+			mostrarAlerta();
 			evt.consume();
 
 		}
 	}
-
+	
 	protected void keyTypedTxtEspesor(java.awt.event.KeyEvent evt) {
 		char caracter = evt.getKeyChar();
 
-		if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
+		if (((caracter <= '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
 				&& (caracter != '.' || txtEspesor.getText().contains("."))) {
-
+			mostrarAlerta();
 			evt.consume();
-
+		
 		}
 	}
-
+		
+	
+	
 	protected void keyTypedTxtContenido(java.awt.event.KeyEvent evt) {
-		char caracter = evt.getKeyChar();
-		if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)) {
+		int key = evt.getKeyChar();
 
-			evt.consume();
-		}
+	    boolean numeros = key >= 48 && key <= 57;
+	        
+	    if (!numeros)
+	    {
+	    	mostrarAlerta();
+	        evt.consume();
+	    }
+
 	}
 }
