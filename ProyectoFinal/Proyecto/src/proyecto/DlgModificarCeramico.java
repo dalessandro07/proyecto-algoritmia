@@ -323,7 +323,7 @@ public class DlgModificarCeramico extends JDialog implements ActionListener, Key
 	protected void keyTypedTxtPrecio(java.awt.event.KeyEvent evt) {
 		char caracter = evt.getKeyChar();
 
-		if (((caracter <= '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
+		if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
 				&& (caracter != '.' || txtPrecio.getText().contains("."))) {
 			mostrarAlerta();
 			evt.consume();
@@ -336,7 +336,7 @@ public class DlgModificarCeramico extends JDialog implements ActionListener, Key
 	protected void keyTypedTxtAncho(java.awt.event.KeyEvent evt) {
 		char caracter = evt.getKeyChar();
 
-		if (((caracter <= '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
+		if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
 				&& (caracter != '.' || txtAncho.getText().contains("."))) {
 			mostrarAlerta();
 			evt.consume();
@@ -347,7 +347,7 @@ public class DlgModificarCeramico extends JDialog implements ActionListener, Key
 	protected void keyTypedTxtLargo(java.awt.event.KeyEvent evt) {
 		char caracter = evt.getKeyChar();
 
-		if (((caracter <= '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
+		if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
 				&& (caracter != '.' || txtLargo.getText().contains("."))) {
 			mostrarAlerta();
 			evt.consume();
@@ -358,7 +358,7 @@ public class DlgModificarCeramico extends JDialog implements ActionListener, Key
 	protected void keyTypedTxtEspesor(java.awt.event.KeyEvent evt) {
 		char caracter = evt.getKeyChar();
 
-		if (((caracter <= '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
+		if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
 				&& (caracter != '.' || txtEspesor.getText().contains("."))) {
 			mostrarAlerta();
 			evt.consume();
@@ -371,7 +371,7 @@ public class DlgModificarCeramico extends JDialog implements ActionListener, Key
 	protected void keyTypedTxtContenido(java.awt.event.KeyEvent evt) {
 		int key = evt.getKeyChar();
 
-	    boolean numeros = key >= 48 && key <= 57;
+	    boolean numeros = key > 48 && key <= 57;
 	        
 	    if (!numeros)
 	    {
