@@ -43,7 +43,7 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 
 		lblTipoReporte = new JLabel("Tipo de reporte");
 		lblTipoReporte.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblTipoReporte.setBounds(22, 24, 103, 14);
+		lblTipoReporte.setBounds(22, 20, 103, 22);
 		getContentPane().add(lblTipoReporte);
 
 		cboTipoReporte = new JComboBox<String>();
@@ -68,6 +68,7 @@ public class DlgGenerarReporteVentas extends JDialog implements ActionListener {
 		getContentPane().add(scp);
 
 		txtS = new JTextArea();
+		txtS.setEditable(false);
 		txtS.setFont(new Font("Monospaced", Font.PLAIN, 16));
 		scp.setViewportView(txtS);
 
