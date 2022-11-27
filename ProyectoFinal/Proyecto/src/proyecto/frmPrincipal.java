@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
 
 public class frmPrincipal extends JFrame implements ActionListener {
 
@@ -260,14 +261,21 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		contentPane.setLayout(null);
 
 		lblTitulo = new JLabel("Tienda de cerámicos");
-		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblTitulo.setBounds(10, 11, 284, 31);
+		lblTitulo.setForeground(new Color(0, 0, 0));
+		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblTitulo.setBounds(10, 10, 284, 31);
 		contentPane.add(lblTitulo);
 
 		lblDescrip = new JLabel("Sistema para la tienda de cerámicos \"Grupo - A\".");
-		lblDescrip.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblDescrip.setBounds(10, 53, 301, 14);
+		lblDescrip.setForeground(new Color(0, 0, 0));
+		lblDescrip.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblDescrip.setBounds(10, 51, 301, 14);
 		contentPane.add(lblDescrip);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Mauricio\\Desktop\\noche estrellada 8.jpg"));
+		lblNewLabel.setBounds(81, 110, 571, 297);
+		contentPane.add(lblNewLabel);
 
 		mensajeBienvenida();
 	}
