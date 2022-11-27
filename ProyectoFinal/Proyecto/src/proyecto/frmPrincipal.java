@@ -215,7 +215,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		mntmGenerarReportes.addActionListener(this);
 		mnVentas.add(mntmGenerarReportes);
 
-		mnConfiguracion = new JMenu("Configuraci\u00F3n");
+		mnConfiguracion = new JMenu("Configuración");
 		mnConfiguracion.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
 		mnConfiguracion.setForeground(new Color(255, 255, 255));
 		menuBar.add(mnConfiguracion);
@@ -259,12 +259,12 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		lblTitulo = new JLabel("Tienda de cer\u00E1micos");
+		lblTitulo = new JLabel("Tienda de cerámicos");
 		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblTitulo.setBounds(10, 11, 284, 31);
 		contentPane.add(lblTitulo);
 
-		lblDescrip = new JLabel("Sistema para la tienda de cer\u00E1micos \"Grupo - A\".");
+		lblDescrip = new JLabel("Sistema para la tienda de cerámicos \"Grupo - A\".");
 		lblDescrip.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblDescrip.setBounds(10, 53, 301, 14);
 		contentPane.add(lblDescrip);
