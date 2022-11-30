@@ -251,6 +251,19 @@ public class DlgModificarCeramico extends JDialog implements ActionListener, Key
 
 		modelo = cboModelo.getSelectedIndex();
 
+		// Validación de datos
+
+		if (!validarDecimales(txtPrecio.getText().trim()) || !validarDecimales(txtAncho.getText().trim())
+				|| !validarDecimales(txtLargo.getText().trim()) || !validarDecimales(txtEspesor.getText().trim())) {
+			mostrarAlerta();
+			return;
+		}
+
+		if (!validarNumeros(txtContenido.getText().trim())) {
+			mostrarAlerta();
+			return;
+		}
+
 		switch (modelo) {
 		case 0:
 			frmPrincipal.precio0 = Double.parseDouble(txtPrecio.getText());
@@ -316,10 +329,12 @@ public class DlgModificarCeramico extends JDialog implements ActionListener, Key
 			keyTypedTxtPrecio(e);
 		}
 	}
+
 	void mostrarAlerta() {
-		JOptionPane.showMessageDialog(this, "Por favor, ingresar solo numeros ¡Gracias!", "Datos inválidos",
+		JOptionPane.showMessageDialog(this, "Por favor, verifique los datos ¡Gracias!", "Datos inválidos",
 				JOptionPane.WARNING_MESSAGE);
 	}
+
 	protected void keyTypedTxtPrecio(java.awt.event.KeyEvent evt) {
 		char caracter = evt.getKeyChar();
 
@@ -329,9 +344,8 @@ public class DlgModificarCeramico extends JDialog implements ActionListener, Key
 			evt.consume();
 
 		}
-		
+
 	}
-		
 
 	protected void keyTypedTxtAncho(java.awt.event.KeyEvent evt) {
 		char caracter = evt.getKeyChar();
@@ -354,7 +368,7 @@ public class DlgModificarCeramico extends JDialog implements ActionListener, Key
 
 		}
 	}
-	
+
 	protected void keyTypedTxtEspesor(java.awt.event.KeyEvent evt) {
 		char caracter = evt.getKeyChar();
 
@@ -362,22 +376,29 @@ public class DlgModificarCeramico extends JDialog implements ActionListener, Key
 				&& (caracter != '.' || txtEspesor.getText().contains("."))) {
 			mostrarAlerta();
 			evt.consume();
-		
+
 		}
 	}
-		
-	
-	
+
 	protected void keyTypedTxtContenido(java.awt.event.KeyEvent evt) {
-		int key = evt.getKeyChar();
+		char caracter = evt.getKeyChar();
 
-	    boolean numeros = key > 48 && key <= 57;
-	        
-	    if (!numeros)
-	    {
-	    	mostrarAlerta();
-	        evt.consume();
-	    }
+		if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)
+				&& (caracter != '.' || txtEspesor.getText().contains("."))) {
+			mostrarAlerta();
+			evt.consume();
 
+		}
+
+	}
+
+	// Método - Validar numeros
+	boolean validarNumeros(String datos) {
+		return datos.length() > 0 && datos.matches("[0-9]*");
+	}
+
+	// Método - Validar numeros decimales
+	boolean validarDecimales(String datos) {
+		return datos.length() > 0 && datos.matches("[0-9]*\\.?[0-9]*");
 	}
 }
