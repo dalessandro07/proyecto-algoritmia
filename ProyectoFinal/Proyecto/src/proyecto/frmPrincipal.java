@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
 
 public class frmPrincipal extends JFrame implements ActionListener {
 
@@ -216,7 +217,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		mntmGenerarReportes.addActionListener(this);
 		mnVentas.add(mntmGenerarReportes);
 
-		mnConfiguracion = new JMenu("Configuraci\u00F3n");
+		mnConfiguracion = new JMenu("Configuración");
 		mnConfiguracion.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
 		mnConfiguracion.setForeground(new Color(255, 255, 255));
 		menuBar.add(mnConfiguracion);
@@ -260,15 +261,22 @@ public class frmPrincipal extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		lblTitulo = new JLabel("Tienda de cer\u00E1micos");
-		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblTitulo.setBounds(10, 11, 284, 31);
+		lblTitulo = new JLabel("Tienda de cerámicos");
+		lblTitulo.setForeground(new Color(0, 0, 0));
+		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblTitulo.setBounds(10, 10, 284, 31);
 		contentPane.add(lblTitulo);
 
-		lblDescrip = new JLabel("Sistema para la tienda de cer\u00E1micos \"Grupo - A\".");
-		lblDescrip.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblDescrip.setBounds(10, 53, 301, 14);
+		lblDescrip = new JLabel("Sistema para la tienda de cerámicos \"Grupo - A\".");
+		lblDescrip.setForeground(new Color(0, 0, 0));
+		lblDescrip.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblDescrip.setBounds(10, 51, 301, 14);
 		contentPane.add(lblDescrip);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Mauricio\\Desktop\\noche estrellada 8.jpg"));
+		lblNewLabel.setBounds(81, 110, 571, 297);
+		contentPane.add(lblNewLabel);
 
 		mensajeBienvenida();
 	}
