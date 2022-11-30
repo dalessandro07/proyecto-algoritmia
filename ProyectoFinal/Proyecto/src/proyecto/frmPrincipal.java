@@ -121,6 +121,7 @@ public class frmPrincipal extends JFrame implements ActionListener {
 	public static double montoTotal4 = 0;
 	public static int cantVentas4 = 0;
 	public static int unidades4 = 0;
+
 	private JLabel lblTitulo;
 	private JLabel lblDescrip;
 
